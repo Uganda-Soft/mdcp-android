@@ -1,0 +1,67 @@
+{
+    "meta": [
+        {
+            "type": "start",
+            "name": "starttime",
+            "value": ""
+        },
+        {
+            "type": "end",
+            "name": "endtime",
+            "value": ""
+        },
+        {
+            "type": "deviceid",
+            "name": "deviceid",
+            "value": ""
+        },
+        {
+            "type":"subscriberid",
+            "name": "subscriberid",
+            "value": ""
+        },
+        {
+            "type": "simserial",
+            "name": "simserial",
+            "value":""
+        },
+        {
+            "type": "phonenumber",
+            "name":"phonenumber",
+            "value": ""
+        },
+        {
+            "type": "username",
+            "name": "username",
+            "value": ""
+        }
+    ],
+    "questions": [
+        {
+            "type": "note",
+            "name": "intronote",
+            "label": "Welcome to the Virtual Support Log form. This form is to be completed every time any form of virtual support is rendered to fellow peers. ",
+            "hint": "",
+            "default": "",
+            "appearance": "",
+            "constraint": "",
+            "constraint_message": "",
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": "",
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
+        }
+    ]
+}
