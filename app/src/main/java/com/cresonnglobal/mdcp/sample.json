@@ -1,0 +1,12 @@
+{
+  "questions": [
+    {
+      "meta": {
+        "type": "Objective"
+      },
+      "question_text": "When did you last visited the health facility",
+      "objective": [
+      ]
+    }
+  ]
+}
