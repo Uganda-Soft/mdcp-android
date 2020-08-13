@@ -1,4 +1,4 @@
-package com.cresonnglobal.mdcp.widgets
+package com.cresonnglobal.mdcp.widgets.text
 
 import androidx.lifecycle.ViewModel
 
