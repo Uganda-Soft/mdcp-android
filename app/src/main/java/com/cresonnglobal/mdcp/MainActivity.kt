@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.cresonnglobal.mdcp.data_collection.DataCollectionActivity
+import com.cresonnglobal.mdcp.widgets.long_text.TextAreaFragment
 import com.cresonnglobal.mdcp.widgets.text.TextFragment
 import com.cresonnglobal.mdcp.widgets.video.VideoFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     class QuestionCollectionPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
-            val fragment = TextFragment();
+            val fragment = TextAreaFragment();
             fragment.arguments = Bundle().apply {
                 putInt("object", position + 1)
             }
