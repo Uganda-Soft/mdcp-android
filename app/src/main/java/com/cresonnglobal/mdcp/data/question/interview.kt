@@ -1,7 +1,7 @@
 package com.cresonnglobal.mdcp.data.question
 
 data class Interview(
-    val meta: Array<Media>,
+    val meta: Array<Meta>,
     val questions: Array<Question>
 ) {
     override fun equals(other: Any?): Boolean {

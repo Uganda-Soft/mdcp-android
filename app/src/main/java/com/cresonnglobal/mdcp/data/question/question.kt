@@ -1,6 +1,7 @@
 package com.cresonnglobal.mdcp.data.question
 
 data class Question(
+    var type_name: QuestionType,
     var name: String,
     var label: String,
     var hint: String,

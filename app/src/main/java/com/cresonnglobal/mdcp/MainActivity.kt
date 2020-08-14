@@ -29,21 +29,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager);
-
-        viewPager = pager;
-        viewPager.adapter = questionCollectionPagerAdapter;
 
         val assetManager: AssetManager = assets;
         val inputStream: InputStream = assetManager.open("question/sample.json")
         val bufferedReader: BufferedReader = BufferedReader(InputStreamReader(inputStream))
         val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
+        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager, interview);
+
+        viewPager = pager;
+        viewPager.adapter = questionCollectionPagerAdapter;
 
         Log.d("MainActivity", interview.toString())
     }
 
-    class QuestionCollectionPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm) {
+    class QuestionCollectionPagerAdapter(fm: FragmentManager, private val interview: Interview): FragmentStatePagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
+            val question = interview.questions[position]
             val fragment = TextAreaFragment();
             fragment.arguments = Bundle().apply {
                 putInt("object", position + 1)
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getCount(): Int {
-            return 100;
+            return interview.questions.size;
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
