@@ -38,7 +38,10 @@
     ],
     "questions": [
         {
-            "type": "note",
+            "type_name":  {
+                "type": "select",
+                "from": "District"
+            },
             "name": "intronote",
             "label": "Welcome to the Virtual Support Log form. This form is to be completed every time any form of virtual support is rendered to fellow peers. ",
             "hint": "",
