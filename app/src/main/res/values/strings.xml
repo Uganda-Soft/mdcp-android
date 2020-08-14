@@ -4,4 +4,5 @@
     <string name="question_name_example">Q3</string>
     <string name="question_label_example">Q3. Model used ?</string>
     <string name="question_hint_example">For issues identified, Please indicate any actions agreed upon to be taken</string>
+    <string name="question_time_example">12:89</string>
 </resources>

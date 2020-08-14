@@ -8,6 +8,15 @@
     tools:context=".widgets.text.TextFragment">
 
     <TextView
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:gravity="end"
+        android:text="@string/question_time_example"/>
+
+    <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,8 +43,25 @@
         android:text="@string/question_hint_example"/>
 
     <EditText
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_style"
         android:id="@+id/answer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="100dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"/>
+    </LinearLayout>
 
 </LinearLayout>
