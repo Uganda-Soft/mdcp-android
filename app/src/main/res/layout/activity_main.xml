@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:textColor="@color/colorTextWhite"
         android:padding="10dp"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/time"
