@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.cresonnglobal.mdcp.R
 
 class VideoFragment : Fragment() {
@@ -27,6 +28,16 @@ class VideoFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(VideoViewModel::class.java)
         // TODO: Use the ViewModel
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.takeIf {
+            it.containsKey("object").apply {
+                val textView: TextView = view.findViewById(R.id.text)
+                textView.text = "45";
+            }
+        }
     }
 
 }
