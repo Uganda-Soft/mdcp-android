@@ -39,7 +39,7 @@
     "questions": [
         {
             "type_name":  {
-                "type": "select",
+                "type": "text",
                 "from": "District"
             },
             "name": "intronote",

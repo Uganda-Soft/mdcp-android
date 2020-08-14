@@ -45,11 +45,11 @@ class MainActivity : AppCompatActivity() {
     class QuestionCollectionPagerAdapter(fm: FragmentManager, private val interview: Interview): FragmentStatePagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             val question = interview.questions[position]
-            val fragment = TextAreaFragment();
-            fragment.arguments = Bundle().apply {
-                putInt("object", position + 1)
+
+            if (question.type_name.type == "text") {
+                return TextFragment();
             }
-            return fragment;
+            return TextAreaFragment();
         }
 
         override fun getCount(): Int {
