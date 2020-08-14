@@ -10,7 +10,7 @@ data class Question(
     var constraint_message: String,
     var relevance: String,
     var disabled: String,
-    var required: Boolean,
+    var required: String,
     var required_message: String,
     var read_only: String,
     var calculation: String,
