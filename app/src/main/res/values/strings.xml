@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MDCP</string>
+    <string name="question_text_sample">How old was he by the time</string>
+    <string name="question_name_example">Q3</string>
+    <string name="question_label_example">Q3. Model used ?</string>
+    <string name="question_hint_example">For issues identified, Please indicate any actions agreed upon to be taken</string>
 </resources>
