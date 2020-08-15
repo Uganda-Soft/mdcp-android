@@ -39,20 +39,274 @@
     "questions": [
         {
             "type_name":  {
-                "type": "text",
+                "type": "boolean",
                 "from": "District"
             },
-            "name": "intronote",
-            "label": "Welcome to the Virtual Support Log form. This form is to be completed every time any form of virtual support is rendered to fellow peers. ",
-            "hint": "",
+            "name": "SQ1",
+            "label": "Is the prenatal visit performed as soon as possible, after confirmation of pregnancy, in women who have sought health services?",
+            "hint": "Focus not only on the prenatal visit, but also on screening for STIs in pregnant women, such as anti-HIV, VDRL, Hepatitis B and Hepatitis C. (1)",
             "default": "",
             "appearance": "",
-            "constraint": "",
-            "constraint_message": "",
+            "constraint": [],
+            "constraint_message": [
+                "This answer is required to proceed to next level",
+                "You will be required to submit video at the end of the question"
+            ],
             "relevance": "",
             "disabled": "",
             "required": "",
-            "required_message": "",
+            "required_message": [
+                "You can not leave this question blank"
+            ],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": "",
+            "choices": {
+
+            }
+        },
+
+        {
+            "type_name":  {
+                "type": "number",
+                "from": "District"
+            },
+            "name": "SQ2",
+            "label": "Is an active search conducted to identify the groups most vulnerable to HIV/AIDS infection? If yes enter the number",
+            "hint": "Please enter the number of confirmed cases",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "<=60"
+            ],
+            "constraint_message": [
+                "This number should be less that 60"
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
+        },
+
+        {
+            "type_name":  {
+                "type": "boolean",
+                "from": "District"
+            },
+            "name": "SQ3",
+            "label": "Have you participated in training/qualification on issues related to HIV/AIDS control in the last five years?",
+            "hint": "Please enter the number of times you have participated in this",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "<=60"
+            ],
+            "constraint_message": [
+
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
+        },
+
+        {
+            "type_name":  {
+                "type": "textarea",
+                "from": "District"
+            },
+            "name": "SQ4",
+            "label": "Does the unit have adequate physical space for educational activities?",
+            "hint": "Ask the client about some relavant questions",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "<=60"
+            ],
+            "constraint_message": [
+
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
+        },
+
+        {
+            "type_name":  {
+                "type": "video",
+                "from": "District"
+            },
+            "name": "SQ5",
+            "label": "Do injecting drug users have access to new/sterile syringes provided by the health unit?",
+            "hint": "Please record the client answering this question",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "video is required"
+            ],
+            "constraint_message": [
+                "This questions required video"
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [
+                "Please a video is required"
+            ],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
+        },
+
+        {
+            "type_name":  {
+                "type": "audio",
+                "from": "District"
+            },
+            "name": "SQ6",
+            "label": "Does the delivery of condoms occur outside the physical space of the health unit?",
+            "hint": "Please record Audio the client answering this question",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "Audio is required"
+            ],
+            "constraint_message": [
+                "This questions required Audio"
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [
+                "Please a Audio is required"
+            ],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
+        },
+
+        {
+            "type_name":  {
+                "type": "decimal",
+                "from": "District"
+            },
+            "name": "SQ7",
+            "label": "How much did the client recieved in the 2020 financial year",
+            "hint": "Please record the amount in USD",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "This amount is required"
+            ],
+            "constraint_message": [
+                "This questions required Audio"
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [
+                "Please a Audio is required"
+            ],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
+        },
+
+        {
+            "type_name":  {
+                "type": "date",
+                "from": "District"
+            },
+            "name": "SQ8",
+            "label": "In the initial assessment, are HIV users that can be followed at the unit identified, along with those who should be referred for follow-up in the Specialized Care Services?",
+            "hint": "Please record the amount in USD",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "This amount is required"
+            ],
+            "constraint_message": [
+                "This questions required Audio"
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [
+                "Please a Audio is required"
+            ],
             "read_only": "",
             "calculation": "",
             "repeat_count": "",
