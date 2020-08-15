@@ -3,7 +3,7 @@ package com.cresonnglobal.mdcp
 import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -25,6 +25,7 @@ import java.io.InputStreamReader
 class MainActivity : AppCompatActivity() {
     private lateinit var questionCollectionPagerAdapter: QuestionCollectionPagerAdapter;
     private lateinit var viewPager: ViewPager;
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,17 +35,31 @@ class MainActivity : AppCompatActivity() {
         val inputStream: InputStream = assetManager.open("question/sample.json")
         val bufferedReader: BufferedReader = BufferedReader(InputStreamReader(inputStream))
         val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
-        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager, interview);
+        progressBar = determinateBar
+        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager, interview, progressBar);
 
         viewPager = pager;
         viewPager.adapter = questionCollectionPagerAdapter;
 
-        Log.d("MainActivity", interview.toString())
+        progressBar.max = 100
+        progressBar.max = 0
     }
 
-    class QuestionCollectionPagerAdapter(fm: FragmentManager, private val interview: Interview): FragmentStatePagerAdapter(fm) {
+    class QuestionCollectionPagerAdapter(
+        fm: FragmentManager,
+        private val interview: Interview,
+        private val progressBar: ProgressBar
+    ): FragmentStatePagerAdapter(fm) {
+        var increment = 0
+
+        init {
+            var totalSize: Int = interview.questions.size
+            increment = totalSize / 100
+        }
+
         override fun getItem(position: Int): Fragment {
             val question = interview.questions[position]
+            progressBar.progress = increment * position
 
             if (question.type_name.type == "text") {
                 return TextFragment(question);
@@ -61,6 +76,7 @@ class MainActivity : AppCompatActivity() {
             }  else {
                 return BooleanFragment(question)
             }
+
         }
 
         override fun getCount(): Int {
@@ -69,6 +85,10 @@ class MainActivity : AppCompatActivity() {
 
         override fun getPageTitle(position: Int): CharSequence? {
             return "OBJECT ${(position + 1)}";
+        }
+
+        interface PublishProgressListener {
+            fun publishProgress(position: Int)
         }
 
     }
