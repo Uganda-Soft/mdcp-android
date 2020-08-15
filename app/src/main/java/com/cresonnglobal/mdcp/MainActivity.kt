@@ -58,10 +58,9 @@ class MainActivity : AppCompatActivity() {
                 return TextAreaFragment(question)
             } else if (question.type_name.type == "number") {
                 return NumberFragment(question)
-            } else if (question.type_name.type == "boolean") {
+            }  else {
                 return BooleanFragment(question)
             }
-            return TextAreaFragment(question);
         }
 
         override fun getCount(): Int {
