@@ -1,21 +1,16 @@
 package com.cresonnglobal.mdcp
 
-import android.content.Intent
 import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.cresonnglobal.mdcp.data.question.Interview
-import com.cresonnglobal.mdcp.data_collection.DataCollectionActivity
 import com.cresonnglobal.mdcp.widgets.long_text.TextAreaFragment
 import com.cresonnglobal.mdcp.widgets.text.TextFragment
-import com.cresonnglobal.mdcp.widgets.video.VideoFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.BufferedReader
@@ -47,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             val question = interview.questions[position]
 
             if (question.type_name.type == "text") {
-                return TextFragment();
+                return TextFragment(question);
             }
             return TextAreaFragment();
         }
