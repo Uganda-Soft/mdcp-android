@@ -7,11 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cresonnglobal.mdcp.R
+import com.cresonnglobal.mdcp.data.question.Question
 
-class DateTimeFragment : Fragment() {
+class DateTimeFragment(val question: Question) : Fragment() {
 
     companion object {
-        fun newInstance() = DateTimeFragment()
+//        fun newInstance() = DateTimeFragment(question)
     }
 
     private lateinit var viewModel: DateTimeViewModel

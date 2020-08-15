@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.cresonnglobal.mdcp.data.question.Interview
+import com.cresonnglobal.mdcp.widgets.date_time.DateTimeFragment
 import com.cresonnglobal.mdcp.widgets.long_text.TextAreaFragment
 import com.cresonnglobal.mdcp.widgets.text.TextFragment
 import com.google.gson.Gson
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
 
             if (question.type_name.type == "text") {
                 return TextFragment(question);
+            } else if (question.type_name.type == "date") {
+                return DateTimeFragment(question)
             }
             return TextAreaFragment();
         }
