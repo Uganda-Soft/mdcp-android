@@ -6,15 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.cresonnglobal.mdcp.R
+import com.cresonnglobal.mdcp.data.question.Question
 
-class TextAreaFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = TextAreaFragment()
-    }
+class TextAreaFragment(val question: Question) : Fragment() {
 
     private lateinit var viewModel: TextAreaViewModel
+    private lateinit var nameTextView: TextView
+    private lateinit var labelTextView: TextView
+    private lateinit var hintTextView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +28,17 @@ class TextAreaFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TextAreaViewModel::class.java)
         // TODO: Use the ViewModel
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        nameTextView = view.findViewById(R.id.name)
+        labelTextView  = view.findViewById(R.id.label)
+        hintTextView  = view.findViewById(R.id.hint)
+
+        nameTextView.text = question.name
+        labelTextView.text = question.label
+        hintTextView.text = question.hint
     }
 
 }

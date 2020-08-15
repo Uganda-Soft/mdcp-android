@@ -6,7 +6,7 @@
     android:layout_margin="8dp"
     android:paddingHorizontal="10dp"
     android:orientation="vertical"
-    tools:context=".widgets.text.TextAreaFragment">
+    tools:context=".widgets.text.TextFragment">
 
     <TextView
         android:id="@+id/name"
@@ -36,11 +36,9 @@
 
     <EditText
         android:gravity="start"
-        android:inputType="textMultiLine"
-        android:padding="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edit_text_style"
         android:id="@+id/answer"
         android:layout_width="match_parent"
-        android:layout_height="150dp"/>
+        android:layout_height="200dp"/>
 </LinearLayout>

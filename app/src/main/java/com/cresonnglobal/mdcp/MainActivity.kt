@@ -52,8 +52,10 @@ class MainActivity : AppCompatActivity() {
                 return DecimalFragment(question)
             } else if (question.type_name.type == "audio") {
                 return AudioFragment(question)
+            } else if (question.type_name.type == "textarea") {
+                return TextAreaFragment(question)
             }
-            return TextAreaFragment();
+            return TextAreaFragment(question);
         }
 
         override fun getCount(): Int {
