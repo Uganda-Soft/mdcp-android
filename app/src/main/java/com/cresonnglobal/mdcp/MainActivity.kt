@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.widgets.audio.AudioFragment
+import com.cresonnglobal.mdcp.widgets.booleans.BooleanFragment
 import com.cresonnglobal.mdcp.widgets.date_time.DateTimeFragment
 import com.cresonnglobal.mdcp.widgets.decimals.DecimalFragment
 import com.cresonnglobal.mdcp.widgets.long_text.TextAreaFragment
@@ -57,6 +58,8 @@ class MainActivity : AppCompatActivity() {
                 return TextAreaFragment(question)
             } else if (question.type_name.type == "number") {
                 return NumberFragment(question)
+            } else if (question.type_name.type == "boolean") {
+                return BooleanFragment(question)
             }
             return TextAreaFragment(question);
         }
