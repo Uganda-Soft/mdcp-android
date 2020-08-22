@@ -13,6 +13,7 @@ import com.cresonnglobal.mdcp.widgets.audio.AudioFragment
 import com.cresonnglobal.mdcp.widgets.booleans.BooleanFragment
 import com.cresonnglobal.mdcp.widgets.date_time.DateTimeFragment
 import com.cresonnglobal.mdcp.widgets.decimals.DecimalFragment
+import com.cresonnglobal.mdcp.widgets.image.ImageFragment
 import com.cresonnglobal.mdcp.widgets.long_text.TextAreaFragment
 import com.cresonnglobal.mdcp.widgets.number.NumberFragment
 import com.cresonnglobal.mdcp.widgets.text.TextFragment
@@ -73,7 +74,9 @@ class MainActivity : AppCompatActivity() {
                 return TextAreaFragment(question)
             } else if (question.type_name.type == "number") {
                 return NumberFragment(question)
-            }  else {
+            } else if (question.type_name.type == "ïmage") {
+                return ImageFragment(question)
+            } else {
                 return BooleanFragment(question)
             }
 

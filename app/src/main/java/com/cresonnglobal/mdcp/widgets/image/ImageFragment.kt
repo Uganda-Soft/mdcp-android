@@ -7,12 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cresonnglobal.mdcp.R
+import com.cresonnglobal.mdcp.data.question.Question
 
-class ImageFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ImageFragment()
-    }
+class ImageFragment(val question: Question) : Fragment() {
 
     private lateinit var viewModel: ImageViewModel
 
