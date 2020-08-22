@@ -26,41 +26,28 @@ import java.io.InputStreamReader
 class MainActivity : AppCompatActivity() {
     private lateinit var questionCollectionPagerAdapter: QuestionCollectionPagerAdapter;
     private lateinit var viewPager: ViewPager;
-    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val assetManager: AssetManager = assets;
-        val inputStream: InputStream = assetManager.open("question/sample.json")
+        val inputStream: InputStream = assetManager.open("question/questions.json")
         val bufferedReader: BufferedReader = BufferedReader(InputStreamReader(inputStream))
         val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
-        progressBar = determinateBar
-        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager, interview, progressBar);
+        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager, interview);
 
         viewPager = pager;
         viewPager.adapter = questionCollectionPagerAdapter;
-
-        progressBar.max = 100
-        progressBar.max = 0
     }
 
     class QuestionCollectionPagerAdapter(
         fm: FragmentManager,
-        private val interview: Interview,
-        private val progressBar: ProgressBar
+        private val interview: Interview
     ): FragmentStatePagerAdapter(fm) {
-        var increment = 0
-
-        init {
-            var totalSize: Int = interview.questions.size
-            increment = totalSize / 100
-        }
 
         override fun getItem(position: Int): Fragment {
             val question = interview.questions[position]
-            progressBar.progress = increment * position
 
             if (question.type_name.type == "text") {
                 return TextFragment(question);
@@ -74,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 return TextAreaFragment(question)
             } else if (question.type_name.type == "number") {
                 return NumberFragment(question)
-            } else if (question.type_name.type == "ïmage") {
+            } else if (question.type_name.type == "image") {
                 return ImageFragment(question)
             } else {
                 return BooleanFragment(question)
