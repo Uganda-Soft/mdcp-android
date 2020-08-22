@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="8dp"
     android:paddingHorizontal="10dp"
@@ -45,6 +46,18 @@
             android:id="@+id/viewfinder"
             android:layout_width="match_parent"
             android:layout_height="300dp"/>
+
+        <Button
+            android:layout_marginTop="-50dp"
+            android:id="@+id/camera_capture_button"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/ic_baseline_camera_alt_50"
+            app:cornerRadius="28dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"/>
 
     </LinearLayout>
 
