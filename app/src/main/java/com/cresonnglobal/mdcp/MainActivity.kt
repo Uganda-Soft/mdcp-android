@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val inputStream: InputStream = assetManager.open("question/questions.json")
         val bufferedReader: BufferedReader = BufferedReader(InputStreamReader(inputStream))
         val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
-        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager, interview);
+        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager, interview, this);
 
         viewPager = pager;
         viewPager.adapter = questionCollectionPagerAdapter;
@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity() {
 
     class QuestionCollectionPagerAdapter(
         fm: FragmentManager,
-        private val interview: Interview
+        private val interview: Interview,
+        private val mainActivity: MainActivity
     ): FragmentStatePagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             } else if (question.type_name.type == "number") {
                 return NumberFragment(question)
             } else if (question.type_name.type == "image") {
-                return ImageFragment(question, MainActivity::class.java)
+                return ImageFragment(question,  mainActivity)
             } else {
                 return BooleanFragment(question)
             }
