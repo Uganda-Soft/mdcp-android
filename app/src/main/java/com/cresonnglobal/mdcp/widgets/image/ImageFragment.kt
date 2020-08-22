@@ -2,6 +2,7 @@ package com.cresonnglobal.mdcp.widgets.image
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
@@ -10,9 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.Preview
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -40,7 +39,7 @@ class ImageFragment(
 
 //    Camera variables
     private var imageCapture: ImageCapture? = null
-    private var outputDirectory: File
+    private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
 
     private lateinit var viewModel: ImageViewModel
@@ -90,6 +89,23 @@ class ImageFragment(
         val photoFile = File (
         outputDirectory,
         SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis()) + ".jpg"
+        )
+
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
+        imageCapture.takePicture(
+            outputOptions, ContextCompat.getMainExecutor(mainActivity), object : ImageCapture.OnImageSavedCallback {
+                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                    val savedUri = Uri.fromFile(photoFile)
+                    val msg = "Photo capture succeeded: $savedUri"
+                    Toast.makeText(mainActivity, msg, Toast.LENGTH_LONG).show()
+                }
+
+                override fun onError(exception: ImageCaptureException) {
+                    Log.e(TAG, "Photo Captured Failed")
+                }
+
+            }
         )
     }
 
