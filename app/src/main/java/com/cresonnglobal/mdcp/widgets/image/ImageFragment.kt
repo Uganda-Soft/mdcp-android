@@ -1,14 +1,18 @@
 package com.cresonnglobal.mdcp.widgets.image
 
 import android.Manifest
+import android.content.pm.PackageManager
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.camera.core.ImageCapture
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.cresonnglobal.mdcp.MainActivity
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
 import kotlinx.android.synthetic.main.image_fragment.*
@@ -16,7 +20,10 @@ import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class ImageFragment(val question: Question) : Fragment() {
+class ImageFragment(
+    val question: Question,
+    private val mainActivity: MainActivity
+) : Fragment() {
     companion object {
         private const val TAG = "ImageFragment"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SS"
@@ -70,7 +77,7 @@ class ImageFragment(val question: Question) : Fragment() {
             }
         }
 
-        return if (mediaDir != null && mediaDir.exists()) mediaDir else activity?.filesDir
+        return if (mediaDir != null && mediaDir.exists()) mediaDir else mainActivity.filesDir
     }
 
     private fun takePhoto() {
@@ -81,12 +88,22 @@ class ImageFragment(val question: Question) : Fragment() {
 
     }
 
-    private fun allPermissionsGranted(): Boolean {
-
+    private fun  allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(mainActivity, it) == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (allPermissionsGranted()) {
+                startCamera()
+            } else {
+                Toast.makeText(activity, "Permissions not granted by the user", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

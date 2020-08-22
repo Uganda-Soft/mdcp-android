@@ -3,7 +3,6 @@ package com.cresonnglobal.mdcp
 import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -62,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             } else if (question.type_name.type == "number") {
                 return NumberFragment(question)
             } else if (question.type_name.type == "image") {
-                return ImageFragment(question)
+                return ImageFragment(question, MainActivity::class.java)
             } else {
                 return BooleanFragment(question)
             }
