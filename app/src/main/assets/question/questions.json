@@ -287,6 +287,42 @@
 
         {
             "type_name":  {
+                "type": "image",
+                "from": "District"
+            },
+            "name": "SQ8",
+            "label": "In the initial assessment, are HIV users that can be followed at the unit identified, along with those who should be referred for follow-up in the Specialized Care Services?",
+            "hint": "Please record the amount in USD",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "This amount is required"
+            ],
+            "constraint_message": [
+                "This questions required Audio"
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [
+                "Please a Audio is required"
+            ],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
+        },
+
+        {
+            "type_name":  {
                 "type": "date",
                 "from": "District"
             },
