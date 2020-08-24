@@ -120,6 +120,8 @@ class ImageFragment(
                     it.setSurfaceProvider(viewfinder.createSurfaceProvider())
                 }
 
+            imageCapture = ImageCapture.Builder().build()
+
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
             try {
@@ -128,6 +130,8 @@ class ImageFragment(
                 Log.e(TAG, "Use case binding failed", exception)
             }
         }, ContextCompat.getMainExecutor(mainActivity))
+
+//        imageCapture = ImageCapture.Builder().build()
     }
 
     private fun  allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
