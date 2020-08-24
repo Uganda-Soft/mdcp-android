@@ -32,7 +32,7 @@
             android:text="@string/question_label_example"/>
 
         <TextView
-            android:id="@+id/hint"
+            android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="italic"

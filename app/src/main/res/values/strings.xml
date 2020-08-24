@@ -5,4 +5,15 @@
     <string name="question_label_example">Q3. Model used ?</string>
     <string name="question_hint_example">For issues identified, Please indicate any actions agreed upon to be taken</string>
     <string name="question_time_example">12:89</string>
+
+    <string name="example_hint">
+        This question seems simple, so many people fail to prepare for it,
+        but it\’s crucial. Here\'s the deal: Don\’t give your complete employment (or personal) history.
+    </string>
+
+    <string name="example_question">
+        Tell Me About a Challenge or Conflict You\’ve Faced at Work, and How You Dealt With It.
+    </string>
+    <string name="draft">Draft</string>
+    <string name="submit">Submit</string>
 </resources>

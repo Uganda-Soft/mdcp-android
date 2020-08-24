@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
-import com.cresonnglobal.mdcp.widgets.text.TextViewModel
 
 class AudioFragment(val question: Question) : Fragment() {
 
