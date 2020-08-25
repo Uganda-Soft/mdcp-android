@@ -1,5 +1,7 @@
 package com.cresonnglobal.mdcp.data.question
 
+import android.os.Parcelable
+
 data class Question(
     var type_name: QuestionType,
     var name: String,
@@ -22,7 +24,8 @@ data class Question(
     var response_note: String,
     var publishable: String,
     var minimum_seconds: String
-) {
+) : Parcelable{
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Question) return false
