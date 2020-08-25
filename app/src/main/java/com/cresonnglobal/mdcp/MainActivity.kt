@@ -16,6 +16,7 @@ import com.cresonnglobal.mdcp.audio.AudioActivity
 import com.cresonnglobal.mdcp.booleans.BooleanActivity
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.number.NumberActivity
 import com.cresonnglobal.mdcp.widgets.audio.AudioFragment
 import com.cresonnglobal.mdcp.widgets.booleans.BooleanFragment
 import com.cresonnglobal.mdcp.widgets.date_time.DateTimeFragment
@@ -57,6 +58,13 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         if (question.type_name?.type == "boolean") {
             val intent = Intent(this, BooleanActivity::class.java)
             intent.putExtra(BooleanActivity.QUESTION, question)
+            startActivity(intent)
+        }
+
+        if (question.type_name?.type == "number") {
+            val intent = Intent(this, NumberActivity::class.java)
+            intent.putExtra(NumberActivity.QUESTION, question)
+            startActivity(intent)
         }
     }
 }
