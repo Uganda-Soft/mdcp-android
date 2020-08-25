@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".number.NumberActivity"></activity>
+        <activity android:name=".date.DateActivity"></activity>
+        <activity android:name=".number.NumberActivity" />
         <activity android:name=".decimal.DecimalActivity" />
         <activity android:name=".text.TextActivity">
             <intent-filter>
