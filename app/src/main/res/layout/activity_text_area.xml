@@ -9,9 +9,10 @@
 
   <TextView
       android:id="@+id/label"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:text="Q45b"
+      android:gravity="center"
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -47,37 +48,30 @@
       android:id="@+id/answer"
       android:layout_width="0dp"
       android:layout_height="0dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginBottom="8dp"
-      android:ems="10"
+      android:background="@drawable/text_edit_border"
       android:gravity="start|top"
       android:inputType="textMultiLine"
       app:layout_constraintBottom_toTopOf="@+id/submit"
       app:layout_constraintEnd_toEndOf="@+id/hint"
       app:layout_constraintStart_toStartOf="@+id/hint"
-      app:layout_constraintTop_toBottomOf="@+id/hint" />
+      app:layout_constraintTop_toBottomOf="@+id/hint"/>
 
   <Button
       android:id="@+id/draft"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:layout_marginBottom="8dp"
       android:text="@string/draft"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="@+id/answer"
-      app:layout_constraintTop_toTopOf="@+id/submit" />
+      app:layout_constraintTop_toTopOf="@+id/submit"/>
 
   <Button
       android:id="@+id/submit"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:layout_marginEnd="8dp"
-      android:layout_marginBottom="8dp"
       android:text="@string/submit"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="@+id/answer"
       app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toEndOf="@+id/draft" />
+      app:layout_constraintStart_toEndOf="@+id/draft"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
