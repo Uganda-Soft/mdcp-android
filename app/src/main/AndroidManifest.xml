@@ -17,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".booleans.BooleanActivity"></activity>
         <activity android:name=".audio.AudioActivity" />
         <activity android:name=".photo.PhotoActivity" />
         <activity android:name=".video.VideoActivity" />
@@ -25,11 +26,13 @@
         <activity android:name=".number.NumberActivity" />
         <activity android:name=".decimal.DecimalActivity" />
         <activity android:name=".text.TextActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".textarea.TextAreaActivity" />
         <activity android:name=".data_collection.DataCollectionActivity">
@@ -42,13 +45,11 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

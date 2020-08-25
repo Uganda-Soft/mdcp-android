@@ -47,8 +47,9 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
     }
 
     override fun onQuestionClick(question: Question) {
-        if (question.type_name.type == "audio") {
+        if (question.type_name?.type == "audio") {
             val intent: Intent = Intent(this, AudioActivity::class.java)
+            intent.putExtra(AudioActivity.QUESTION, question)
             startActivity(intent)
         }
     }
