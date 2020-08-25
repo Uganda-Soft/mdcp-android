@@ -17,7 +17,8 @@ class QuestionAdapter(var questions: List<Question>, val context: Context):
         private val statusTextView: View = itemView.findViewById(R.id.question_status)
 
         public fun bind(number: Int, question: Question) {
-            numberTextView.text = (number + 1).toString()
+            val displayNumber: String = if (number < 9) { "0${number + 1}" } else { (number + 1).toString() }
+            numberTextView.text = displayNumber
             labelTextView.text = question.name
 //            statusTextView.text = "something"
         }
