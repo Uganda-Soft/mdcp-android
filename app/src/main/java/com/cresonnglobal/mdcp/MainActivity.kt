@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.widgets.audio.AudioFragment
@@ -33,5 +35,10 @@ class MainActivity : AppCompatActivity() {
         val inputStream: InputStream = assetManager.open("question/questions.json")
         val bufferedReader: BufferedReader = BufferedReader(InputStreamReader(inputStream))
         val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
+
+        val recyclerView: RecyclerView = questions_list_recyclerview
+        val questionAdapter: QuestionAdapter = QuestionAdapter(interview.questions, this)
+        recyclerView.layoutManager = GridLayoutManager(this, 3)
+        recyclerView.adapter = questionAdapter
     }
 }
