@@ -56,58 +56,52 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
     }
 
     override fun onQuestionClick(question: Question) {
-        if (question.type_name?.type == "audio") {
-            val intent: Intent = Intent(this, AudioActivity::class.java)
-            intent.putExtra(AudioActivity.QUESTION, question)
-            startActivity(intent)
-        }
-
-        if (question.type_name?.type == "boolean") {
-            val intent = Intent(this, BooleanActivity::class.java)
-            intent.putExtra(BooleanActivity.QUESTION, question)
-            startActivity(intent)
-        }
-
-        if (question.type_name?.type == "number") {
-            val intent = Intent(this, NumberActivity::class.java)
-            intent.putExtra(NumberActivity.QUESTION, question)
-            startActivity(intent)
-        }
-
-        if (question.type_name?.type == "textarea") {
-            val intent = Intent(this, TextAreaActivity::class.java)
-            intent.putExtra(TextAreaActivity.QUESTION, question)
-            startActivity(intent)
-        }
-
-        if (question.type_name?.type == "video") {
-            val intent = Intent(this, VideoActivity::class.java)
-            intent.putExtra(VideoActivity.QUESTION, intent)
-            startActivity(intent)
-        }
-
-        if (question.type_name?.type == "decimal") {
-            val intent = Intent(this, DecimalActivity::class.java)
-            intent.putExtra(DecimalActivity.QUESTION, question)
-            startActivity(intent)
-        }
-
-        if (question.type_name?.type == "image") {
-            val intent = Intent(this, PhotoActivity::class.java)
-            intent.putExtra(PhotoActivity.QUESTION, question)
-            startActivity(intent)
-        }
-
-        if (question.type_name?.type == "date") {
-            val intent = Intent(this, DateActivity::class.java)
-            intent.putExtra(DateActivity.QUESTION, question)
-            startActivity(intent)
-        }
-
-        if (question.type_name?.type == "time") {
-            val intent = Intent(this, TimeActivity::class.java)
-            intent.putExtra(TimeActivity.QUESTION, question)
-            startActivity(intent)
+        when (question.type_name?.type) {
+            "audio" -> {
+                val intent: Intent = Intent(this, AudioActivity::class.java)
+                intent.putExtra(AudioActivity.QUESTION, question)
+                startActivity(intent)
+            }
+            "boolean" -> {
+                val intent = Intent(this, BooleanActivity::class.java)
+                intent.putExtra(BooleanActivity.QUESTION, question)
+                startActivity(intent)
+            }
+            "number" -> {
+                val intent = Intent(this, NumberActivity::class.java)
+                intent.putExtra(NumberActivity.QUESTION, question)
+                startActivity(intent)
+            }
+            "textarea" -> {
+                val intent = Intent(this, TextAreaActivity::class.java)
+                intent.putExtra(TextAreaActivity.QUESTION, question)
+                startActivity(intent)
+            }
+            "video" -> {
+                val intent = Intent(this, VideoActivity::class.java)
+                intent.putExtra(VideoActivity.QUESTION, intent)
+                startActivity(intent)
+            }
+            "decimal" -> {
+                val intent = Intent(this, DecimalActivity::class.java)
+                intent.putExtra(DecimalActivity.QUESTION, question)
+                startActivity(intent)
+            }
+            "image" -> {
+                val intent = Intent(this, PhotoActivity::class.java)
+                intent.putExtra(PhotoActivity.QUESTION, question)
+                startActivity(intent)
+            }
+            "date" -> {
+                val intent = Intent(this, DateActivity::class.java)
+                intent.putExtra(DateActivity.QUESTION, question)
+                startActivity(intent)
+            }
+            "time" -> {
+                val intent = Intent(this, TimeActivity::class.java)
+                intent.putExtra(TimeActivity.QUESTION, question)
+                startActivity(intent)
+            }
         }
     }
 }
