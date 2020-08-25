@@ -1,15 +1,20 @@
 package com.cresonnglobal.mdcp
 
+import android.content.Intent
 import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.cresonnglobal.mdcp.audio.AudioActivity
 import com.cresonnglobal.mdcp.data.question.Interview
+import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.widgets.audio.AudioFragment
 import com.cresonnglobal.mdcp.widgets.booleans.BooleanFragment
 import com.cresonnglobal.mdcp.widgets.date_time.DateTimeFragment
@@ -24,8 +29,7 @@ import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var viewPager: ViewPager;
+class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,5 +44,12 @@ class MainActivity : AppCompatActivity() {
         val questionAdapter: QuestionAdapter = QuestionAdapter(interview.questions, this)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = questionAdapter
+    }
+
+    override fun onQuestionClick(question: Question) {
+        if (question.type_name.type == "audio") {
+            val intent: Intent = Intent(this, AudioActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

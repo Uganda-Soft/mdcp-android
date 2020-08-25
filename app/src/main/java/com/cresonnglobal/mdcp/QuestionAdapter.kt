@@ -10,8 +10,16 @@ import com.cresonnglobal.mdcp.data.question.Question
 
 class QuestionAdapter(var questions: List<Question>, val context: Context):
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>() {
+    private lateinit var onQuestionClickListener: OnQuestionClickListener;
 
-    class QuestionViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    init {
+        onQuestionClickListener = context as OnQuestionClickListener
+    }
+
+    class QuestionViewHolder(
+        itemView: View,
+        private val onQuestionClickListener: OnQuestionClickListener
+    ): RecyclerView.ViewHolder(itemView) {
         private val numberTextView: TextView = itemView.findViewById(R.id.question_number)
         private val labelTextView: TextView = itemView.findViewById(R.id.question_label)
         private val statusTextView: View = itemView.findViewById(R.id.question_status)
@@ -21,12 +29,15 @@ class QuestionAdapter(var questions: List<Question>, val context: Context):
             numberTextView.text = displayNumber
             labelTextView.text = question.name
 //            statusTextView.text = "something"
+            itemView.setOnClickListener {
+                onQuestionClickListener.onQuestionClick(question)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
         val view: View = LayoutInflater.from(context).inflate(R.layout.question_list_item, parent, false)
-        return QuestionViewHolder(view)
+        return QuestionViewHolder(view, onQuestionClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -36,5 +47,9 @@ class QuestionAdapter(var questions: List<Question>, val context: Context):
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val question: Question = questions[position]
         holder.bind(position, question)
+    }
+
+    public interface OnQuestionClickListener {
+        public fun onQuestionClick(question: Question)
     }
 }
