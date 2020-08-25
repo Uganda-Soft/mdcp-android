@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.cresonnglobal.mdcp.audio.AudioActivity
+import com.cresonnglobal.mdcp.booleans.BooleanActivity
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.widgets.audio.AudioFragment
@@ -51,6 +52,11 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
             val intent: Intent = Intent(this, AudioActivity::class.java)
             intent.putExtra(AudioActivity.QUESTION, question)
             startActivity(intent)
+        }
+
+        if (question.type_name?.type == "boolean") {
+            val intent = Intent(this, BooleanActivity::class.java)
+            intent.putExtra(BooleanActivity.QUESTION, question)
         }
     }
 }
