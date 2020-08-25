@@ -23,7 +23,6 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var questionCollectionPagerAdapter: QuestionCollectionPagerAdapter;
     private lateinit var viewPager: ViewPager;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,52 +33,5 @@ class MainActivity : AppCompatActivity() {
         val inputStream: InputStream = assetManager.open("question/questions.json")
         val bufferedReader: BufferedReader = BufferedReader(InputStreamReader(inputStream))
         val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
-        questionCollectionPagerAdapter = QuestionCollectionPagerAdapter(supportFragmentManager, interview, this);
-
-        viewPager = pager;
-        viewPager.adapter = questionCollectionPagerAdapter;
-    }
-
-    class QuestionCollectionPagerAdapter(
-        fm: FragmentManager,
-        private val interview: Interview,
-        private val mainActivity: MainActivity
-    ): FragmentStatePagerAdapter(fm) {
-
-        override fun getItem(position: Int): Fragment {
-            val question = interview.questions[position]
-
-            if (question.type_name.type == "text") {
-                return TextFragment(question);
-            } else if (question.type_name.type == "date") {
-                return DateTimeFragment(question)
-            } else if (question.type_name.type == "decimal") {
-                return DecimalFragment(question)
-            } else if (question.type_name.type == "audio") {
-                return AudioFragment(question)
-            } else if (question.type_name.type == "textarea") {
-                return TextAreaFragment(question)
-            } else if (question.type_name.type == "number") {
-                return NumberFragment(question)
-            } else if (question.type_name.type == "image") {
-                return ImageFragment(question,  mainActivity)
-            } else {
-                return BooleanFragment(question)
-            }
-
-        }
-
-        override fun getCount(): Int {
-            return interview.questions.size;
-        }
-
-        override fun getPageTitle(position: Int): CharSequence? {
-            return "OBJECT ${(position + 1)}";
-        }
-
-        interface PublishProgressListener {
-            fun publishProgress(position: Int)
-        }
-
     }
 }
