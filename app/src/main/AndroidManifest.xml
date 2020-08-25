@@ -17,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".decimal.DecimalActivity"></activity>
         <activity android:name=".text.TextActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".textarea.TextAreaActivity">
-        </activity>
+        <activity android:name=".textarea.TextAreaActivity"></activity>
         <activity android:name=".data_collection.DataCollectionActivity">
 
             <!-- <intent-filter> -->
