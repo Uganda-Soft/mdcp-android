@@ -106,6 +106,8 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
 
         if (question.type_name?.type == "time") {
             val intent = Intent(this, TimeActivity::class.java)
+            intent.putExtra(TimeActivity.QUESTION, question)
+            startActivity(intent)
         }
     }
 }
