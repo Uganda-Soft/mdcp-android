@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView: RecyclerView = questions_list_recyclerview
         val questionAdapter: QuestionAdapter = QuestionAdapter(interview.questions, this)
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = questionAdapter
     }
 }

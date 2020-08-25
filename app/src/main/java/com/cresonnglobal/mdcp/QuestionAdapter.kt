@@ -18,7 +18,7 @@ class QuestionAdapter(var questions: List<Question>, val context: Context):
 
         public fun bind(number: Int, question: Question) {
             numberTextView.text = (number + 1).toString()
-            labelTextView.text = question.label
+            labelTextView.text = question.name
 //            statusTextView.text = "something"
         }
     }
