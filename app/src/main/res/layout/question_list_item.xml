@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/question_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
@@ -20,6 +21,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/question_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Q45"
@@ -27,6 +29,7 @@
             android:textSize="25sp"/>
 
         <View
+            android:id="@+id/question_status"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
