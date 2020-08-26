@@ -25,7 +25,7 @@ import java.util.concurrent.Executors
 
 class PhotoActivity : AppCompatActivity() {
     companion object {
-        public final val QUESTION = "com.cresonnglobal.mdcp.photo.PhotoActivity.QUESTION"
+        public final const val QUESTION = "com.cresonnglobal.mdcp.photo.PhotoActivity.QUESTION"
         private const val TAG = "ImageFragment"
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SS"
         private const val REQUEST_CODE_PERMISSIONS = 34
@@ -45,13 +45,11 @@ class PhotoActivity : AppCompatActivity() {
         if (allPermissionsGranted()) {
             startCamera()
         } else {
-            this.let {
-                ActivityCompat.requestPermissions(
-                    it,
-                    REQUIRED_PERMISSIONS,
-                    REQUEST_CODE_PERMISSIONS
-                )
-            }
+            ActivityCompat.requestPermissions(
+                this,
+                REQUIRED_PERMISSIONS,
+                REQUEST_CODE_PERMISSIONS
+            )
         }
 
         button_camera.setOnClickListener {
@@ -64,79 +62,24 @@ class PhotoActivity : AppCompatActivity() {
     private fun getOutputDirectory(): File {
         val mediaDir = externalMediaDirs.firstOrNull()?.let {
             File(it, resources.getString(R.string.app_name)).apply {
-                mkdirs()
+                mkdir()
             }
         }
+
         return if (mediaDir != null && mediaDir.exists()) mediaDir else filesDir
     }
 
     private fun takePhoto() {
-        val imageCapture = imageCapture ?: return
-
-        val photoFile = File (
-            outputDirectory,
-            SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis()) + ".jpg"
-        )
-
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-
-        imageCapture.takePicture(
-            outputOptions, ContextCompat.getMainExecutor(this), object : ImageCapture.OnImageSavedCallback {
-                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    val savedUri = Uri.fromFile(photoFile)
-                    val msg = "Photo capture succeeded: $savedUri"
-                    Toast.makeText(this@PhotoActivity, msg, Toast.LENGTH_LONG).show()
-                }
-
-                override fun onError(exception: ImageCaptureException) {
-                    Log.e(TAG, "Photo Captured Failed")
-                }
-
-            }
-        )
+        TODO("Not yet implemented")
     }
 
     private fun startCamera() {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-        cameraProviderFuture.addListener(Runnable {
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-
-            val preview = Preview.Builder()
-                .build()
-                .also {
-                    it.setSurfaceProvider(viewfinder.createSurfaceProvider())
-                }
-
-            imageCapture = ImageCapture.Builder().build()
-
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-            try {
-                cameraProvider.bindToLifecycle(this, cameraSelector, preview)
-            } catch (exception: Exception) {
-                Log.e(PhotoActivity.TAG, "Use case binding failed", exception)
-            }
-        }, ContextCompat.getMainExecutor(this))
-
-//        imageCapture = ImageCapture.Builder().build()
+        TODO("Not yet implemented")
     }
 
-    private fun  allPermissionsGranted() = PhotoActivity.REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        cameraExecutor.shutdown()
-    }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        if (requestCode == PhotoActivity.REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-                startCamera()
-            } else {
-                Toast.makeText(this, "Permissions not granted by the user", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 }
