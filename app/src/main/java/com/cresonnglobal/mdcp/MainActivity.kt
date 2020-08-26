@@ -20,6 +20,7 @@ import com.cresonnglobal.mdcp.date.DateActivity
 import com.cresonnglobal.mdcp.decimal.DecimalActivity
 import com.cresonnglobal.mdcp.number.NumberActivity
 import com.cresonnglobal.mdcp.photo.PhotoActivity
+import com.cresonnglobal.mdcp.select.MultipleSelectionActivity
 import com.cresonnglobal.mdcp.textarea.TextAreaActivity
 import com.cresonnglobal.mdcp.time.TimeActivity
 import com.cresonnglobal.mdcp.video.VideoActivity
@@ -110,6 +111,12 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 intent.putExtra(TimeActivity.QUESTION, question)
                 startActivity(intent)
                 return
+            }
+
+            "multiple_select" -> {
+                val intent = Intent(this, MultipleSelectionActivity::class.java)
+                intent.putExtra(MultipleSelectionActivity.QUESTION, question)
+                startActivity(intent)
             }
         }
     }
