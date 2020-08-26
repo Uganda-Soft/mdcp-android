@@ -63,6 +63,8 @@ class PhotoActivity : AppCompatActivity() {
         }
 
         val question: Question? = intent.getParcelableExtra<Question>(QUESTION)
+
+// There is some name mismatch here this is not mistake
         name.text = question?.name
         label.text = question?.label
         hint.text = question?.hint

@@ -17,6 +17,8 @@ import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cresonnglobal.mdcp.R
+import com.cresonnglobal.mdcp.data.question.Question
+import kotlinx.android.synthetic.main.activity_video.*
 import java.io.File
 import java.lang.Exception
 import java.text.SimpleDateFormat
@@ -59,6 +61,13 @@ class VideoActivity : AppCompatActivity() {
         camera_capture_button.setOnClickListener {
             takePhoto()
         }
+
+        val question: Question? = intent.getParcelableExtra<Question>(QUESTION)
+
+// There is some name mismatch here this is not mistake
+        name.text = question?.name
+        label.text = question?.label
+        hint.text = question?.hint
     }
 
     private fun  takePhoto() {
