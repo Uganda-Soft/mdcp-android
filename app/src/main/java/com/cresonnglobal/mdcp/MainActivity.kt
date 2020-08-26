@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cresonnglobal.mdcp.audio.AudioActivity
 import com.cresonnglobal.mdcp.booleans.BooleanActivity
 import com.cresonnglobal.mdcp.data.question.Interview
+import com.cresonnglobal.mdcp.data.question.Meta
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.date.DateActivity
 import com.cresonnglobal.mdcp.decimal.DecimalActivity
+import com.cresonnglobal.mdcp.helpers.startConstraintActivity
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import com.cresonnglobal.mdcp.number.NumberActivity
 import com.cresonnglobal.mdcp.photo.PhotoActivity
@@ -134,6 +136,10 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
             }
 
             R.id.action_view_note -> startNoteActivity(this, interview?.meta?.note)
+            R.id.action_view_constraints -> interview?.let {
+                it.meta?.let {meta: Meta -> startConstraintActivity(this, meta.note)
+                }
+            }
         }
         return super.onOptionsItemSelected(item)
     }

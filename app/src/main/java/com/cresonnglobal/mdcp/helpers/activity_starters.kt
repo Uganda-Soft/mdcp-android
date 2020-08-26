@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
 
 fun startNoteActivity(context: Context, question: Question?) {
     startNoteActivity(context, question?.note)
@@ -18,4 +19,23 @@ fun startNoteActivity(context: Context, note: String?) {
         intent.putExtra(NoteViewerActivity.NOTE_TEXT, note)
         context.startActivity(intent)
     }
+}
+
+fun startConstraintActivity(context: Context, constraint: String? ) {
+    val intent = Intent(context, ConstraintViewActivityActivity::class.java)
+    intent.putExtra(ConstraintViewActivityActivity.CONSTRAINTS, constraint)
+    context.startActivity(intent)
+}
+
+fun  startConstraintActivity(context: Context, constraintMessages:Array<String>?) {
+    var message:String = ""
+    if (constraintMessages != null) {
+        for (messageText: String in constraintMessages) {
+            message = message + messageText + "\n"
+        }
+
+    } else {
+        message = "No Constraint Message Found"
+    }
+    startNoteActivity(context, message)
 }

@@ -14,17 +14,9 @@ class ConstraintViewActivityActivity : Activity() {
         setContentView(R.layout.activity_constraint_view_activity)
 
         val intent = intent
-        val constraintMessages:Array<String>? = intent.getStringArrayExtra(CONSTRAINTS)
-        var message:String = ""
-        if (constraintMessages != null) {
-            for (messageText: String in constraintMessages) {
-                message = message + messageText + "\n"
-            }
-
-        } else {
-            message = "No Constraint Message Found"
+        val constraintMessages:String? = intent.getStringExtra(CONSTRAINTS)
+        constraintMessages?.let {
+            constraints_message.text = it
         }
-
-        constraints_message.text = message
     }
 }
