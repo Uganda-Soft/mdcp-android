@@ -21,6 +21,7 @@ import com.cresonnglobal.mdcp.decimal.DecimalActivity
 import com.cresonnglobal.mdcp.number.NumberActivity
 import com.cresonnglobal.mdcp.photo.PhotoActivity
 import com.cresonnglobal.mdcp.select.MultipleSelectionActivity
+import com.cresonnglobal.mdcp.text.TextActivity
 import com.cresonnglobal.mdcp.textarea.TextAreaActivity
 import com.cresonnglobal.mdcp.time.TimeActivity
 import com.cresonnglobal.mdcp.video.VideoActivity
@@ -120,7 +121,9 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
             }
 
             "text" -> {
-
+                val intent = Intent(this, TextActivity::class.java)
+                intent.putExtra(TextActivity.QUESTION, question)
+                startActivity(intent)
             }
         }
     }
