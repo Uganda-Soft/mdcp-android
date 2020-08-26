@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
 import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
 import kotlinx.android.synthetic.main.activity_time.*
 
@@ -28,7 +29,9 @@ class TimeActivity : AppCompatActivity() {
     }
 
     private fun startNoteActivity() {
-        TODO("Not yet implemented")
+        val intent = Intent(this, NoteViewerActivity::class.java)
+        intent.putExtra(NoteViewerActivity.NOTE_TEXT, question?.note)
+        startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
