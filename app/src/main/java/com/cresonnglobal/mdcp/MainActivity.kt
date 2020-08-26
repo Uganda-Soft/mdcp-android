@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         val bufferedReader: BufferedReader = BufferedReader(InputStreamReader(inputStream))
         val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
 
+
         val recyclerView: RecyclerView = questions_list_recyclerview
         val questionAdapter: QuestionAdapter = QuestionAdapter(interview.questions, this)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
