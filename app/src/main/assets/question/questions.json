@@ -530,6 +530,49 @@
             "response_note": "",
             "publishable": "",
             "minimum_seconds": ""
+        },
+        {
+            "type_name":  {
+                "type": "multiple_select",
+                "from": "District",
+                "selections": [
+                    "Rober kyagulanyi Sentamu",
+                    "Kagutam Museveni",
+                    "Norbert Mao",
+                    "Olara Otunu",
+                    "Rebbeca Kadaga",
+                    "Winnie Kizza"
+                ]
+            },
+            "name": "SQ14",
+            "label": "In the initial assessment, are HIV users that can be followed at the unit identified, along with those who should be referred for follow-up in the Specialized Care Services?",
+            "hint": "Please select any of the following names",
+            "default": "1",
+            "appearance": "",
+            "constraint": [
+                "This amount is required"
+            ],
+            "constraint_message": [
+                "This questions required Audio"
+            ],
+            "relevance": "",
+            "disabled": "",
+            "required": "",
+            "required_message": [
+                "Please a Audio is required"
+            ],
+            "read_only": "",
+            "calculation": "",
+            "repeat_count": "",
+            "media": {
+                "audio": "",
+                "video": ""
+            },
+            "choice_filter": "",
+            "note": "",
+            "response_note": "",
+            "publishable": "",
+            "minimum_seconds": ""
         }
     ]
 }
