@@ -16,4 +16,5 @@
     <string name="label_clear">Clear</string>
     <string name="label_constraints">Constraints</string>
     <string name="label_helps">Helps</string>
+    <string name="label_note">Note</string>
 </resources>
