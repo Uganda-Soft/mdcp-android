@@ -1,11 +1,14 @@
 package com.cresonnglobal.mdcp.photo
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
@@ -18,6 +21,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
 import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
 import java.lang.Exception
@@ -39,6 +43,7 @@ class PhotoActivity : AppCompatActivity() {
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera_capture_button: ImageButton
+    private var question: Question? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -62,9 +67,7 @@ class PhotoActivity : AppCompatActivity() {
             takePhoto()
         }
 
-        val question: Question? = intent.getParcelableExtra<Question>(QUESTION)
-
-// There is some name mismatch here this is not mistake
+        question = intent.getParcelableExtra<Question>(QUESTION)
         name.text = question?.name
         label.text = question?.label
         hint.text = question?.hint
@@ -154,5 +157,29 @@ class PhotoActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Permissions Not Granted by The User", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.screen_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.action_clear -> {
+                // clear answers
+                return true
+            }
+            R.id.action_view_constraints -> {
+                val intent = Intent(this,  ConstraintViewActivityActivity::class.java)
+                intent.putExtra(ConstraintViewActivityActivity.CONSTRAINTS, question?.constraint_message)
+                startActivity(intent)
+            }
+
+            R.id.action_view_help -> {
+                // show help
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
