@@ -580,7 +580,7 @@
         {
             "type_name":  {
                 "type": "time",
-                "from": "District",
+                "from": "District"
             },
             "name": "SQ15",
             "label": "In the initial assessment, are HIV users that can be followed at the unit identified, along with those who should be referred for follow-up in the Specialized Care Services?",
