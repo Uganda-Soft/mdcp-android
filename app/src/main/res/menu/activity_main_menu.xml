@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_view_note"
+        android:title="@string/label_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:showAsAction="ifRoom|withText"/>
+
+<!--    <item-->
+<!--        android:id="@+id/action_clear"-->
+<!--        android:title="@string/label_clear"-->
+<!--        android:icon="@drawable/ic_baseline_delete_24"-->
+<!--        app:showAsAction="ifRoom|withText"/>-->
+
+<!--    <item-->
+<!--        android:id="@+id/action_view_constraints"-->
+<!--        android:title="@string/label_constraints"-->
+<!--        android:icon="@drawable/ic_baseline_how_to_reg_24"-->
+<!--        app:showAsAction="ifRoom|withText"/>-->
+
+<!--    <item-->
+<!--        android:id="@+id/action_view_help"-->
+<!--        android:title="@string/label_helps"-->
+<!--        android:icon="@drawable/ic_baseline_help_outline_24"-->
+<!--        app:showAsAction="ifRoom|withText"/>-->
+
+</menu>
