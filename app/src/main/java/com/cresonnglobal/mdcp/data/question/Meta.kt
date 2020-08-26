@@ -1,7 +1,56 @@
 package com.cresonnglobal.mdcp.data.question
 
+import android.os.Parcel
+import android.os.Parcelable
+
 data class Meta(
-    val type: String,
-    val name: String,
-    val value: String
-)
+    var note: String?,
+    var basic_info: Array<BasicInfo>?
+): Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.createTypedArray(BasicInfo)
+    ) {
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Meta
+
+        if (note != other.note) return false
+        if (basic_info != null) {
+            if (other.basic_info == null) return false
+            if (!basic_info!!.contentEquals(other.basic_info!!)) return false
+        } else if (other.basic_info != null) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = note?.hashCode() ?: 0
+        result = 31 * result + (basic_info?.contentHashCode() ?: 0)
+        return result
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(note)
+        parcel.writeTypedArray(basic_info, flags)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Meta> {
+        override fun createFromParcel(parcel: Parcel): Meta {
+            return Meta(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Meta?> {
+            return arrayOfNulls(size)
+        }
+    }
+
+}
