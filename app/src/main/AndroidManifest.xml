@@ -17,7 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".helpers.NoteViewerActivity"></activity>
+        <activity
+            android:label="Note"
+            android:name=".helpers.NoteViewerActivity"
+            android:theme="@android:style/Theme.Material.Light.Dialog.Alert"/>
         <activity
             android:name=".helpers.helper.HelpViewActivity"
             android:label="Helps"

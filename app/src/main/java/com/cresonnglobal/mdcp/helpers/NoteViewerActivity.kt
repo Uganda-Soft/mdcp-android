@@ -1,11 +1,12 @@
 package com.cresonnglobal.mdcp.helpers
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.cresonnglobal.mdcp.R
 import kotlinx.android.synthetic.main.activity_note_viewer.*
 
-class NoteViewerActivity : AppCompatActivity() {
+class NoteViewerActivity : Activity() {
     companion object {
         public final const val NOTE_TEXT = "com.cresonnglobal.mdcp.helpers.NoteViewerActivity.NOTE_TEXT"
     }

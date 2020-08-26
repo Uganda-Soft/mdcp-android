@@ -54,6 +54,10 @@ class TimeActivity : AppCompatActivity() {
             R.id.action_view_help -> {
                 // show help
             }
+
+            R.id.action_view_note -> {
+                startNoteActivity()
+            }
         }
         return super.onOptionsItemSelected(item)
     }
