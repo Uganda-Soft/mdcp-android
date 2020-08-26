@@ -90,6 +90,30 @@
                 android:background="@drawable/ic_baseline_stop_24"/>
         </FrameLayout>
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:id="@+id/button_play"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_play_circle_outline_24"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:id="@+id/button_saved"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_save_24"/>
+        </FrameLayout>
+
     </LinearLayout>
 
     <androidx.camera.view.PreviewView
