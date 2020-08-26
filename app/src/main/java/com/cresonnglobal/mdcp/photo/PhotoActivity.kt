@@ -23,6 +23,7 @@ import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
 import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
+import com.cresonnglobal.mdcp.helpers.startConstraintActivity
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
@@ -174,11 +175,7 @@ class PhotoActivity : AppCompatActivity() {
                 // clear answers
                 return true
             }
-            R.id.action_view_constraints -> {
-                val intent = Intent(this,  ConstraintViewActivityActivity::class.java)
-                intent.putExtra(ConstraintViewActivityActivity.CONSTRAINTS, question?.constraint_message)
-                startActivity(intent)
-            }
+            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
 
             R.id.action_view_help -> {
                 // show help
