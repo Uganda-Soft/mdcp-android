@@ -60,14 +60,12 @@
         app:layout_constraintVertical_bias="0.01999998" >
 
         <RadioButton
-            android:id="@+id/answer_yes"
             android:checked="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/label_yes"/>
 
         <RadioButton
-            android:id="@+id/answer_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/label_no"/>
