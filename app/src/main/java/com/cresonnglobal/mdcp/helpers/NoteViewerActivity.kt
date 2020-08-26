@@ -3,6 +3,7 @@ package com.cresonnglobal.mdcp.helpers
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import com.cresonnglobal.mdcp.R
 import kotlinx.android.synthetic.main.activity_note_viewer.*
 
@@ -19,5 +20,9 @@ class NoteViewerActivity : Activity() {
         noteText?.let {
             note.text = it
         }
+
+        Handler().postAtTime(Runnable {
+            finish()
+        }, 5000)
     }
 }
