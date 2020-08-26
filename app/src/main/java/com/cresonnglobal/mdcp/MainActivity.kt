@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
             }
             "video" -> {
                 val intent = Intent(this, VideoActivity::class.java)
-                intent.putExtra(VideoActivity.QUESTION, intent)
+                intent.putExtra(VideoActivity.QUESTION, question)
                 startActivity(intent)
                 return
             }
