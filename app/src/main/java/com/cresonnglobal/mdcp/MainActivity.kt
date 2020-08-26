@@ -118,6 +118,10 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 intent.putExtra(MultipleSelectionActivity.QUESTION, question)
                 startActivity(intent)
             }
+
+            "text" -> {
+
+            }
         }
     }
 }

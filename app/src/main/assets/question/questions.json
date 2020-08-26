@@ -111,7 +111,7 @@
 
         {
             "type_name":  {
-                "type": "boolean",
+                "type": "text",
                 "from": "District"
             },
             "name": "SQ3",
