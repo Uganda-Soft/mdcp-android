@@ -14,5 +14,13 @@ class ConstraintViewActivityActivity : Activity() {
 
         val intent = intent
         val constraintMessages:List<String>? = intent.getStringArrayListExtra(CONSTRAINTS)
+        var message:String = ""
+        if (constraintMessages != null) {
+            for (messageText: String in constraintMessages) {
+                message = messageText + "\n"
+            }
+
+        }
+
     }
 }

@@ -10,7 +10,7 @@ data class Question(
     var hint: String?,
     var default: String?,
     var appearance: String?,
-    var constraint: List<String>?,
+    var constraint: Array<String>?,
     var constraint_message: Array<String>?,
     var relevance: String?,
     var disabled: String?,
@@ -33,7 +33,7 @@ data class Question(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.createStringArrayList(),
+        parcel.createStringArray(),
         parcel.createStringArray(),
         parcel.readString(),
         parcel.readString(),
@@ -57,15 +57,27 @@ data class Question(
 
         other as Question
 
+        if (type_name != other.type_name) return false
         if (name != other.name) return false
         if (label != other.label) return false
         if (hint != other.hint) return false
         if (default != other.default) return false
         if (appearance != other.appearance) return false
-        if (constraint != other.constraint) return false
+        if (constraint != null) {
+            if (other.constraint == null) return false
+            if (!constraint!!.contentEquals(other.constraint!!)) return false
+        } else if (other.constraint != null) return false
+        if (constraint_message != null) {
+            if (other.constraint_message == null) return false
+            if (!constraint_message!!.contentEquals(other.constraint_message!!)) return false
+        } else if (other.constraint_message != null) return false
         if (relevance != other.relevance) return false
         if (disabled != other.disabled) return false
         if (required != other.required) return false
+        if (required_message != null) {
+            if (other.required_message == null) return false
+            if (!required_message!!.contentEquals(other.required_message!!)) return false
+        } else if (other.required_message != null) return false
         if (read_only != other.read_only) return false
         if (calculation != other.calculation) return false
         if (repeat_count != other.repeat_count) return false
@@ -80,14 +92,18 @@ data class Question(
     }
 
     override fun hashCode(): Int {
-        var result = name?.hashCode() ?: 0
+        var result = type_name?.hashCode() ?: 0
+        result = 31 * result + (name?.hashCode() ?: 0)
         result = 31 * result + (label?.hashCode() ?: 0)
         result = 31 * result + (hint?.hashCode() ?: 0)
         result = 31 * result + (default?.hashCode() ?: 0)
         result = 31 * result + (appearance?.hashCode() ?: 0)
+        result = 31 * result + (constraint?.contentHashCode() ?: 0)
+        result = 31 * result + (constraint_message?.contentHashCode() ?: 0)
         result = 31 * result + (relevance?.hashCode() ?: 0)
         result = 31 * result + (disabled?.hashCode() ?: 0)
         result = 31 * result + (required?.hashCode() ?: 0)
+        result = 31 * result + (required_message?.contentHashCode() ?: 0)
         result = 31 * result + (read_only?.hashCode() ?: 0)
         result = 31 * result + (calculation?.hashCode() ?: 0)
         result = 31 * result + (repeat_count?.hashCode() ?: 0)
@@ -107,7 +123,7 @@ data class Question(
         parcel.writeString(hint)
         parcel.writeString(default)
         parcel.writeString(appearance)
-        parcel.writeStringList(constraint)
+        parcel.writeStringArray(constraint)
         parcel.writeStringArray(constraint_message)
         parcel.writeString(relevance)
         parcel.writeString(disabled)
@@ -137,6 +153,5 @@ data class Question(
             return arrayOfNulls(size)
         }
     }
-
 
 }
