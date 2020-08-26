@@ -70,17 +70,71 @@ class PhotoActivity : AppCompatActivity() {
     }
 
     private fun takePhoto() {
-        TODO("Not yet implemented")
+        val imageCapture = imageCapture ?: return
+        val photoFile = File(
+            outputDirectory,
+            SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis()) + ".jpg"
+        )
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+        
+        imageCapture.takePicture(
+            outputOptions,
+            ContextCompat.getMainExecutor(this),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                    val savedUri = Uri.fromFile(photoFile)
+                    val msg = ""
+                }
+
+                override fun onError(exception: ImageCaptureException) {
+                    TODO("Not yet implemented")
+                }
+
+            }
+        )
     }
 
     private fun startCamera() {
-        TODO("Not yet implemented")
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+        cameraProviderFuture.addListener(Runnable { 
+            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            
+            val preview = Preview.Builder().build().also { 
+                it.setSurfaceProvider(answer.createSurfaceProvider())
+            }
+            
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            
+            try {
+                cameraProvider.unbindAll()
+                cameraProvider.bindToLifecycle(
+                    this,
+                    cameraSelector,
+                    preview
+                )
+            } catch (exception: Exception) {
+                Log.e(TAG, "Use case binding failed", exception)
+            }
+        }, ContextCompat.getMainExecutor(this))
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (allPermissionsGranted()) {
+                startCamera()
+            } else {
+                Toast.makeText(this, "Permissions not granted by the user", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
 
     override fun onDestroy() {
         cameraExecutor.shutdown()
