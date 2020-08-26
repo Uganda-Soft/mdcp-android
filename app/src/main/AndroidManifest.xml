@@ -24,7 +24,7 @@
         <activity
             android:label="Constraints Message"
             android:name=".helpers.contraints.ConstraintViewActivityActivity"
-            android:theme="@android:style/Theme.Material.Dialog.Alert"/>
+            android:theme="@android:style/Theme.Material.Light.Dialog.Alert"/>
         <activity
             android:name=".select.MultipleSelectionActivity"
             android:label="Multiple Select"

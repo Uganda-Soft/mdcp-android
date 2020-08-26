@@ -18,9 +18,11 @@ class ConstraintViewActivityActivity : Activity() {
         var message:String = ""
         if (constraintMessages != null) {
             for (messageText: String in constraintMessages) {
-                message = messageText + "\n"
+                message = message + messageText + "\n"
             }
 
+        } else {
+            message = "No Constraint Message Found"
         }
 
         constraints_message.text = message
