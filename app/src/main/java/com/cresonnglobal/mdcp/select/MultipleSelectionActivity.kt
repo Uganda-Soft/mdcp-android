@@ -46,7 +46,6 @@ class MultipleSelectionActivity : AppCompatActivity() {
             } else {
                 selections?.get(position)?.let { selectedItems.add(it) }
             }
-            Log.d("MultipleSelect", selectedItems.toString())
         }
     }
 }
