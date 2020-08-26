@@ -28,7 +28,7 @@ class NoteViewerActivity : Activity() {
         if (autoRemove) {
             Handler().postDelayed(Runnable {
                 finish()
-            }, 5000)
+            }, 10000)
         }
     }
 }

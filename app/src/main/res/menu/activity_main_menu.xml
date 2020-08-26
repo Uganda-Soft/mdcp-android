@@ -3,6 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/action_view_note"
+        android:title="@string/label_note"
+        android:icon="@drawable/ic_baseline_note_24"
+        app:showAsAction="ifRoom|withText"/>
+
+    <item
+        android:id="@+id/action_view_constraints"
+        android:title="@string/label_constraints"
+        android:icon="@drawable/ic_baseline_how_to_reg_24"
+        app:showAsAction="ifRoom|withText"/>
+
+    <item
         android:id="@+id/action_settings"
         android:title="@string/label_settings"
         android:icon="@drawable/ic_baseline_settings_24"

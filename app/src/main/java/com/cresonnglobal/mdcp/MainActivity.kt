@@ -30,6 +30,7 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
+    private var interview: Interview? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,14 +39,15 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         val assetManager: AssetManager = assets
         val inputStream: InputStream = assetManager.open("question/questions.json")
         val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-        val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
+        interview = Gson().fromJson(bufferedReader, Interview::class.java)
 
-        startNoteActivity(this, interview.meta?.note)
-
-        val recyclerView: RecyclerView = questions_list_recyclerview
-        val questionAdapter = QuestionAdapter(interview.questions, this)
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
-        recyclerView.adapter = questionAdapter
+        interview?.let {
+            startNoteActivity(this, it.meta?.note)
+            val recyclerView: RecyclerView = questions_list_recyclerview
+            val questionAdapter = QuestionAdapter(it.questions, this)
+            recyclerView.layoutManager = GridLayoutManager(this, 2)
+            recyclerView.adapter = questionAdapter
+        }
     }
 
     override fun onQuestionClick(question: Question) {
@@ -130,6 +132,8 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
             }
+
+            R.id.action_view_note -> startNoteActivity(this, interview?.meta?.note)
         }
         return super.onOptionsItemSelected(item)
     }
