@@ -11,5 +11,8 @@ class ConstraintViewActivityActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_constraint_view_activity)
+
+        val intent = intent
+        val constraintMessages:List<String>? = intent.getStringArrayListExtra(CONSTRAINTS)
     }
 }

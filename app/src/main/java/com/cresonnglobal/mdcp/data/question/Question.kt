@@ -10,7 +10,7 @@ data class Question(
     var hint: String?,
     var default: String?,
     var appearance: String?,
-    var constraint: Array<String>?,
+    var constraint: List<String>?,
     var constraint_message: Array<String>?,
     var relevance: String?,
     var disabled: String?,
@@ -26,8 +26,6 @@ data class Question(
     var publishable: String?,
     var minimum_seconds: String?
 ) : Parcelable{
-
-
     constructor(parcel: Parcel) : this(
         parcel.readParcelable(QuestionType::class.java.classLoader),
         parcel.readString(),
@@ -35,7 +33,7 @@ data class Question(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.createStringArray(),
+        parcel.createStringArrayList(),
         parcel.createStringArray(),
         parcel.readString(),
         parcel.readString(),
@@ -50,36 +48,7 @@ data class Question(
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
-    ) {}
-
-
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeParcelable(type_name, flags)
-        parcel.writeString(name)
-        parcel.writeString(label)
-        parcel.writeString(hint)
-        parcel.writeString(default)
-        parcel.writeString(appearance)
-        parcel.writeStringArray(constraint)
-        parcel.writeStringArray(constraint_message)
-        parcel.writeString(relevance)
-        parcel.writeString(disabled)
-        parcel.writeString(required)
-        parcel.writeStringArray(required_message)
-        parcel.writeString(read_only)
-        parcel.writeString(calculation)
-        parcel.writeString(repeat_count)
-        parcel.writeParcelable(media, flags)
-        parcel.writeString(choice_filter)
-        parcel.writeString(note)
-        parcel.writeString(response_note)
-        parcel.writeString(publishable)
-        parcel.writeString(minimum_seconds)
-    }
-
-    override fun describeContents(): Int {
-        return 0
+    ) {
     }
 
     override fun equals(other: Any?): Boolean {
@@ -93,6 +62,7 @@ data class Question(
         if (hint != other.hint) return false
         if (default != other.default) return false
         if (appearance != other.appearance) return false
+        if (constraint != other.constraint) return false
         if (relevance != other.relevance) return false
         if (disabled != other.disabled) return false
         if (required != other.required) return false
@@ -130,6 +100,34 @@ data class Question(
         return result
     }
 
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeParcelable(type_name, flags)
+        parcel.writeString(name)
+        parcel.writeString(label)
+        parcel.writeString(hint)
+        parcel.writeString(default)
+        parcel.writeString(appearance)
+        parcel.writeStringList(constraint)
+        parcel.writeStringArray(constraint_message)
+        parcel.writeString(relevance)
+        parcel.writeString(disabled)
+        parcel.writeString(required)
+        parcel.writeStringArray(required_message)
+        parcel.writeString(read_only)
+        parcel.writeString(calculation)
+        parcel.writeString(repeat_count)
+        parcel.writeParcelable(media, flags)
+        parcel.writeString(choice_filter)
+        parcel.writeString(note)
+        parcel.writeString(response_note)
+        parcel.writeString(publishable)
+        parcel.writeString(minimum_seconds)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
     companion object CREATOR : Parcelable.Creator<Question> {
         override fun createFromParcel(parcel: Parcel): Question {
             return Question(parcel)
@@ -139,4 +137,6 @@ data class Question(
             return arrayOfNulls(size)
         }
     }
+
+
 }
