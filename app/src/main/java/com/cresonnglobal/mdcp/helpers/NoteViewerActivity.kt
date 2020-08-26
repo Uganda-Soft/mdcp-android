@@ -21,7 +21,7 @@ class NoteViewerActivity : Activity() {
             note.text = it
         }
 
-        Handler().postAtTime(Runnable {
+        Handler().postDelayed(Runnable {
             finish()
         }, 5000)
     }

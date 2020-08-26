@@ -25,6 +25,7 @@ class DecimalActivity : AppCompatActivity() {
         name.text = question?.name
         label.text = question?.label
         hint.text = question?.hint
+        startNoteActivity()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

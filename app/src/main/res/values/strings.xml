@@ -34,4 +34,6 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="label_settings">Settings</string>
+    <string name="show_note_preference_off">Don\'t always show Note when opening New Questions</string>
+    <string name="show_note_preference_on">Note will be shown at start of all Questions and Interview</string>
 </resources>

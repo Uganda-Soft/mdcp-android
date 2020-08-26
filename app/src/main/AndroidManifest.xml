@@ -18,8 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".settings.SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
+            android:label="Settings" />
         <activity
             android:name=".helpers.NoteViewerActivity"
             android:label="Note"
