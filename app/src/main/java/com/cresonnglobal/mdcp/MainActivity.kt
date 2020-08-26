@@ -61,46 +61,55 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 val intent: Intent = Intent(this, AudioActivity::class.java)
                 intent.putExtra(AudioActivity.QUESTION, question)
                 startActivity(intent)
+                return
             }
             "boolean" -> {
                 val intent = Intent(this, BooleanActivity::class.java)
                 intent.putExtra(BooleanActivity.QUESTION, question)
                 startActivity(intent)
+                return
             }
             "number" -> {
                 val intent = Intent(this, NumberActivity::class.java)
                 intent.putExtra(NumberActivity.QUESTION, question)
                 startActivity(intent)
+                return
             }
             "textarea" -> {
                 val intent = Intent(this, TextAreaActivity::class.java)
                 intent.putExtra(TextAreaActivity.QUESTION, question)
                 startActivity(intent)
+                return
             }
             "video" -> {
                 val intent = Intent(this, VideoActivity::class.java)
                 intent.putExtra(VideoActivity.QUESTION, intent)
                 startActivity(intent)
+                return
             }
             "decimal" -> {
                 val intent = Intent(this, DecimalActivity::class.java)
                 intent.putExtra(DecimalActivity.QUESTION, question)
                 startActivity(intent)
+                return
             }
             "image" -> {
                 val intent = Intent(this, PhotoActivity::class.java)
                 intent.putExtra(PhotoActivity.QUESTION, question)
                 startActivity(intent)
+                return
             }
             "date" -> {
                 val intent = Intent(this, DateActivity::class.java)
                 intent.putExtra(DateActivity.QUESTION, question)
                 startActivity(intent)
+                return
             }
             "time" -> {
                 val intent = Intent(this, TimeActivity::class.java)
                 intent.putExtra(TimeActivity.QUESTION, question)
                 startActivity(intent)
+                return
             }
         }
     }
