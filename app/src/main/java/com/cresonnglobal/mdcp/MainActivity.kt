@@ -5,6 +5,8 @@ import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -21,6 +23,7 @@ import com.cresonnglobal.mdcp.decimal.DecimalActivity
 import com.cresonnglobal.mdcp.number.NumberActivity
 import com.cresonnglobal.mdcp.photo.PhotoActivity
 import com.cresonnglobal.mdcp.select.MultipleSelectionActivity
+import com.cresonnglobal.mdcp.settings.SettingsActivity
 import com.cresonnglobal.mdcp.text.TextActivity
 import com.cresonnglobal.mdcp.textarea.TextAreaActivity
 import com.cresonnglobal.mdcp.time.TimeActivity
@@ -117,5 +120,20 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.activity_main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

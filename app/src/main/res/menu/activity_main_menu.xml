@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_view_note"
+        android:id="@+id/action_settings"
         android:title="@string/label_settings"
         android:icon="@drawable/ic_baseline_settings_24"
         app:showAsAction="ifRoom|withText"/>
