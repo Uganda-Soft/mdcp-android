@@ -556,7 +556,8 @@
                 "This amount is required"
             ],
             "constraint_message": [
-                "This questions required Audio"
+                "This questions required Audio Use Recorder Below",
+                "You will be required to active permissions"
             ],
             "relevance": "",
             "disabled": "",
@@ -591,7 +592,9 @@
                 "This amount is required"
             ],
             "constraint_message": [
-                "This questions required Audio"
+                "This questions required Audio",
+                "along with those who should be referred for follow-up in the Specialized Care Services?",
+                "In the initial assessment, are HIV users that can be follo"
             ],
             "relevance": "",
             "disabled": "",

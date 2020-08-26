@@ -38,7 +38,7 @@ class TimeActivity : AppCompatActivity() {
             }
             R.id.action_view_constraints -> {
                 val intent = Intent(this,  ConstraintViewActivityActivity::class.java)
-                intent.putExtra(ConstraintViewActivityActivity.CONSTRAINTS, question?.constraint)
+                intent.putExtra(ConstraintViewActivityActivity.CONSTRAINTS, question?.constraint_message)
                 startActivity(intent)
             }
 

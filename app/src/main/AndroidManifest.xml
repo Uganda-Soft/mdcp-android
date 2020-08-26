@@ -18,11 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:label="Helps"
             android:name=".helpers.helper.HelpViewActivity"
-            android:theme="@style/AppThemeDialog" />
+            android:theme="@android:style/Theme.Material.Light.Dialog.Alert" />
         <activity
+            android:label="Constraints Message"
             android:name=".helpers.contraints.ConstraintViewActivityActivity"
-            android:theme="@style/AppThemeDialog"/>
+            android:theme="@android:style/Theme.Material.Dialog.Alert"/>
         <activity
             android:name=".select.MultipleSelectionActivity"
             android:label="Multiple Select"

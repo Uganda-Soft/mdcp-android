@@ -3,6 +3,7 @@ package com.cresonnglobal.mdcp.helpers.contraints
 import android.app.Activity
 import android.os.Bundle
 import com.cresonnglobal.mdcp.R
+import kotlinx.android.synthetic.main.activity_constraint_view_activity.*
 
 class ConstraintViewActivityActivity : Activity() {
     companion object {
@@ -13,7 +14,7 @@ class ConstraintViewActivityActivity : Activity() {
         setContentView(R.layout.activity_constraint_view_activity)
 
         val intent = intent
-        val constraintMessages:List<String>? = intent.getStringArrayListExtra(CONSTRAINTS)
+        val constraintMessages:Array<String>? = intent.getStringArrayExtra(CONSTRAINTS)
         var message:String = ""
         if (constraintMessages != null) {
             for (messageText: String in constraintMessages) {
@@ -22,5 +23,6 @@ class ConstraintViewActivityActivity : Activity() {
 
         }
 
+        constraints_message.text = message
     }
 }
