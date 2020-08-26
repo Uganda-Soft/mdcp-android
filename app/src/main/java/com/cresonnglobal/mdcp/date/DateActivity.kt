@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
-import kotlinx.android.synthetic.main.activity_decimal.*
+import kotlinx.android.synthetic.main.activity_date.*
 
 class DateActivity : AppCompatActivity() {
     companion object {
