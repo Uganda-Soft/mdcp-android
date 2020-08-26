@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.FrameLayout
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -37,7 +39,7 @@ class PhotoActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
-    private lateinit var camera_capture_button: Button
+    private lateinit var camera_capture_button: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -54,7 +56,7 @@ class PhotoActivity : AppCompatActivity() {
             )
         }
 
-        camera_capture_button = findViewById<Button>(R.id.button_camera)
+        camera_capture_button = findViewById(R.id.button_camera)
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
         camera_capture_button.setOnClickListener {
