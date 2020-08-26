@@ -5,9 +5,11 @@ import android.os.Parcelable
 
 data class QuestionType(
     var type: String?,
-    var from: String?
+    var from: String?,
+    var selections: String?
 ): Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString()
     ) {
@@ -16,6 +18,7 @@ data class QuestionType(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(type)
         parcel.writeString(from)
+        parcel.writeString(selections)
     }
 
     override fun describeContents(): Int {
@@ -31,5 +34,6 @@ data class QuestionType(
             return arrayOfNulls(size)
         }
     }
+
 
 }
