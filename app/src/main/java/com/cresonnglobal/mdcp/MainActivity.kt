@@ -4,22 +4,17 @@ import android.content.Intent
 import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
 import com.cresonnglobal.mdcp.audio.AudioActivity
 import com.cresonnglobal.mdcp.booleans.BooleanActivity
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.date.DateActivity
 import com.cresonnglobal.mdcp.decimal.DecimalActivity
+import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import com.cresonnglobal.mdcp.number.NumberActivity
 import com.cresonnglobal.mdcp.photo.PhotoActivity
 import com.cresonnglobal.mdcp.select.MultipleSelectionActivity
@@ -40,14 +35,15 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val assetManager: AssetManager = assets;
+        val assetManager: AssetManager = assets
         val inputStream: InputStream = assetManager.open("question/questions.json")
-        val bufferedReader: BufferedReader = BufferedReader(InputStreamReader(inputStream))
+        val bufferedReader = BufferedReader(InputStreamReader(inputStream))
         val interview: Interview = Gson().fromJson(bufferedReader, Interview::class.java)
 
+        startNoteActivity(this, interview.meta?.note)
 
         val recyclerView: RecyclerView = questions_list_recyclerview
-        val questionAdapter: QuestionAdapter = QuestionAdapter(interview.questions, this)
+        val questionAdapter = QuestionAdapter(interview.questions, this)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = questionAdapter
     }
@@ -55,7 +51,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
     override fun onQuestionClick(question: Question) {
         when (question.type_name?.type) {
             "audio" -> {
-                val intent: Intent = Intent(this, AudioActivity::class.java)
+                val intent = Intent(this, AudioActivity::class.java)
                 intent.putExtra(AudioActivity.QUESTION, question)
                 startActivity(intent)
                 return
