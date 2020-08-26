@@ -45,21 +45,102 @@
         app:layout_constraintStart_toStartOf="@+id/question"
         app:layout_constraintTop_toBottomOf="@+id/question" />
 
-    <EditText
-        android:id="@+id/answer"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/text_edit_border"
-        android:gravity="start|center"
-        android:inputType="text"
-        android:padding="5dp"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toTopOf="@+id/submit"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttons_container"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="@+id/hint"
         app:layout_constraintStart_toStartOf="@+id/hint"
-        app:layout_constraintTop_toBottomOf="@+id/hint"
-        app:layout_constraintVertical_bias="0.01999998" />
+        app:layout_constraintTop_toBottomOf="@+id/hint">
+
+        <FrameLayout
+            android:id="@+id/button_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_camera_alt_24"/>
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/button_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_fiber_manual_record_24"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_stop_24"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_microphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_mic_24"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_play_circle_outline_24"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/button_saved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_save_24"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/answer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintEnd_toEndOf="@+id/hint"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hint"
+        app:layout_constraintTop_toBottomOf="@+id/buttons_container"
+        app:layout_constraintVertical_bias="1.0">
+    </androidx.camera.view.PreviewView>
 
     <Button
         android:id="@+id/draft"

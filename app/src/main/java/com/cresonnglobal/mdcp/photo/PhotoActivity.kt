@@ -15,8 +15,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.widgets.image.ImageFragment
-import kotlinx.android.synthetic.main.image_fragment.*
+import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
 import java.lang.Exception
 import java.text.SimpleDateFormat
@@ -55,7 +54,7 @@ class PhotoActivity : AppCompatActivity() {
             }
         }
 
-        camera_capture_button.setOnClickListener {
+        button_camera.setOnClickListener {
             takePhoto()
         }
         outputDirectory = getOutputDirectory()
