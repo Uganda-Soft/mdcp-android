@@ -82,4 +82,8 @@ class PhotoActivity : AppCompatActivity() {
     }
 
 
+    override fun onDestroy() {
+        cameraExecutor.shutdown()
+        super.onDestroy()
+    }
 }
