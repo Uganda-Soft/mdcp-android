@@ -17,33 +17,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".booleans.BooleanActivity"></activity>
-        <activity android:name=".audio.AudioActivity" />
-        <activity android:name=".photo.PhotoActivity" />
-        <activity android:name=".video.VideoActivity" />
-        <activity android:name=".time.TimeActivity" />
-        <activity android:name=".date.DateActivity" />
-        <activity android:name=".number.NumberActivity" />
-        <activity android:name=".decimal.DecimalActivity" />
-        <activity android:name=".text.TextActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".textarea.TextAreaActivity" />
-        <activity android:name=".data_collection.DataCollectionActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+        <activity
+            android:name=".booleans.BooleanActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:label="Audio Recorder"
+            android:name=".audio.AudioActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:label="Image"
+            android:name=".photo.PhotoActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:label="Video Recorder"
+            android:name=".video.VideoActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:label="Time"
+            android:name=".time.TimeActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:label="Date Picker"
+            android:name=".date.DateActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:label="Integers"
+            android:name=".number.NumberActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:label="Decimal"
+            android:name=".decimal.DecimalActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:label="Text"
+            android:name=".text.TextActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:label="Long Text"
+            android:parentActivityName=".MainActivity"
+            android:name=".textarea.TextAreaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
