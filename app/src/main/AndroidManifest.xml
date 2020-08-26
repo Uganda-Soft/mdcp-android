@@ -18,9 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:label="Note"
+            android:name=".settings.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+        <activity
             android:name=".helpers.NoteViewerActivity"
-            android:theme="@android:style/Theme.Material.Light.Dialog.Alert"/>
+            android:label="Note"
+            android:theme="@android:style/Theme.Material.Light.Dialog.Alert" />
         <activity
             android:name=".helpers.helper.HelpViewActivity"
             android:label="Helps"
