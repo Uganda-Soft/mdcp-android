@@ -17,14 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".helpers.NoteViewerActivity"></activity>
         <activity
-            android:label="Helps"
             android:name=".helpers.helper.HelpViewActivity"
+            android:label="Helps"
             android:theme="@android:style/Theme.Material.Light.Dialog.Alert" />
         <activity
-            android:label="Constraints Message"
             android:name=".helpers.contraints.ConstraintViewActivityActivity"
-            android:theme="@android:style/Theme.Material.Light.Dialog.Alert"/>
+            android:label="Constraints Message"
+            android:theme="@android:style/Theme.Material.Light.Dialog.Alert" />
         <activity
             android:name=".select.MultipleSelectionActivity"
             android:label="Multiple Select"
