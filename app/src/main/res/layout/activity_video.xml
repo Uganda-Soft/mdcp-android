@@ -61,10 +61,33 @@
             android:padding="10dp"
             android:background="@drawable/circular_background_blue">
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_camera"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@drawable/ic_baseline_camera_alt_24"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:id="@+id/button_record"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_fiber_manual_record_24"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/circular_background_blue">
+            <Button
+                android:id="@+id/button_stop"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_baseline_stop_24"/>
         </FrameLayout>
 
     </LinearLayout>
