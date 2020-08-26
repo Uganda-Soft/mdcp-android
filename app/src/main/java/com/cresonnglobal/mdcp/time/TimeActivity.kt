@@ -9,6 +9,7 @@ import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
 import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
+import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import kotlinx.android.synthetic.main.activity_time.*
 
 class TimeActivity : AppCompatActivity() {
@@ -25,13 +26,7 @@ class TimeActivity : AppCompatActivity() {
         label.text = question?.label
         hint.text = question?.hint
 
-        startNoteActivity()
-    }
-
-    private fun startNoteActivity() {
-        val intent = Intent(this, NoteViewerActivity::class.java)
-        intent.putExtra(NoteViewerActivity.NOTE_TEXT, question?.note)
-        startActivity(intent)
+        startNoteActivity(this, question)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -56,7 +51,7 @@ class TimeActivity : AppCompatActivity() {
             }
 
             R.id.action_view_note -> {
-                startNoteActivity()
+                startNoteActivity(this, question)
             }
         }
         return super.onOptionsItemSelected(item)

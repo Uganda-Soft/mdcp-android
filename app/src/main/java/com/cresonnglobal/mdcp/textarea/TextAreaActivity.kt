@@ -9,6 +9,7 @@ import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
 import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
+import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import kotlinx.android.synthetic.main.activity_text_area.*
 
 class TextAreaActivity : AppCompatActivity() {
@@ -25,7 +26,7 @@ class TextAreaActivity : AppCompatActivity() {
         name.text = question?.name
         label.text = question?.label
         hint.text = question?.hint
-        startNoteActivity()
+        startNoteActivity(this, question)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -49,14 +50,8 @@ class TextAreaActivity : AppCompatActivity() {
                 // show help
             }
 
-            R.id.action_view_note -> startNoteActivity()
+            R.id.action_view_note -> startNoteActivity(this, question)
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun startNoteActivity() {
-        val intent = Intent(this, NoteViewerActivity::class.java)
-        intent.putExtra(NoteViewerActivity.NOTE_TEXT, question?.note)
-        startActivity(intent)
     }
 }
