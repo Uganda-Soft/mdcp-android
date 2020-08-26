@@ -17,10 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".helpers.helper.HelpViewActivity"></activity>
+        <activity android:name=".helpers.contraints.ConstraintViewActivityActivity" />
         <activity
             android:name=".select.MultipleSelectionActivity"
             android:label="Multiple Select"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".booleans.BooleanActivity"
             android:parentActivityName=".MainActivity" />
