@@ -16,4 +16,6 @@
     </string>
     <string name="draft">Draft</string>
     <string name="submit">Submit</string>
+    <string name="label_no">No</string>
+    <string name="label_yes">Yes</string>
 </resources>
