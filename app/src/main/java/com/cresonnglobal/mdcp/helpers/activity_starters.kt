@@ -37,5 +37,5 @@ fun  startConstraintActivity(context: Context, constraintMessages:Array<String>?
     } else {
         message = "No Constraint Message Found"
     }
-    startNoteActivity(context, message)
+    startConstraintActivity(context, message)
 }
