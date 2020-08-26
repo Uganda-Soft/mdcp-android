@@ -10,7 +10,7 @@ import com.cresonnglobal.mdcp.data.question.Question
 
 class QuestionAdapter(var questions: List<Question>, val context: Context):
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>() {
-    private lateinit var onQuestionClickListener: OnQuestionClickListener;
+    private var onQuestionClickListener: OnQuestionClickListener;
 
     init {
         onQuestionClickListener = context as OnQuestionClickListener

@@ -25,20 +25,11 @@ import com.cresonnglobal.mdcp.text.TextActivity
 import com.cresonnglobal.mdcp.textarea.TextAreaActivity
 import com.cresonnglobal.mdcp.time.TimeActivity
 import com.cresonnglobal.mdcp.video.VideoActivity
-import com.cresonnglobal.mdcp.widgets.audio.AudioFragment
-import com.cresonnglobal.mdcp.widgets.booleans.BooleanFragment
-import com.cresonnglobal.mdcp.widgets.date_time.DateTimeFragment
-import com.cresonnglobal.mdcp.widgets.decimals.DecimalFragment
-import com.cresonnglobal.mdcp.widgets.image.ImageFragment
-import com.cresonnglobal.mdcp.widgets.long_text.TextAreaFragment
-import com.cresonnglobal.mdcp.widgets.number.NumberFragment
-import com.cresonnglobal.mdcp.widgets.text.TextFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
-import java.util.*
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
 
