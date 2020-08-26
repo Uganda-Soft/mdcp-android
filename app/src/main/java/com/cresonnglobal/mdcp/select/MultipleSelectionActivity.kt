@@ -2,8 +2,11 @@ package com.cresonnglobal.mdcp.select
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
 import kotlinx.android.synthetic.main.activity_multiple_selection.*
@@ -12,6 +15,8 @@ class MultipleSelectionActivity : AppCompatActivity() {
     companion object {
         public final const val QUESTION = "com.cresonnglobal.mdcp.photo.MultipleSelectionActivity.QUESTION"
     }
+    val selectedItems: MutableSet<String> = mutableSetOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multiple_selection)
@@ -32,5 +37,15 @@ class MultipleSelectionActivity : AppCompatActivity() {
         }
         listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
         listView.adapter = adapter
+        listView.setOnItemClickListener{ _, _, position, _ ->
+            Toast.makeText(this, position.toString(), Toast.LENGTH_SHORT).show()
+            if (selectedItems.contains(selections?.get(position))) {
+                if (selections != null) {
+                    selectedItems.remove(selections[position])
+                }
+            } else {
+                selections?.get(position)?.let { selectedItems.add(it) }
+            }
+        }
     }
 }
