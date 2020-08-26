@@ -6,8 +6,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
@@ -19,6 +17,7 @@ import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cresonnglobal.mdcp.R
+import com.cresonnglobal.mdcp.data.question.Question
 import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
 import java.lang.Exception
@@ -62,6 +61,12 @@ class PhotoActivity : AppCompatActivity() {
         camera_capture_button.setOnClickListener {
             takePhoto()
         }
+
+        val question: Question? = intent.getParcelableExtra<Question>(QUESTION)
+        name.text = question?.name
+        label.text = question?.label
+        hint.text = question?.hint
+
     }
 
     private fun  takePhoto() {

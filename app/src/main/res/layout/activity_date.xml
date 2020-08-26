@@ -8,7 +8,7 @@
     tools:context=".date.DateActivity">
 
     <TextView
-        android:id="@+id/label"
+        android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Q45b"
@@ -21,15 +21,15 @@
 
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:textSize="14sp"
         android:text="@string/example_question"
-        app:layout_constraintEnd_toEndOf="@+id/label"
-        app:layout_constraintStart_toStartOf="@+id/label"
-        app:layout_constraintTop_toBottomOf="@+id/label" />
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
         android:id="@+id/hint"
@@ -40,10 +40,10 @@
         android:text="@string/example_hint"
         android:textSize="12sp"
         android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/question"
+        app:layout_constraintEnd_toEndOf="@+id/label"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/question"
-        app:layout_constraintTop_toBottomOf="@+id/question" />
+        app:layout_constraintStart_toStartOf="@+id/label"
+        app:layout_constraintTop_toBottomOf="@+id/label" />
 
     <DatePicker
         android:id="@+id/answer"

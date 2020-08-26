@@ -34,7 +34,7 @@ class BooleanFragment(val question: Question) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         nameTextView = view.findViewById(R.id.name)
-        labelTextView  = view.findViewById(R.id.label)
+        labelTextView  = view.findViewById(R.id.name)
         hintTextView  = view.findViewById(R.id.hint)
 
         nameTextView.text = question.name
