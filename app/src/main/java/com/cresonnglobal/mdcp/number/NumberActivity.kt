@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
 import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
 import kotlinx.android.synthetic.main.activity_number.*
 
@@ -24,6 +25,8 @@ class NumberActivity : AppCompatActivity() {
         name.text = question?.name
         label.text = question?.label
         hint.text = question?.hint
+
+        startNoteActivity()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,7 +49,15 @@ class NumberActivity : AppCompatActivity() {
             R.id.action_view_help -> {
                 // show help
             }
+
+            R.id.action_view_note -> startNoteActivity()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun startNoteActivity() {
+        val intent = Intent(this, NoteViewerActivity::class.java)
+        intent.putExtra(NoteViewerActivity.NOTE_TEXT, question?.note)
+        startActivity(intent)
     }
 }
