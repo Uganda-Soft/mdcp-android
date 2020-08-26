@@ -6,13 +6,13 @@ import android.os.Parcelable
 data class Meta(
     var note: String?,
     var basic_info: Array<BasicInfo>?,
-    var constraint_message: String?
+    var constraint_message: Array<String>?
 ): Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.createTypedArray(BasicInfo),
-        parcel.readString()
+        parcel.createStringArray()
     ) {
     }
 
@@ -27,7 +27,10 @@ data class Meta(
             if (other.basic_info == null) return false
             if (!basic_info!!.contentEquals(other.basic_info!!)) return false
         } else if (other.basic_info != null) return false
-        if (constraint_message != other.constraint_message) return false
+        if (constraint_message != null) {
+            if (other.constraint_message == null) return false
+            if (!constraint_message!!.contentEquals(other.constraint_message!!)) return false
+        } else if (other.constraint_message != null) return false
 
         return true
     }
@@ -35,14 +38,14 @@ data class Meta(
     override fun hashCode(): Int {
         var result = note?.hashCode() ?: 0
         result = 31 * result + (basic_info?.contentHashCode() ?: 0)
-        result = 31 * result + (constraint_message?.hashCode() ?: 0)
+        result = 31 * result + (constraint_message?.contentHashCode() ?: 0)
         return result
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(note)
         parcel.writeTypedArray(basic_info, flags)
-        parcel.writeString(constraint_message)
+        parcel.writeStringArray(constraint_message)
     }
 
     override fun describeContents(): Int {
@@ -58,4 +61,6 @@ data class Meta(
             return arrayOfNulls(size)
         }
     }
+
+
 }
