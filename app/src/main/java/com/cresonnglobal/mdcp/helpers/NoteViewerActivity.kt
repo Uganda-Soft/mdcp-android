@@ -1,9 +1,11 @@
 package com.cresonnglobal.mdcp.helpers
 
 import android.app.Activity
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.preference.PreferenceManager
 import com.cresonnglobal.mdcp.R
 import kotlinx.android.synthetic.main.activity_note_viewer.*
 
@@ -21,8 +23,12 @@ class NoteViewerActivity : Activity() {
             note.text = it
         }
 
-        Handler().postDelayed(Runnable {
-            finish()
-        }, 5000)
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val autoRemove: Boolean = sharedPreferences.getBoolean("dont_auto_close_note", true)
+        if (autoRemove) {
+            Handler().postDelayed(Runnable {
+                finish()
+            }, 5000)
+        }
     }
 }

@@ -36,4 +36,6 @@
     <string name="label_settings">Settings</string>
     <string name="show_note_preference_off">Don\'t always show Note when opening New Questions</string>
     <string name="show_note_preference_on">Note will be shown at start of all Questions and Interview</string>
+    <string name="automatic_note_on">Note will automaticall close</string>
+    <string name="automatic_note_off">Note won\'t automatically close</string>
 </resources>

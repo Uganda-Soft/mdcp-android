@@ -38,4 +38,11 @@
         android:title="Show Notes Always"
         android:summaryOff="@string/show_note_preference_off"
         android:summaryOn="@string/show_note_preference_on"/>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="dont_auto_close_note"
+        android:title="Automatically Close Note"
+        android:summaryOn="@string/automatic_note_on"
+        android:summaryOff="@string/automatic_note_off" />
 </PreferenceScreen>
