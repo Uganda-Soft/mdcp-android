@@ -6,12 +6,14 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cresonnglobal.mdcp.R
@@ -32,13 +34,13 @@ class PhotoActivity : AppCompatActivity() {
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     }
 
-    //    Camera variables
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
-
+    private lateinit var camera_capture_button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_photo)
 
@@ -52,42 +54,35 @@ class PhotoActivity : AppCompatActivity() {
             )
         }
 
-        button_camera.setOnClickListener {
-            takePhoto()
-        }
+        camera_capture_button = findViewById<Button>(R.id.button_camera)
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
-    }
-
-    private fun getOutputDirectory(): File {
-        val mediaDir = externalMediaDirs.firstOrNull()?.let {
-            File(it, resources.getString(R.string.app_name)).apply {
-                mkdir()
-            }
+        camera_capture_button.setOnClickListener {
+            takePhoto()
         }
-
-        return if (mediaDir != null && mediaDir.exists()) mediaDir else filesDir
     }
 
-    private fun takePhoto() {
-        val imageCapture = imageCapture ?: return
+    private fun  takePhoto() {
+        val imageCamera = imageCapture ?: return
         val photoFile = File(
             outputDirectory,
             SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(System.currentTimeMillis()) + ".jpg"
         )
+
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-        
-        imageCapture.takePicture(
+
+        imageCamera.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
-                    val msg = ""
+                    val msg = "Photo capture succeeded: $savedUri"
+                    Toast.makeText(baseContext, msg, Toast.LENGTH_LONG).show()
                 }
 
                 override fun onError(exception: ImageCaptureException) {
-                    TODO("Not yet implemented")
+                    Log.e(TAG, "Photo Capture Failed: ${exception.message}")
                 }
 
             }
@@ -96,21 +91,26 @@ class PhotoActivity : AppCompatActivity() {
 
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-        cameraProviderFuture.addListener(Runnable { 
+        cameraProviderFuture.addListener(Runnable {
+
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-            
-            val preview = Preview.Builder().build().also { 
-                it.setSurfaceProvider(answer.createSurfaceProvider())
-            }
-            
+            val preview = Preview.Builder()
+                .build()
+                .also {
+                    it.setSurfaceProvider(findViewById<PreviewView>(R.id.answer).createSurfaceProvider())
+                }
+
+            imageCapture = ImageCapture.Builder().build()
+
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-            
+
             try {
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(
                     this,
                     cameraSelector,
-                    preview
+                    preview,
+                    imageCapture
                 )
             } catch (exception: Exception) {
                 Log.e(TAG, "Use case binding failed", exception)
@@ -122,22 +122,28 @@ class PhotoActivity : AppCompatActivity() {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-                startCamera()
-            } else {
-                Toast.makeText(this, "Permissions not granted by the user", Toast.LENGTH_LONG).show()
+    private fun getOutputDirectory(): File {
+        val mediaDir = externalMediaDirs.firstOrNull()?.let {
+            File(it, resources.getString(R.string.app_name)).apply {
+                mkdirs()
             }
         }
+
+        return if (mediaDir != null && mediaDir.exists()) mediaDir else filesDir
     }
 
     override fun onDestroy() {
-        cameraExecutor.shutdown()
         super.onDestroy()
+        cameraExecutor.shutdown()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (allPermissionsGranted()) {
+                startCamera()
+            }
+        } else {
+            Toast.makeText(this, "Permissions Not Granted by The User", Toast.LENGTH_SHORT).show()
+        }
     }
 }
