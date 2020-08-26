@@ -1,41 +1,44 @@
 {
-    "meta": [
-        {
-            "type": "start",
-            "name": "starttime",
-            "value": ""
-        },
-        {
-            "type": "end",
-            "name": "endtime",
-            "value": ""
-        },
-        {
-            "type": "deviceid",
-            "name": "deviceid",
-            "value": ""
-        },
-        {
-            "type":"subscriberid",
-            "name": "subscriberid",
-            "value": ""
-        },
-        {
-            "type": "simserial",
-            "name": "simserial",
-            "value":""
-        },
-        {
-            "type": "phonenumber",
-            "name":"phonenumber",
-            "value": ""
-        },
-        {
-            "type": "username",
-            "name": "username",
-            "value": ""
-        }
-    ],
+    "meta": {
+        "note": "A service, running in the background, needs a way to let users know something of\ninterest has occurred, such as when email has been received. Moreover, the service\nmay need some way to steer the user to an activity where they can act upon the\nevent — reading a received message, for example. For this, Android supplies status\nbar icons, flashing lights, and other indicators collectively known as notifications.",
+        "basic_info": [
+            {
+                "type": "start",
+                "name": "starttime",
+                "value": ""
+            },
+            {
+                "type": "end",
+                "name": "endtime",
+                "value": ""
+            },
+            {
+                "type": "deviceid",
+                "name": "deviceid",
+                "value": ""
+            },
+            {
+                "type":"subscriberid",
+                "name": "subscriberid",
+                "value": ""
+            },
+            {
+                "type": "simserial",
+                "name": "simserial",
+                "value":""
+            },
+            {
+                "type": "phonenumber",
+                "name":"phonenumber",
+                "value": ""
+            },
+            {
+                "type": "username",
+                "name": "username",
+                "value": ""
+            }
+        ]
+    },
     "questions": [
         {
             "type_name":  {
