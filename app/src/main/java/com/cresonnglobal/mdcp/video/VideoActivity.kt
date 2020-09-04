@@ -9,12 +9,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.TextureView
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.Preview
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
@@ -48,13 +46,22 @@ class VideoActivity : AppCompatActivity() {
     private lateinit var camera_capture_button: ImageButton
     private var question: Question? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    private lateinit var viewFinder: TextureView
+    private lateinit var captureButton: ImageButton
+    private lateinit var videoCapture: VideoCapture
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video)
 
+        viewFinder = findViewById(R.id.answer)
+        captureButton = findViewById(R.id.record)
+
         if (allPermissionsGranted()) {
-            startCamera()
+            viewFinder.post {
+                startCamera()
+            }
         } else {
             ActivityCompat.requestPermissions(
                 this,
@@ -62,13 +69,8 @@ class VideoActivity : AppCompatActivity() {
                 REQUEST_CODE_PERMISSIONS
             )
         }
-
-        camera_capture_button = findViewById(R.id.button_camera)
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
-        camera_capture_button.setOnClickListener {
-            takePhoto()
-        }
 
         question = intent.getParcelableExtra<Question>(QUESTION)
 
@@ -108,32 +110,7 @@ class VideoActivity : AppCompatActivity() {
     }
 
     private fun startCamera() {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-        cameraProviderFuture.addListener(Runnable {
 
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-            val preview = Preview.Builder()
-                .build()
-                .also {
-                    it.setSurfaceProvider(findViewById<PreviewView>(R.id.answer).createSurfaceProvider())
-                }
-
-            imageCapture = ImageCapture.Builder().build()
-
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-            try {
-                cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(
-                    this,
-                    cameraSelector,
-                    preview,
-                    imageCapture
-                )
-            } catch (exception: Exception) {
-                Log.e(TAG, "Use case binding failed", exception)
-            }
-        }, ContextCompat.getMainExecutor(this))
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
@@ -158,7 +135,9 @@ class VideoActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (allPermissionsGranted()) {
-                startCamera()
+                viewFinder.post {
+                    startCamera()
+                }
             }
         } else {
             Toast.makeText(this, "Permissions Not Granted by The User", Toast.LENGTH_SHORT).show()
