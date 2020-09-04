@@ -79,6 +79,7 @@
             android:layout_height="50dp" />
 
         <ImageButton
+            android:id="@+id/record"
             android:padding="10dp"
             android:layout_width="50dp"
             android:background="@drawable/circular_background_blue"
@@ -94,7 +95,7 @@
 
     </LinearLayout>
 
-    <androidx.camera.view.PreviewView
+    <TextureView
         android:id="@+id/answer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -107,7 +108,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttons_container"
         app:layout_constraintVertical_bias="1.0">
 
-    </androidx.camera.view.PreviewView>
+    </TextureView>
 
     <Button
         android:id="@+id/draft"
