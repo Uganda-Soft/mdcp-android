@@ -33,7 +33,7 @@ import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
     private var interview: Interview? = null
-    private lateinit var totalQuestion: Int
+    private var totalQuestion: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,8 +66,8 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 val intent = Intent(this, BooleanActivity::class.java)
                 intent.putExtra(BooleanActivity.QUESTION, question)
                 intent.putExtra(BooleanActivity.QUESTION_ID, number)
-                intent.putExtra(BooleanActivity.NEXT_QUESTION_ID, number + 1)
-                getNextQuestionID(number)
+                intent.putExtra(BooleanActivity.NEXT_QUESTION_ID, getNextQuestionID(number + 1))
+                intent.putExtra(BooleanActivity.PREVIOUS_QUESTION_ID, getNextQuestionID(number - 1))
                 startActivity(intent)
                 return
             }
