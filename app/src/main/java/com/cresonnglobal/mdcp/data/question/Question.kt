@@ -45,5 +45,13 @@ data class QuestionRequireMessage(
     @Relation(
         parentColumn = "id",
         entityColumn = "id"
-    ) val required_messages: List<String>
+    ) val required_messages: List<RequiredMessage>
+)
+
+data class QuestionConstraintMessage(
+    @Embedded val question: Question,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "id"
+    ) val constraint_messages: List<ConstraintMessage>
 )
