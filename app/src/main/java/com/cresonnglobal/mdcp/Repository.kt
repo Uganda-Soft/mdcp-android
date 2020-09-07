@@ -38,4 +38,18 @@ class Repository private constructor(context: Context) {
             }
         }
     }
+
+    fun hasNextQuestion(question: Question): Boolean {
+        val index = interview?.questions?.indexOf(question)
+        val size  = interview?.questions?.size
+        if (index != null && size != null) {
+            if (index >= size) {
+                return false
+            }
+            if (index < 0 ) {
+                return true
+            }
+        }
+        return false
+    }
 }
