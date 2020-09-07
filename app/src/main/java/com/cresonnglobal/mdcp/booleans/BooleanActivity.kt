@@ -36,18 +36,18 @@ class BooleanActivity : AppCompatActivity() {
         previousButton = previous
         nextButton = next
 
-        question = intent.getParcelableExtra<Question>(QUESTION)
-        name.text = question?.name
-        label.text = question?.label
-        hint.text = question?.hint
-
-        if (!question?.let { viewModel.getRepository().hasNextQuestion(it) }!!) {
-            nextButton.isEnabled = false
-        }
-
-        if (!question?.let { viewModel.getRepository().hasPreviousQuestion(it) }!!) {
-            previousButton.isEnabled = false
-        }
+//        question = intent.getParcelableExtra<Question>(QUESTION)
+//        name.text = question?.name
+//        label.text = question?.label
+//        hint.text = question?.hint
+//
+//        if (!question?.let { viewModel.getRepository().hasNextQuestion(it) }!!) {
+//            nextButton.isEnabled = false
+//        }
+//
+//        if (!question?.let { viewModel.getRepository().hasPreviousQuestion(it) }!!) {
+//            previousButton.isEnabled = false
+//        }
 
 
         startNoteActivity(this, question)
@@ -64,7 +64,7 @@ class BooleanActivity : AppCompatActivity() {
                 // clear answers
                 return true
             }
-            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
+//            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
             R.id.action_view_help -> {
                 // show help
             }
