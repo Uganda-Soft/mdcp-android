@@ -2,6 +2,7 @@ package com.cresonnglobal.mdcp
 
 import android.content.Context
 import android.content.res.AssetManager
+import com.cresonnglobal.mdcp.data.CresonnglobalDatabase
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Question
 import com.google.gson.Gson
@@ -11,15 +12,16 @@ import java.io.InputStreamReader
 
 class Repository private constructor(context: Context) {
     private var interview: Interview? = null
+    private var database: CresonnglobalDatabase = CresonnglobalDatabase.getDatabase(context)
     fun getInterview(): Interview? {
         return interview
     }
 
     init {
-        val assetManager: AssetManager = context.assets
-        val inputStream: InputStream = assetManager.open("question/questions.json")
-        val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-        interview = Gson().fromJson(bufferedReader, Interview::class.java)
+//        val assetManager: AssetManager = context.assets
+//        val inputStream: InputStream = assetManager.open("question/questions.json")
+//        val bufferedReader = BufferedReader(InputStreamReader(inputStream))
+//        interview = Gson().fromJson(bufferedReader, Interview::class.java)
     }
 
     companion object {
@@ -37,27 +39,5 @@ class Repository private constructor(context: Context) {
                 return instance
             }
         }
-    }
-
-    fun hasNextQuestion(question: Question): Boolean {
-        val index = interview?.questions?.indexOf(question)
-        val size  = interview?.questions?.size
-        if (index != null && size != null) {
-            if (index >= size) {
-                return false
-            }
-        }
-        return true
-    }
-
-    fun hasPreviousQuestion(question: Question): Boolean {
-        val index = interview?.questions?.indexOf(question)
-        val size  = interview?.questions?.size
-        if (index != null && size != null) {
-            if (index <= 0) {
-                return false
-            }
-        }
-        return true
     }
 }
