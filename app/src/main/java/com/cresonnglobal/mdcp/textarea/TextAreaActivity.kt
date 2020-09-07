@@ -23,11 +23,11 @@ class TextAreaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_text_area)
 
-        question = intent.getParcelableExtra<Question>(QUESTION)
-        name.text = question?.name
-        label.text = question?.label
-        hint.text = question?.hint
-        startNoteActivity(this, question)
+//        question = intent.getParcelableExtra<Question>(QUESTION)
+//        name.text = question?.name
+//        label.text = question?.label
+//        hint.text = question?.hint
+//        startNoteActivity(this, question)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -41,7 +41,7 @@ class TextAreaActivity : AppCompatActivity() {
                 // clear answers
                 return true
             }
-            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
+//            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
 
             R.id.action_view_help -> {
                 // show help
