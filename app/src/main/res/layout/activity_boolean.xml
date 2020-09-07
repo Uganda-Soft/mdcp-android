@@ -76,7 +76,7 @@
         android:id="@+id/draft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/draft"
+        android:text="@string/previous"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/answer"
         app:layout_constraintTop_toTopOf="@+id/submit"/>
@@ -85,7 +85,7 @@
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/answer"
         app:layout_constraintHorizontal_bias="1.0"

@@ -38,4 +38,6 @@
     <string name="show_note_preference_on">Note will be shown at start of all Questions and Interview</string>
     <string name="automatic_note_on">Note will automaticall close</string>
     <string name="automatic_note_off">Note won\'t automatically close</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 </resources>
