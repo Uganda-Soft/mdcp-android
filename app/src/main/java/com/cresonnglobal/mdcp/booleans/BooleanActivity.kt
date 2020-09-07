@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
@@ -16,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_boolean.*
 
 class BooleanActivity : AppCompatActivity() {
     private lateinit var viewModel: BooleansActivityViewModel;
+    private lateinit var previousButton: Button
+    private lateinit var nextButton: Button
     companion object {
         public final const val QUESTION: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.QUESTION"
     }
@@ -26,6 +29,8 @@ class BooleanActivity : AppCompatActivity() {
         setContentView(R.layout.activity_boolean)
 
         viewModel = ViewModelProvider(this).get(BooleansActivityViewModel::class.java)
+        previousButton = previous
+        nextButton = next
 
         question = intent.getParcelableExtra<Question>(QUESTION)
         name.text = question?.name
