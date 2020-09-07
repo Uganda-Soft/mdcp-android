@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cresonnglobal.mdcp.common.startActivityForType
+import com.cresonnglobal.mdcp.data.question.Answer
 import com.cresonnglobal.mdcp.data.question.Meta
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.startConstraintActivity
@@ -27,6 +28,15 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        viewModel.getRepository().insertAnswer(Answer(
+            id = null,
+            message = "Hello World",
+            date = "23-09-2020",
+            time = "08:30am",
+            duration = "05min",
+            logitude = 78984847374,
+            latitude = 34434343433
+        ))
 
         viewModel.getRepository().queryAnswers().observe(this, Observer {
             Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
