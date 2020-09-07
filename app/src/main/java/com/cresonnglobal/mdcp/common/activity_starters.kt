@@ -26,70 +26,70 @@ fun startActivityForType(
     when (question.type_name?.type) {
         "audio" -> {
             val intent = Intent(context, AudioActivity::class.java)
-            intent.putExtra(AudioActivity.QUESTION, question)
+//            intent.putExtra(AudioActivity.QUESTION, question)
             context.startActivity(intent)
             return
         }
         "boolean" -> {
             val intent = Intent(context, BooleanActivity::class.java)
-            intent.putExtra(BooleanActivity.QUESTION, question)
-            intent.putExtra(BooleanActivity.NEXT_QUESTION, getNextQuestion(number, questions))
-            intent.putExtra(BooleanActivity.PREVIOUS_QUESTION, getPreviousQuestion(number, questions))
+//            intent.putExtra(BooleanActivity.QUESTION, question)
+//            intent.putExtra(BooleanActivity.NEXT_QUESTION, getNextQuestion(number, questions))
+//            intent.putExtra(BooleanActivity.PREVIOUS_QUESTION, getPreviousQuestion(number, questions))
             context.startActivity(intent)
             return
         }
         "number" -> {
             val intent = Intent(context, NumberActivity::class.java)
-            intent.putExtra(NumberActivity.QUESTION, question)
+//            intent.putExtra(NumberActivity.QUESTION, question)
             context.startActivity(intent)
             return
         }
         "textarea" -> {
             val intent = Intent(context, TextAreaActivity::class.java)
-            intent.putExtra(TextAreaActivity.QUESTION, question)
+//            intent.putExtra(TextAreaActivity.QUESTION, question)
             context.startActivity(intent)
             return
         }
         "video" -> {
             val intent = Intent(context, VideoActivity::class.java)
-            intent.putExtra(VideoActivity.QUESTION, question)
+//            intent.putExtra(VideoActivity.QUESTION, question)
             context.startActivity(intent)
             return
         }
         "decimal" -> {
             val intent = Intent(context, DecimalActivity::class.java)
-            intent.putExtra(DecimalActivity.QUESTION, question)
+//            intent.putExtra(DecimalActivity.QUESTION, question)
             context.startActivity(intent)
             return
         }
         "image" -> {
             val intent = Intent(context, PhotoActivity::class.java)
-            intent.putExtra(PhotoActivity.QUESTION, question)
+//            intent.putExtra(PhotoActivity.QUESTION, question)
             context.startActivity(intent)
             return
         }
         "date" -> {
             val intent = Intent(context, DateActivity::class.java)
-            intent.putExtra(DateActivity.QUESTION, question)
+//            intent.putExtra(DateActivity.QUESTION, question)
             context.startActivity(intent)
             return
         }
         "time" -> {
             val intent = Intent(context, TimeActivity::class.java)
-            intent.putExtra(TimeActivity.QUESTION, question)
+//            intent.putExtra(TimeActivity.QUESTION, question)
             context.startActivity(intent)
             return
         }
 
         "multiple_select" -> {
             val intent = Intent(context, MultipleSelectionActivity::class.java)
-            intent.putExtra(MultipleSelectionActivity.QUESTION, question)
+//            intent.putExtra(MultipleSelectionActivity.QUESTION, question)
             context.startActivity(intent)
         }
 
         "text" -> {
             val intent = Intent(context, TextActivity::class.java)
-            intent.putExtra(TextActivity.QUESTION, question)
+//            intent.putExtra(TextActivity.QUESTION, question)
             context.startActivity(intent)
         }
     }
