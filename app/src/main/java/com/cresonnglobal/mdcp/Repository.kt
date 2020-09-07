@@ -7,6 +7,7 @@ import com.cresonnglobal.mdcp.data.CresonnglobalDatabase
 import com.cresonnglobal.mdcp.data.question.Answer
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.data.question.Type
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStream
@@ -54,11 +55,25 @@ class Repository private constructor(context: Context) {
         })
     }
 
+    fun insertType(type: Type) {
+        val thread = Executors.newSingleThreadExecutor()
+        thread.submit(Runnable {
+            database.typeDao().insertType(type)
+        })
+    }
+
 
     fun queryAnswers(): LiveData<List<Answer>> {
         val thread = Executors.newSingleThreadExecutor()
         return thread.submit(Callable {
             database.answerDao().queryAnswers()
+        }).get()
+    }
+
+    fun queryType(): LiveData<List<Type>> {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.typeDao().queryTypes()
         }).get()
     }
 }
