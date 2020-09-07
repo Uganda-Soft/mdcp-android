@@ -1,8 +1,13 @@
 package com.cresonnglobal.mdcp
 
 import android.content.Context
+import com.cresonnglobal.mdcp.data.question.Interview
 
 class Repository private constructor(context: Context) {
+    fun getInterview(): Interview {
+        TODO("Not yet implemented")
+    }
+
     init {
 
     }
