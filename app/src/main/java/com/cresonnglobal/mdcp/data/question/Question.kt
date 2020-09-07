@@ -2,14 +2,15 @@ package com.cresonnglobal.mdcp.data.question
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.Relation
 import java.util.*
 
 @Entity(tableName = "question")
 data class Question(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    val type_name: QuestionType,
     val name: String,
     val label: String,
     val hint: String,
@@ -30,4 +31,12 @@ data class Question(
     val response_note: String,
     val publishable: String,
     val minimum_seconds: String
+)
+
+data class QuestionType(
+    @Embedded val question: Question,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "id"
+    ) val type: Type
 )

@@ -7,7 +7,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "question_types")
-data class QuestionType(
+data class Type(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
     var type: String,
