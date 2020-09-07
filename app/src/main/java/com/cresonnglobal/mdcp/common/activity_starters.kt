@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.cresonnglobal.mdcp.audio.AudioActivity
 import com.cresonnglobal.mdcp.booleans.BooleanActivity
+import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.date.DateActivity
 import com.cresonnglobal.mdcp.decimal.DecimalActivity
@@ -15,7 +16,12 @@ import com.cresonnglobal.mdcp.textarea.TextAreaActivity
 import com.cresonnglobal.mdcp.time.TimeActivity
 import com.cresonnglobal.mdcp.video.VideoActivity
 
-fun startActivityForType(question: Question, context: Context) {
+fun startActivityForType(
+    question: Question,
+    context: Context,
+    totalQuestion: Int,
+    interview: Interview?
+) {
     when (question.type_name?.type) {
         "audio" -> {
             val intent = Intent(context, AudioActivity::class.java)
