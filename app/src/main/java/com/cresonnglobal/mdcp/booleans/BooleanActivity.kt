@@ -45,6 +45,10 @@ class BooleanActivity : AppCompatActivity() {
             nextButton.isEnabled = false
         }
 
+        if (!question?.let { viewModel.getRepository().hasPreviousQuestion(it) }!!) {
+            previousButton.isEnabled = false
+        }
+
 
         startNoteActivity(this, question)
     }
