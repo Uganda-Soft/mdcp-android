@@ -17,7 +17,6 @@ data class Question(
     val default: String,
     val appearance: String,
     val constraint: List<String>,
-    val constraint_message: List<String>,
     val relevance: String,
     val disabled: String,
     val required: String,
@@ -39,4 +38,12 @@ data class QuestionType(
         parentColumn = "id",
         entityColumn = "id"
     ) val type: Type
+)
+
+data class QuestionRequireMessage(
+    @Embedded val question: Question,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "id"
+    ) val required_messages: List<String>
 )
