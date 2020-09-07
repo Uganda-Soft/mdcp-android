@@ -30,7 +30,7 @@ class QuestionAdapter(var questions: List<Question>, val context: Context):
             labelTextView.text = question.name
 //            statusTextView.text = "something"
             itemView.setOnClickListener {
-                onQuestionClickListener.onQuestionClick(question)
+                onQuestionClickListener.onQuestionClick(question, number)
             }
         }
     }
@@ -50,6 +50,6 @@ class QuestionAdapter(var questions: List<Question>, val context: Context):
     }
 
     public interface OnQuestionClickListener {
-        public fun onQuestionClick(question: Question)
+        public fun onQuestionClick(question: Question, number: Int)
     }
 }

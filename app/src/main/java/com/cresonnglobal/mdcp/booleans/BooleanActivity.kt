@@ -16,6 +16,9 @@ import kotlinx.android.synthetic.main.activity_boolean.*
 class BooleanActivity : AppCompatActivity() {
     companion object {
         public final const val QUESTION: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.QUESTION"
+        public final const val QUESTION_ID: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.QUESTION_ID"
+        public final const val NEXT_QUESTION_ID: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.NEXT_QUESTION_ID"
+        public final const val PREVIOUS_QUESTION_ID: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.PREVIOUS_QUESTION_ID"
     }
     private var question: Question? = null
 

@@ -33,6 +33,7 @@ import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
     private var interview: Interview? = null
+    private lateinit var totalQuestion: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,12 +48,13 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
             startNoteActivity(this, it.meta?.note)
             val recyclerView: RecyclerView = questions_list_recyclerview
             val questionAdapter = QuestionAdapter(it.questions, this)
+            totalQuestion = it.questions.size
             recyclerView.layoutManager = GridLayoutManager(this, 2)
             recyclerView.adapter = questionAdapter
         }
     }
 
-    override fun onQuestionClick(question: Question) {
+    override fun onQuestionClick(question: Question, number: Int) {
         when (question.type_name?.type) {
             "audio" -> {
                 val intent = Intent(this, AudioActivity::class.java)
@@ -63,6 +65,9 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
             "boolean" -> {
                 val intent = Intent(this, BooleanActivity::class.java)
                 intent.putExtra(BooleanActivity.QUESTION, question)
+                intent.putExtra(BooleanActivity.QUESTION_ID, number)
+                intent.putExtra(BooleanActivity.NEXT_QUESTION_ID, number + 1)
+                getNextQuestionID(number)
                 startActivity(intent)
                 return
             }
@@ -121,6 +126,15 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 startActivity(intent)
             }
         }
+    }
+
+    private fun getNextQuestionID(number: Int): Int {
+        if ( number < 0) {
+            return 0
+        } else if (number > totalQuestion) {
+            return totalQuestion - 1;
+        }
+        return number
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
