@@ -1,7 +1,6 @@
 package com.cresonnglobal.mdcp.data.question
 
-import android.os.Parcel
-import android.os.Parcelable
+
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,8 +9,7 @@ import androidx.room.Relation
 @Entity(tableName = "meta")
 data class Meta(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    var note: String,
-    var constraint_message: List<String>
+    var note: String
 )
 
 data class  MetaBasicInfo(
