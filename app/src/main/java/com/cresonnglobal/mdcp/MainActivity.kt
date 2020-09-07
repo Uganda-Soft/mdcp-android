@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
     }
 
     override fun onQuestionClick(question: Question, number: Int) {
-        startActivityForType(question, this, viewModel.getInterview(), number)
+//        startActivityForType(question, this, viewModel.getInterview(), number)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 startActivity(intent)
             }
 
-            R.id.action_view_note -> startNoteActivity(this, viewModel.getInterview()?.meta?.note)
+//            R.id.action_view_note -> startNoteActivity(this, viewModel.getInterview()?.meta?.note)
         }
         return super.onOptionsItemSelected(item)
     }
