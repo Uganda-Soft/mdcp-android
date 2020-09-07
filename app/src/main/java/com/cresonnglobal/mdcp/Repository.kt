@@ -39,7 +39,7 @@ class Repository private constructor(context: Context) {
         }
     }
 
-    fun hasNext(question: Question): Boolean {
+    fun hasNextQuestion(question: Question): Boolean {
         val size = interview.let {
             it?.questions?.size
         }
@@ -57,5 +57,16 @@ class Repository private constructor(context: Context) {
             }
         }
         return false
+    }
+
+    fun getNextQuestion(question: Question): Question? {
+        val index = interview.let {
+            it?.questions?.indexOf(question)
+        }
+        if (hasNextQuestion(question) && interview != null && index != null ) {
+            interview!!.questions[index]
+        } else {
+            return null
+        }
     }
 }
