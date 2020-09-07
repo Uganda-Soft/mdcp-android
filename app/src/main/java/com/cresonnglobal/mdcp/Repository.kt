@@ -62,12 +62,12 @@ class Repository private constructor(context: Context) {
         })
     }
 
-    fun insertQuestion(question: Question) {
-        val thread = Executors.newSingleThreadExecutor()
-        thread.submit(Runnable {
-            database.questionDao().insertQuestion(question)
-        })
-    }
+//    fun insertQuestion(question: Question) {
+//        val thread = Executors.newSingleThreadExecutor()
+//        thread.submit(Runnable {
+//            database.questionDao().insertQuestion(question)
+//        })
+//    }
 
 
     fun queryAnswers(): LiveData<List<Answer>> {
@@ -84,10 +84,10 @@ class Repository private constructor(context: Context) {
         }).get()
     }
 
-    fun queryQuestions(): List<Question> {
-        val thread = Executors.newSingleThreadExecutor()
-        return thread.submit(Callable {
-            database.questionDao().queryQuestion()
-        }).get()
-    }
+//    fun queryQuestions(): List<Question> {
+//        val thread = Executors.newSingleThreadExecutor()
+//        return thread.submit(Callable {
+//            database.questionDao().queryQuestion()
+//        }).get()
+//    }
 }

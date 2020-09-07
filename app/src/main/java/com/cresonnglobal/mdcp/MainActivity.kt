@@ -28,19 +28,33 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        viewModel.getRepository().insertAnswer(Answer(
-            id = null,
-            message = "Hello World",
-            date = "23-09-2020",
-            time = "08:30am",
-            duration = "05min",
-            logitude = "78984847374",
-            latitude = "34434343433"
-        ))
+//        viewModel.getRepository().insertQuestion(
+//            Question(
+//            78,
+//            "Sq23",
+//            "Label",
+//            "This was the hint",
+//            "None",
+//            "Text box",
+//            "This required",
+//            "True",
+//            "NO",
+//            "Yes",
+//            "This ",
+//            "Better",
+//            "No Choice",
+//            "The Man",
+//            "The Writer",
+//            "Thre",
+//            "Not"
+//        )
+//        )
+
 
         viewModel.getRepository().queryAnswers().observe(this, Observer {
             Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
         })
+//        val data = viewModel.getRepository().queryQuestions()
 
     }
 

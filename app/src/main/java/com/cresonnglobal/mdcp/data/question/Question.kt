@@ -10,69 +10,69 @@ import java.util.*
 
 @Entity(tableName = "question")
 data class Question(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    val name: String,
-    val label: String,
-    val hint: String,
-    val default: String,
-    val appearance: String,
-    val relevance: String,
-    val disabled: String,
-    val required: String,
-    val read_only: String,
-    val calculation: String,
-    val repeat_count: String,
-    val choice_filter: String,
-    val note: String,
-    val response_note: String,
-    val publishable: String,
-    val minimum_seconds: String
+    @PrimaryKey(autoGenerate = true) var id: Int,
+    var name: String,
+    var label: String,
+    var hint: String,
+    var default: String,
+    var appearance: String,
+    var relevance: String,
+    var disabled: String,
+    var required: String,
+    var read_only: String,
+    var calculation: String,
+    var repeat_count: String,
+    var choice_filter: String,
+    var note: String,
+    var response_note: String,
+    var publishable: String,
+    var minimum_seconds: String
 )
 
 data class QuestionType(
-    @Embedded val question: Question,
+    @Embedded var question: Question,
     @Relation(
         parentColumn = "id",
         entityColumn = "id"
-    ) val type: Type
+    ) var type: Type
 )
 
 data class QuestionRequireMessage(
-    @Embedded val question: Question,
+    @Embedded var question: Question,
     @Relation(
         parentColumn = "id",
         entityColumn = "id"
-    ) val required_messages: List<RequiredMessage>
+    ) var required_messages: List<RequiredMessage>
 )
 
 data class QuestionConstraintMessage(
-    @Embedded val question: Question,
+    @Embedded var question: Question,
     @Relation(
         parentColumn = "id",
         entityColumn = "id"
-    ) val constraint_messages: List<ConstraintMessage>
+    ) var constraint_messages: List<ConstraintMessage>
 )
 
 data class QuestionConstraint(
-    @Embedded val question: Question,
+    @Embedded var question: Question,
     @Relation(
         parentColumn = "id",
         entityColumn = "id"
-    ) val constraints: List<Constraint>
+    ) var constraints: List<Constraint>
 )
 
 data class QuestionMedia(
-    @Embedded val question: Question,
+    @Embedded var question: Question,
     @Relation(
         parentColumn = "id",
         entityColumn = "id"
-    ) val media: Media
+    ) var media: Media
 )
 
 data class QuestionAnswer(
-    @Embedded val question: Question,
+    @Embedded var question: Question,
     @Relation(
         parentColumn = "id",
         entityColumn = "id"
-    ) val answers: List<Answer>
+    ) var answers: List<Answer>
 )

@@ -14,8 +14,8 @@ import com.cresonnglobal.mdcp.data.question.*
     ConstraintMessage::class,
     Selection::class,
     Type::class,
-    RequiredMessage::class,
-    Question::class
+    RequiredMessage::class
+//    Question::class
 ], version = 1, exportSchema = false)
 abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun answerDao(): AnswerDao
@@ -26,7 +26,7 @@ abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun selectionDao(): SelectionDao
     abstract fun typeDao(): TypeDao
     abstract fun requiredMessageDao(): RequiredMessageDao
-    abstract fun questionDao(): QuestionDao
+//    abstract fun questionDao(): QuestionDao
 
     companion object {
         @Volatile

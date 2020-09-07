@@ -13,8 +13,8 @@ interface QuestionDao {
     @Query("SELECT * FROM question")
     fun queryQuestion(): List<Question>
 
-    @Transaction
-    @Query("SELECT * FROM question")
-    fun queryQuestionType(): List<QuestionType>
+//    @Transaction
+//    @Query("SELECT * FROM question")
+//    fun queryQuestionType(): List<QuestionType>
 
 }
