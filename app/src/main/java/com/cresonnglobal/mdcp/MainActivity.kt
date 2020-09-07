@@ -39,10 +39,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val assetManager: AssetManager = assets
-        val inputStream: InputStream = assetManager.open("question/questions.json")
-        val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-        interview = Gson().fromJson(bufferedReader, Interview::class.java)
+
 
         interview?.let {
             startNoteActivity(this, it.meta?.note)
