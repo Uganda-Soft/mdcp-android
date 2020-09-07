@@ -85,7 +85,18 @@
             "minimum_seconds": "",
             "choices": {
                 
-            }
+            },
+            "answers": [
+                {
+                    "label": "qs34",
+                    "answer": "This was the answer",
+                    "date": "23-56-90",
+                    "time": "08: 45 am",
+                    "duration": 67,
+                    "longitude": 89099,
+                    "latitude": 899e4
+                }
+            ]
         },
 
         {
