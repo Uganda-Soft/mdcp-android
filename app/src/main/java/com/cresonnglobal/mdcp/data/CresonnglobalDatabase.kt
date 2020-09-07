@@ -6,12 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.cresonnglobal.mdcp.data.question.Answer
 import com.cresonnglobal.mdcp.data.question.AnswerDao
+import com.cresonnglobal.mdcp.data.question.BasicInfo
+import com.cresonnglobal.mdcp.data.question.BasicInfoDao
 
 @Database(entities = [
-    Answer::class
+    Answer::class,
+    BasicInfo::class
 ], version = 1, exportSchema = false)
 abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun answerDao(): AnswerDao
+    abstract fun basicInfoDao(): BasicInfoDao
 
     companion object {
         @Volatile
