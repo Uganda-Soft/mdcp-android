@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cresonnglobal.mdcp.audio.AudioActivity
 import com.cresonnglobal.mdcp.booleans.BooleanActivity
+import com.cresonnglobal.mdcp.common.startActivityForType
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Meta
 import com.cresonnglobal.mdcp.data.question.Question
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
     }
 
     override fun onQuestionClick(question: Question, number: Int) {
-
+        startActivityForType(question, this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

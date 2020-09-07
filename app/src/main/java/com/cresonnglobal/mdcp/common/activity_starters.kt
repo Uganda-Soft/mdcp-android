@@ -15,7 +15,7 @@ import com.cresonnglobal.mdcp.textarea.TextAreaActivity
 import com.cresonnglobal.mdcp.time.TimeActivity
 import com.cresonnglobal.mdcp.video.VideoActivity
 
-fun startActivityForType(question: Question, context: Context, number: Int) {
+fun startActivityForType(question: Question, context: Context) {
     when (question.type_name?.type) {
         "audio" -> {
             val intent = Intent(context, AudioActivity::class.java)
@@ -26,7 +26,6 @@ fun startActivityForType(question: Question, context: Context, number: Int) {
         "boolean" -> {
             val intent = Intent(context, BooleanActivity::class.java)
             intent.putExtra(BooleanActivity.QUESTION, question)
-            intent.putExtra(BooleanActivity.QUESTION_ID, number)
             context.startActivity(intent)
             return
         }
