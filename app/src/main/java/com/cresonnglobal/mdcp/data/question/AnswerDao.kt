@@ -13,5 +13,5 @@ interface AnswerDao {
     @Query(
         "SELECT * FROM answer"
     )
-    fun getAnswers(): LiveData<List<Answer>>
+    fun queryAnswers(): LiveData<List<Answer>>
 }

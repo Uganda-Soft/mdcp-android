@@ -2,6 +2,7 @@ package com.cresonnglobal.mdcp
 
 import android.content.Context
 import android.content.res.AssetManager
+import androidx.lifecycle.LiveData
 import com.cresonnglobal.mdcp.data.CresonnglobalDatabase
 import com.cresonnglobal.mdcp.data.question.Answer
 import com.cresonnglobal.mdcp.data.question.Interview
@@ -10,6 +11,8 @@ import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.util.concurrent.Callable
+import java.util.concurrent.Executor
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -49,5 +52,13 @@ class Repository private constructor(context: Context) {
         thread.submit(Runnable {
             database.answerDao().insertAnswer(answer)
         })
+    }
+
+
+    fun queryAnswers(): LiveData<List<Answer>> {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.answerDao().queryAnswers()
+        }).get()
     }
 }
