@@ -21,10 +21,10 @@ class DecimalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_decimal)
 
-        question = intent.getParcelableExtra<Question>(QUESTION)
-        name.text = question?.name
-        label.text = question?.label
-        hint.text = question?.hint
+//        question = intent.getParcelableExtra<Question>(QUESTION)
+//        name.text = question?.name
+//        label.text = question?.label
+//        hint.text = question?.hint
         startNoteActivity(this, question)
     }
 
@@ -39,7 +39,7 @@ class DecimalActivity : AppCompatActivity() {
                 // clear answers
                 return true
             }
-            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
+//            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
             R.id.action_view_help -> {
                 // show help
             }
