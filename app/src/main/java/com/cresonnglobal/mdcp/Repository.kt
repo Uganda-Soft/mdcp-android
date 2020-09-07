@@ -2,7 +2,7 @@ package com.cresonnglobal.mdcp
 
 import android.content.Context
 
-class Repository(context: Context) {
+class Repository private constructor(context: Context) {
     init {
 
     }
