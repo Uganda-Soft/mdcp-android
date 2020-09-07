@@ -52,29 +52,29 @@
         android:layout_marginTop="8dp"
         android:padding="5dp"
         android:timePickerMode="spinner"
-        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="@+id/hint"
         app:layout_constraintStart_toStartOf="@+id/hint"
         app:layout_constraintTop_toBottomOf="@+id/hint"
         app:layout_constraintVertical_bias="0.01999998" />
 
     <Button
-        android:id="@+id/draft"
+        android:id="@+id/previous"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/draft"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/answer"
-        app:layout_constraintTop_toTopOf="@+id/submit"/>
+        app:layout_constraintTop_toTopOf="@+id/next"/>
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/answer"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/draft"/>
+        app:layout_constraintStart_toEndOf="@+id/previous"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
