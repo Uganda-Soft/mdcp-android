@@ -19,7 +19,8 @@ import com.cresonnglobal.mdcp.video.VideoActivity
 fun startActivityForType(
     question: Question,
     context: Context,
-    interview: Interview?
+    interview: Interview?,
+    number: Int
 ) {
     val questions = interview?.questions
     when (question.type_name?.type) {
@@ -32,6 +33,8 @@ fun startActivityForType(
         "boolean" -> {
             val intent = Intent(context, BooleanActivity::class.java)
             intent.putExtra(BooleanActivity.QUESTION, question)
+            intent.putExtra(BooleanActivity.NEXT_QUESTION, getNextQuestion(number, questions))
+            intent.putExtra(BooleanActivity.PREVIOUS_QUESTION, getPreviousQuestion(number, questions))
             context.startActivity(intent)
             return
         }
@@ -92,13 +95,22 @@ fun startActivityForType(
     }
 }
 
-fun getNextQuestionID(currentQuestion: Int, questions: Array<Question>): Question {
+fun getPreviousQuestion(number: Int, questions: List<Question>?): Question? {
+    if (number <= 0) {
+        return questions?.get(0)
+    }
+    return questions?.get(number)
+}
+
+fun getNextQuestion(currentQuestion: Int, questions: List<Question>?): Question? {
     if (currentQuestion <= 0) {
-        return questions[0]
+        return questions?.get(0)
     }
 
-    if (currentQuestion >= questions.size) {
-        return questions[currentQuestion + 1]
+    if (questions != null) {
+        if (currentQuestion >= questions.size) {
+            return questions?.get(currentQuestion + 1)
+        }
     }
-    return questions[currentQuestion]
+    return questions?.get(currentQuestion)
 }
