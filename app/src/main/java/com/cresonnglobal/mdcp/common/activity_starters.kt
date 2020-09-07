@@ -19,7 +19,6 @@ import com.cresonnglobal.mdcp.video.VideoActivity
 fun startActivityForType(
     question: Question,
     context: Context,
-    totalQuestion: Int,
     interview: Interview?
 ) {
     val questions = interview?.questions

@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
     }
 
     override fun onQuestionClick(question: Question, number: Int) {
-        startActivityForType(question, this, totalQuestion, viewModel.getInterview())
+        startActivityForType(question, this, viewModel.getInterview())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

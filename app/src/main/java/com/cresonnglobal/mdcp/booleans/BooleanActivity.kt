@@ -21,6 +21,8 @@ class BooleanActivity : AppCompatActivity() {
     private lateinit var nextButton: Button
     companion object {
         public final const val QUESTION: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.QUESTION"
+        public final const val NEXT_QUESTION: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.NEXT_QUESTION"
+        public final const val PREVIOUS_QUESTION: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.PREVIOUS_QUESTION"
     }
     private var question: Question? = null
 
