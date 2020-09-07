@@ -67,7 +67,7 @@ class VideoActivity : AppCompatActivity() {
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        question = intent.getParcelableExtra<Question>(QUESTION)
+//        question = intent.getParcelableExtra<Question>(QUESTION)
 
 // There is some name mismatch here this is not mistake
         name.text = question?.name
@@ -150,7 +150,7 @@ class VideoActivity : AppCompatActivity() {
                 // clear answers
                 return true
             }
-            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
+//            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
 
             R.id.action_view_help -> {
                 // show help
