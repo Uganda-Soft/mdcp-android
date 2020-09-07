@@ -10,6 +10,6 @@ data class Answer(
     var date: String,
     var time: String,
     var duration: String,
-    var logitude: Long,
-    var latitude: Long
+    var logitude: String,
+    var latitude: String
 )

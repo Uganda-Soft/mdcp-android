@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
             date = "23-09-2020",
             time = "08:30am",
             duration = "05min",
-            logitude = 78984847374,
-            latitude = 34434343433
+            logitude = "78984847374",
+            latitude = "34434343433"
         ))
 
         viewModel.getRepository().queryAnswers().observe(this, Observer {
