@@ -22,6 +22,7 @@ fun startActivityForType(
     totalQuestion: Int,
     interview: Interview?
 ) {
+    val questions = interview?.questions
     when (question.type_name?.type) {
         "audio" -> {
             val intent = Intent(context, AudioActivity::class.java)
@@ -90,4 +91,15 @@ fun startActivityForType(
             context.startActivity(intent)
         }
     }
+}
+
+fun getNextQuestionID(currentQuestion: Int, questions: Array<Question>): Question {
+    if (currentQuestion <= 0) {
+        return questions[0]
+    }
+
+    if (currentQuestion >= questions.size) {
+        return questions[currentQuestion + 1]
+    }
+    return questions[currentQuestion]
 }
