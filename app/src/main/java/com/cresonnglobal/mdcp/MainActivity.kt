@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cresonnglobal.mdcp.audio.AudioActivity
@@ -32,16 +33,17 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
-    private var interview: Interview? = null
     private var totalQuestion: Int = 0
+    private lateinit var viewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
 
-        interview?.let {
+        viewModel.getInterview()?.let {
             startNoteActivity(this, it.meta?.note)
             val recyclerView: RecyclerView = questions_list_recyclerview
             val questionAdapter = QuestionAdapter(it.questions, this)
