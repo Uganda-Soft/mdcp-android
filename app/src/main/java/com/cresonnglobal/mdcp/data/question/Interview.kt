@@ -7,7 +7,7 @@ import androidx.room.Relation
 
 @Entity(tableName = "interview")
 data class Interview(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int
 )
 
 data class InterviewMeta(
