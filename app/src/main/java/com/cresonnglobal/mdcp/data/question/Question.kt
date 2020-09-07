@@ -22,7 +22,6 @@ data class Question(
     val read_only: String,
     val calculation: String,
     val repeat_count: String,
-    val media: Media,
     val choice_filter: String,
     val note: String,
     val response_note: String,
@@ -60,4 +59,12 @@ data class QuestionConstraint(
         parentColumn = "id",
         entityColumn = "id"
     ) val constraints: List<Constraint>
+)
+
+data class QuestionMedia(
+    @Embedded val question: Question,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "id"
+    ) val media: Media
 )
