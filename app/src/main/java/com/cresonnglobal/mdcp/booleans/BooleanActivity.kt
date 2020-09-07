@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.R
@@ -63,4 +64,7 @@ class BooleanActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    fun startPreviousActivityType(view: View) {}
+    fun startNextActivityType(view: View) {}
 }
