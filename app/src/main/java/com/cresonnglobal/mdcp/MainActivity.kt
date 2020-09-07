@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+
+        viewModel.getRepository().queryAnswers().observe(this, Observer {
+            Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
+        })
 
     }
 

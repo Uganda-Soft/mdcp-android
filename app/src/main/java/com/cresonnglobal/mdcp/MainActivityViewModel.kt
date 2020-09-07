@@ -10,4 +10,8 @@ class MainActivityViewModel(application: Application): AndroidViewModel(applicat
     fun getInterview(): Interview? {
         return repository.getInterview()
     }
+
+    fun getRepository(): Repository {
+        return repository
+    }
 }
