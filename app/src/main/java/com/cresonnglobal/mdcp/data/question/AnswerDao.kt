@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface AnswerDao {
     @Insert
-    fun addAnswer(answer: Answer)
+    fun insertAnswer(answer: Answer)
 
     @Query(
         "SELECT * FROM answer"
