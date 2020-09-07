@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
@@ -14,17 +15,17 @@ import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import kotlinx.android.synthetic.main.activity_boolean.*
 
 class BooleanActivity : AppCompatActivity() {
+    private lateinit var viewModel: BooleansActivityViewModel;
     companion object {
         public final const val QUESTION: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.QUESTION"
-        public final const val QUESTION_ID: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.QUESTION_ID"
-        public final const val NEXT_QUESTION_ID: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.NEXT_QUESTION_ID"
-        public final const val PREVIOUS_QUESTION_ID: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.PREVIOUS_QUESTION_ID"
     }
     private var question: Question? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_boolean)
+
+        viewModel = ViewModelProvider(this).get(BooleansActivityViewModel::class.java)
 
         question = intent.getParcelableExtra<Question>(QUESTION)
         name.text = question?.name
