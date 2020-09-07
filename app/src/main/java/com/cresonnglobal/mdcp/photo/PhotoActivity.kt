@@ -70,12 +70,12 @@ class PhotoActivity : AppCompatActivity() {
             takePhoto()
         }
 
-        question = intent.getParcelableExtra<Question>(QUESTION)
-        name.text = question?.name
-        label.text = question?.label
-        hint.text = question?.hint
-
-        startNoteActivity(this, question)
+//        question = intent.getParcelableExtra<Question>(QUESTION)
+//        name.text = question?.name
+//        label.text = question?.label
+//        hint.text = question?.hint
+//
+//        startNoteActivity(this, question)
 
     }
 
@@ -175,7 +175,7 @@ class PhotoActivity : AppCompatActivity() {
                 // clear answers
                 return true
             }
-            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
+//            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
 
             R.id.action_view_help -> {
                 // show help
