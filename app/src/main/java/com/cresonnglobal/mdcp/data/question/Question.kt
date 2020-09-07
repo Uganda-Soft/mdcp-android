@@ -68,3 +68,11 @@ data class QuestionMedia(
         entityColumn = "id"
     ) val media: Media
 )
+
+data class QuestionAnswer(
+    @Embedded val question: Question,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "id"
+    ) val answers: List<Answer>
+)
