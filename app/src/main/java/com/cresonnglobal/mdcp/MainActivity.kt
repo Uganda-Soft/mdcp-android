@@ -148,8 +148,8 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
                 startActivity(intent)
             }
 
-            R.id.action_view_note -> startNoteActivity(this, interview?.meta?.note)
-            R.id.action_view_constraints -> interview?.let {
+            R.id.action_view_note -> startNoteActivity(this, viewModel.getInterview()?.meta?.note)
+            R.id.action_view_constraints -> viewModel.getInterview()?.let {
                 it.meta?.let {meta: Meta -> startConstraintActivity(this, meta.constraint_message)
                 }
             }
