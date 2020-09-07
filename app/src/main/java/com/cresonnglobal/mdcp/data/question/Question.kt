@@ -16,7 +16,6 @@ data class Question(
     val hint: String,
     val default: String,
     val appearance: String,
-    val constraint: List<String>,
     val relevance: String,
     val disabled: String,
     val required: String,
