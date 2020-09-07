@@ -12,4 +12,8 @@ class BooleansActivityViewModel (application: Application): AndroidViewModel(app
         return repository.getInterview()
     }
 
+    fun getRepository(): Repository {
+        return repository
+    }
+
 }

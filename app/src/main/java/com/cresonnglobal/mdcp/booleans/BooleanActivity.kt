@@ -37,6 +37,7 @@ class BooleanActivity : AppCompatActivity() {
         label.text = question?.label
         hint.text = question?.hint
 
+
         startNoteActivity(this, question)
     }
 
