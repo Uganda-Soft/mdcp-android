@@ -11,7 +11,8 @@ import com.cresonnglobal.mdcp.data.question.*
     BasicInfo::class,
     Constraint::class,
     Media::class,
-    ConstraintMessage::class
+    ConstraintMessage::class,
+    Selection::class
 ], version = 1, exportSchema = false)
 abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun answerDao(): AnswerDao
@@ -19,6 +20,7 @@ abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun constraintDao(): ConstraintDao
     abstract fun mediaDao(): MediaDao
     abstract fun constraintMessageDao(): ConstraintMessageDao
+    abstract fun selectionDao(): SelectionDao
 
     companion object {
         @Volatile
