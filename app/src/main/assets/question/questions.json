@@ -48,7 +48,12 @@
         {
             "type_name":  {
                 "type": "boolean",
-                "from": "District"
+                "from": "District",
+                "selections": [],
+                "range": {
+                    "max": 45,
+                    "min": 44
+                }
             },
             "name": "SQ1",
             "label": "Is the prenatal visit performed as soon as possible, after confirmation of pregnancy, in women who have sought health services?",
