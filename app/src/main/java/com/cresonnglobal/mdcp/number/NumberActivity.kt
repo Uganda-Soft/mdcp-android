@@ -23,12 +23,12 @@ class NumberActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_number)
 
-        val question: Question? = intent.getParcelableExtra<Question>(QUESTION)
-        name.text = question?.name
-        label.text = question?.label
-        hint.text = question?.hint
-
-        startNoteActivity(this, question)
+//        val question: Question? = intent.getParcelableExtra<Question>(QUESTION)
+//        name.text = question?.name
+//        label.text = question?.label
+//        hint.text = question?.hint
+//
+//        startNoteActivity(this, question)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -42,7 +42,7 @@ class NumberActivity : AppCompatActivity() {
                 // clear answers
                 return true
             }
-            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
+//            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
 
             R.id.action_view_help -> {
                 // show help
