@@ -10,8 +10,8 @@ import java.io.InputStreamReader
 
 class Repository private constructor(context: Context) {
     private var interview: Interview? = null
-    fun getInterview(): Interview {
-        TODO("Not yet implemented")
+    fun getInterview(): Interview? {
+        return interview
     }
 
     init {
