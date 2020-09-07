@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.R
+import com.cresonnglobal.mdcp.common.startActivityForType
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
 import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
@@ -65,6 +66,8 @@ class BooleanActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun startPreviousActivityType(view: View) {}
+    fun startPreviousActivityType(view: View) {
+
+    }
     fun startNextActivityType(view: View) {}
 }
