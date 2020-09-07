@@ -1,9 +1,6 @@
 package com.cresonnglobal.mdcp.data.question
 
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.Relation
+import androidx.room.*
 
 @Entity(tableName = "interview")
 data class Interview(
@@ -17,6 +14,7 @@ data class InterviewMeta(
         entityColumn = "id"
     ) val meta: Meta
 )
+
 
 data class InterviewQuestion(
     @Embedded val interview: Interview,
