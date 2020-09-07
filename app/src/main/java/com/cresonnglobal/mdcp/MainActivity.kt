@@ -26,15 +26,6 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
-
-        viewModel.getInterview()?.let {
-            startNoteActivity(this, it.meta?.note)
-            val recyclerView: RecyclerView = questions_list_recyclerview
-            val questionAdapter = QuestionAdapter(it.questions, this)
-            totalQuestion = it.questions.size
-            recyclerView.layoutManager = GridLayoutManager(this, 2)
-            recyclerView.adapter = questionAdapter
-        }
     }
 
     override fun onQuestionClick(question: Question, number: Int) {
@@ -54,10 +45,6 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
             }
 
             R.id.action_view_note -> startNoteActivity(this, viewModel.getInterview()?.meta?.note)
-            R.id.action_view_constraints -> viewModel.getInterview()?.let {
-                it.meta?.let {meta: Meta -> startConstraintActivity(this, meta.constraint_message)
-                }
-            }
         }
         return super.onOptionsItemSelected(item)
     }
