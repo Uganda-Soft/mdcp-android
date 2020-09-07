@@ -8,8 +8,6 @@ import androidx.room.Relation
 @Entity(tableName = "interview")
 data class Interview(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    val meta: Meta,
-    val questions: List<Question>
 )
 
 data class InterviewMeta(
@@ -18,4 +16,12 @@ data class InterviewMeta(
         parentColumn = "id",
         entityColumn = "id"
     ) val meta: Meta
+)
+
+data class InterviewQuestion(
+    @Embedded val interview: Interview,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "id"
+    ) val questions: List<Question>
 )
