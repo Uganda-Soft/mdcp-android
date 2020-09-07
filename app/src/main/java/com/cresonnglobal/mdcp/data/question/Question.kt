@@ -54,3 +54,11 @@ data class QuestionConstraintMessage(
         entityColumn = "id"
     ) val constraint_messages: List<ConstraintMessage>
 )
+
+data class QuestionConstraint(
+    @Embedded val question: Question,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "id"
+    ) val constraints: List<Constraint>
+)
