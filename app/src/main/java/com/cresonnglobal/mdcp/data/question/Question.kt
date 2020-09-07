@@ -17,7 +17,6 @@ data class Question(
     val default: String,
     val appearance: String,
     val constraint: List<String>,
-    val constraint_message: List<String>,
     val relevance: String,
     val disabled: String,
     val required: String,
