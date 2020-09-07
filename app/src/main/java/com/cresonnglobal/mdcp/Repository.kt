@@ -3,6 +3,7 @@ package com.cresonnglobal.mdcp
 import android.content.Context
 import android.content.res.AssetManager
 import com.cresonnglobal.mdcp.data.question.Interview
+import com.cresonnglobal.mdcp.data.question.Question
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStream
@@ -36,5 +37,25 @@ class Repository private constructor(context: Context) {
                 return instance
             }
         }
+    }
+
+    fun hasNext(question: Question): Boolean {
+        val size = interview.let {
+            it?.questions?.size
+        }
+        val index = interview.let {
+            it?.questions?.indexOf(question)
+        }
+
+        if (index != null) {
+            if (index <= 0) {
+                return false
+            }
+
+            if (index >= size!!) {
+                return true
+            }
+        }
+        return false
     }
 }
