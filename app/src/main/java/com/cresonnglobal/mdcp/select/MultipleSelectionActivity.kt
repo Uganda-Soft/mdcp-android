@@ -30,33 +30,33 @@ class MultipleSelectionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multiple_selection)
 
-        question = intent.getParcelableExtra<Question>(QUESTION)
-        name.text = question?.name
-        label.text = question?.label
-        hint.text = question?.hint
-
-        val selections: List<String>? = question?.type_name?.selections
-        val listView: ListView = answer
-        val adapter = selections?.let {
-            ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_multiple_choice,
-                it
-            )
-        }
-        listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
-        listView.adapter = adapter
-        listView.setOnItemClickListener{ _, _, position, _ ->
-            if (selectedItems.contains(selections?.get(position))) {
-                if (selections != null) {
-                    selectedItems.remove(selections[position])
-                }
-            } else {
-                selections?.get(position)?.let { selectedItems.add(it) }
-            }
-        }
-
-        startNoteActivity(this, question)
+//        question = intent.getParcelableExtra<Question>(QUESTION)
+//        name.text = question?.name
+//        label.text = question?.label
+//        hint.text = question?.hint
+//
+//        val selections: List<String>? = question?.type_name?.selections
+//        val listView: ListView = answer
+//        val adapter = selections?.let {
+//            ArrayAdapter<String>(
+//                this,
+//                android.R.layout.simple_list_item_multiple_choice,
+//                it
+//            )
+//        }
+//        listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
+//        listView.adapter = adapter
+//        listView.setOnItemClickListener{ _, _, position, _ ->
+//            if (selectedItems.contains(selections?.get(position))) {
+//                if (selections != null) {
+//                    selectedItems.remove(selections[position])
+//                }
+//            } else {
+//                selections?.get(position)?.let { selectedItems.add(it) }
+//            }
+//        }
+//
+//        startNoteActivity(this, question)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,7 +70,7 @@ class MultipleSelectionActivity : AppCompatActivity() {
                 // clear answers
                 return true
             }
-            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
+//            R.id.action_view_constraints -> startConstraintActivity(this, question?.constraint_message)
 
             R.id.action_view_help -> {
                 // show help
