@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface BasicInfoDao {
     @Insert
-    fun insertBasicInfo(basicInfoDao: BasicInfoDao)
+    fun insertBasicInfo(basicInfoDao: BasicInfo)
 
     @Query("SELECT * FROM basic_info")
     fun queryBasicInfo(): LiveData<List<BasicInfo>>
