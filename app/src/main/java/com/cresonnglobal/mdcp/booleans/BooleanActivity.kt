@@ -41,6 +41,10 @@ class BooleanActivity : AppCompatActivity() {
         label.text = question?.label
         hint.text = question?.hint
 
+        if (!question?.let { viewModel.getRepository().hasNextQuestion(it) }!!) {
+            nextButton.isEnabled = false
+        }
+
 
         startNoteActivity(this, question)
     }
