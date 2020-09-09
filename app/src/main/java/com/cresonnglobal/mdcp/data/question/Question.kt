@@ -2,6 +2,7 @@ package com.cresonnglobal.mdcp.data.question
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.annotation.NonNull
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -11,6 +12,8 @@ import java.util.*
 @Entity(tableName = "question")
 data class Question(
     @PrimaryKey(autoGenerate = true) var id: Int,
+    @NonNull
+    var typeId: Int,
     var name: String,
     var label: String,
     var hint: String,
