@@ -19,49 +19,49 @@ data class Question(
     var note: String,
     var response_note: String,
     var publishable: String,
-    var minimum_seconds: Int
+    var minimum_seconds: Long
 ) {
     @PrimaryKey(autoGenerate = true) var id: Int = 0
-    @Ignore
-    constructor(
-        name: String,
-        label: String,
-        hint: String,
-        default_value: String,
-        appearance: String,
-        relevance: String,
-        disabled: Boolean,
-        required: String,
-        read_only: String,
-        calculation: String,
-        repeat_count: Int,
-        choice_filter: String,
-        note: String,
-        response_note: String,
-        publishable: String,
-        minimum_seconds: String,
-        constraint_messages: List<ConstraintMessage>,
-        constraints: List<Constraint>,
-        required_message: List<RequiredMessage>,
-        media: Media,
-        answers: List<Answer>,
-        type_name: List<Type>
-    ) : this(
-        name,
-        label,
-        hint,
-        default_value,
-        appearance,
-        relevance,
-        disabled,
-        required,
-        read_only,
-        calculation,
-        repeat_count,
-        choice_filter,
-        note,
-        response_note,
-        publishable,
-        minimum_seconds
-    )
+//    @Ignore
+//    constructor(
+//        name: String,
+//        label: String,
+//        hint: String,
+//        default_value: String,
+//        appearance: String,
+//        relevance: String,
+//        disabled: Boolean,
+//        required: String,
+//        read_only: String,
+//        calculation: String,
+//        repeat_count: Int,
+//        choice_filter: String,
+//        note: String,
+//        response_note: String,
+//        publishable: String,
+//        minimum_seconds: String,
+//        constraint_messages: List<ConstraintMessage>,
+//        constraints: List<Constraint>,
+//        required_message: List<RequiredMessage>,
+//        media: Media,
+//        answers: List<Answer>,
+//        type_name: List<Type>
+//    ) : this(
+//        name,
+//        label,
+//        hint,
+//        default_value,
+//        appearance,
+//        relevance,
+//        disabled,
+//        required,
+//        read_only,
+//        calculation,
+//        repeat_count,
+//        choice_filter,
+//        note,
+//        response_note,
+//        publishable,
+//        minimum_seconds
+//    )
 }
