@@ -4,20 +4,20 @@ import androidx.room.*
 
 @Entity(tableName = "interview")
 data class Interview(
-    @PrimaryKey(autoGenerate = true) val id: Int?,
     var created: String,
     var author: String,
     var company: String,
     var title: String,
     var dateline: String
 ) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
     @Ignore
     lateinit var meta: Meta
     @Ignore
     lateinit var questions: List<Question>
     @Ignore
     constructor(
-        id: Int,
         created: String,
         author: String,
         company: String,
@@ -26,7 +26,6 @@ data class Interview(
         meta: Meta,
         questions: List<Question>
     ) : this(
-        id,
         created,
         author,
         company,
