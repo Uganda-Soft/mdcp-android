@@ -30,7 +30,7 @@ abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun requiredMessageDao(): RequiredMessageDao
     abstract fun rangeDao(): RangeDao
     abstract fun questionDao(): QuestionDao
-    abstract fun metaDao(): MediaDao
+    abstract fun metaDao(): MetaDao
 
     companion object {
         @Volatile
