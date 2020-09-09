@@ -5,7 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "constraint_message")
 data class ConstraintMessage(
-    @PrimaryKey(autoGenerate = true) val id: Int,
     var questionId: Int,
     val message: String
-)
+) {
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+}
