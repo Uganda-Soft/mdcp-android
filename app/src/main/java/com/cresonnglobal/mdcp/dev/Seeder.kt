@@ -2,6 +2,7 @@ package com.cresonnglobal.mdcp.dev
 
 import android.util.Log
 import com.cresonnglobal.mdcp.Repository
+import com.cresonnglobal.mdcp.data.question.BasicInfo
 import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Meta
 
@@ -22,5 +23,11 @@ class Seeder(private val repository: Repository) {
         )
 
         meta = repository.insertMeta(meta)
+        var basic_info = BasicInfo(
+            metaId = meta.id,
+            type = "Time",
+            name = "Duration",
+            value = "8Hours"
+        )
     }
 }

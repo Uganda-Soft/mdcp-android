@@ -7,9 +7,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "basic_info")
 data class BasicInfo(
-    @PrimaryKey(autoGenerate = true) val id: Int,
     var metaId: Int,
     var type: String,
     var name: String,
     var value: String
-)
+) {
+    @PrimaryKey(autoGenerate = true) val id: Int = 0
+}
