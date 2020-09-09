@@ -17,7 +17,8 @@ import com.cresonnglobal.mdcp.data.question.*
     RequiredMessage::class,
     Range::class,
     Question::class,
-    Meta::class
+    Meta::class,
+    Interview::class
 ], version = 1, exportSchema = false)
 abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun answerDao(): AnswerDao
@@ -31,6 +32,7 @@ abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun rangeDao(): RangeDao
     abstract fun questionDao(): QuestionDao
     abstract fun metaDao(): MetaDao
+    abstract fun interviewDao(): InterviewDao
 
     companion object {
         @Volatile

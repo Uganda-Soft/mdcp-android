@@ -1,10 +1,9 @@
 package com.cresonnglobal.mdcp.data.question
 
-import androidx.room.Query
-import androidx.room.Transaction
-
+import androidx.room.Dao
+import androidx.room.Insert
+@Dao
 interface InterviewDao {
-    @Transaction
-    @Query("SELECT * FROM interview")
-    fun getInterviewMeta(): List<Meta>
+    @Insert
+    fun insertInterview(interview: Interview)
 }
