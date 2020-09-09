@@ -32,7 +32,7 @@ data class Question(
     @Ignore
     lateinit var required_message: List<RequiredMessage>
     @Ignore
-    lateinit var media: Media
+    lateinit var media: List<Media>
     @Ignore
     lateinit var answers: List<Answer>
     @Ignore

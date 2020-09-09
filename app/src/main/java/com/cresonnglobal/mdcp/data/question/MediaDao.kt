@@ -12,4 +12,7 @@ interface MediaDao {
 
     @Query("SELECT * FROM media")
     fun queryMedia(): LiveData<List<Media>>
+
+    @Query("SELECT * FROM media WHERE questionId =:questionId")
+    fun getMediaForQuestion(questionId: Int): List<Media>
 }

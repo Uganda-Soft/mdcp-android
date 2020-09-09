@@ -148,5 +148,13 @@ class Seeder(private val repository: Repository) {
         )
 
         question1.required_message = repository.insertRequiredMessage(requiredMessage)
+
+        var media = Media(
+            questionId = question1.id,
+            videoURL = "tyyryyryryryyryr",
+            audioURL = "ttrtrtryyryryryryyr"
+        )
+
+        question1.media = repository.insertMedia(media)
     }
 }

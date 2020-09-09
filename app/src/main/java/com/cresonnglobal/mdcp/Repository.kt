@@ -130,6 +130,14 @@ class Repository private constructor(context: Context) {
         }).get()
     }
 
+    fun insertMedia(media: Media): List<Media> {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.mediaDao().insertMedia(media)
+            database.mediaDao().getMediaForQuestion(media.questionId)
+        }).get()
+    }
+
 //    fun queryQuestions(): List<Question> {
 //        val thread = Executors.newSingleThreadExecutor()
 //        return thread.submit(Callable {
