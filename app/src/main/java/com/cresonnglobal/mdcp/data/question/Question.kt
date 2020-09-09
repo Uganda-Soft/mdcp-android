@@ -35,5 +35,6 @@ data class Question(
     var constraints: List<Constraint>?,
     var required_message: List<RequiredMessage>?,
     @Ignore
-    var media: Media
+    var media: Media?,
+    var answers: List<Answer>?
 )
