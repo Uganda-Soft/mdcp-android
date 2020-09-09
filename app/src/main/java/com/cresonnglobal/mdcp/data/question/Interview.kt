@@ -11,6 +11,8 @@ data class Interview(
     var title: String,
     var dateline: String
 ) {
+    lateinit var meta: Meta
+    lateinit var questions: List<Question>
     constructor(
         id: Int,
         created: String,
@@ -18,7 +20,8 @@ data class Interview(
         company: String,
         title: String,
         dateline: String,
-        meta: Meta
+        meta: Meta,
+        questions: List<Question>
     ) : this(
         id,
         created,
@@ -26,5 +29,8 @@ data class Interview(
         company,
         title,
         dateline
-    )
+    ) {
+        this.questions = questions
+        this.meta = meta
+    }
 }
