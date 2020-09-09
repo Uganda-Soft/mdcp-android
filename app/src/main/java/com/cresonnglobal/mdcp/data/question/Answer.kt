@@ -5,12 +5,13 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "answer")
 data class Answer(
-    @PrimaryKey(autoGenerate = true) val id: Int?,
     var questionId: Int,
-    var message: String,
+    var body: String,
     var date: String,
     var time: String,
     var duration: String,
     var logitude: String,
     var latitude: String
-)
+) {
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+}

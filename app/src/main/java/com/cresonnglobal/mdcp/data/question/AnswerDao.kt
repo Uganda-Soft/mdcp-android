@@ -10,8 +10,9 @@ interface AnswerDao {
     @Insert
     fun insertAnswer(answer: Answer)
 
-    @Query(
-        "SELECT * FROM answer"
-    )
+    @Query("SELECT * FROM answer")
     fun queryAnswers(): LiveData<List<Answer>>
+
+    @Query("SELECT * FROM answer WHERE questionId =:questionId")
+    fun getAnswersForQuestion(questionId: Int): List<Answer>
 }

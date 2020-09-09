@@ -171,5 +171,20 @@ class Seeder(private val repository: Repository) {
         )
 
         range = repository.insertRange(range)
+        type.range = range
+        question1.type = type
+
+        var answer = Answer(
+            questionId = question1.id,
+            time = "09:40am",
+            body = "The List",
+            duration = "67min",
+            latitude = "89746663645535546",
+            logitude = "8988477474",
+            date = "07-08-2020"
+
+        )
+
+        question1.answers = repository.insertAnswer(answer)
     }
 }

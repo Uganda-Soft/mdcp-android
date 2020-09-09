@@ -38,11 +38,12 @@ class Repository private constructor(context: Context) {
         }
     }
 
-    fun insertAnswer(answer: Answer) {
+    fun insertAnswer(answer: Answer): List<Answer> {
         val thread = Executors.newSingleThreadExecutor()
-        thread.submit(Runnable {
+        return thread.submit(Callable {
             database.answerDao().insertAnswer(answer)
-        })
+            database.answerDao().getAnswersForQuestion(answer.questionId)
+        }).get()
     }
 
     fun insertType(type: Type) : Type {
