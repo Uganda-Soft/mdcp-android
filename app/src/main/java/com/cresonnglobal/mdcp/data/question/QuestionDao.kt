@@ -12,6 +12,9 @@ interface QuestionDao {
     @Query("SELECT * FROM question")
     fun queryQuestion(): List<Question>
 
+    @Query("SELECT * FROM question ORDER BY id DESC LIMIT 1")
+    fun getLatestQuestion(): Question
+
 //    @Transaction
 //    @Query("SELECT * FROM question")
 //    fun queryQuestionType(): List<QuestionType>

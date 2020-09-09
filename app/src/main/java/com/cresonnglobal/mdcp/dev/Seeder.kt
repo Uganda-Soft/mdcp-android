@@ -58,5 +58,9 @@ class Seeder(private val repository: Repository) {
             minimum_seconds = 787
         )
 
+        question1 = repository.insertQuestion(question1)
+
+        // question 1, constraint_messages
+
     }
 }
