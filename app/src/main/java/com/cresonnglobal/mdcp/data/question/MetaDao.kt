@@ -7,4 +7,5 @@ import androidx.room.Insert
 interface MetaDao {
     @Insert
     fun insertMeta(meta: Meta)
+    fun getLatestMeta(): Meta
 }

@@ -20,5 +20,7 @@ class Seeder(private val repository: Repository) {
             interviewId = interview.id,
             note = "This Question was seeded by the database"
         )
+
+        meta = repository.insertMeta(meta)
     }
 }

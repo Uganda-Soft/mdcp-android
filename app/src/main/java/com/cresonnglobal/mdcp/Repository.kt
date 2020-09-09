@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import com.cresonnglobal.mdcp.data.CresonnglobalDatabase
 import com.cresonnglobal.mdcp.data.question.Answer
 import com.cresonnglobal.mdcp.data.question.Interview
+import com.cresonnglobal.mdcp.data.question.Meta
 import com.cresonnglobal.mdcp.data.question.Type
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors
@@ -81,6 +82,14 @@ class Repository private constructor(context: Context) {
         return thread.submit(Callable {
             database.interviewDao().insertInterview(interview)
             database.interviewDao().getLatestInterview()
+        }).get()
+    }
+
+    fun insertMeta(meta: Meta): Meta {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.metaDao().insertMeta(meta)
+            database.metaDao().getLatestMeta()
         }).get()
     }
 
