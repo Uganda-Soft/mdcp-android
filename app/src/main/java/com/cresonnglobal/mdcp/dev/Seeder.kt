@@ -1,8 +1,9 @@
 package com.cresonnglobal.mdcp.dev
 
+import com.cresonnglobal.mdcp.Repository
 import com.cresonnglobal.mdcp.data.question.Interview
 
-class Seeder {
+class Seeder(val repository: Repository) {
     fun seedInterview() {
         val interview = Interview(
             id = null,
@@ -12,5 +13,7 @@ class Seeder {
             title = "App Development Status Investigation",
             dateline = "30-12-2020"
         )
+
+        repository.insertInterview(interview)
     }
 }
