@@ -6,7 +6,10 @@ import androidx.room.*
 data class Type(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
+    @Ignore
     var options: List<Option>?,
+    @Ignore
+    var range: Range?,
     var type: String,
     var from: String,
     var rangeId: Int
