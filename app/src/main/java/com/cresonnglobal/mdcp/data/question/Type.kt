@@ -8,7 +8,7 @@ data class Type(
     @NonNull
     var questionId: Int,
     var type: String,
-    var from: String,
+    var from: String
 ) {
     @PrimaryKey(autoGenerate = true) var id: Int = 0
     @Ignore lateinit var range: Range

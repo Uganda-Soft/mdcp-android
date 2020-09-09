@@ -12,4 +12,7 @@ interface TypeDao {
 
     @Query("SELECT * FROM question_types")
     fun queryTypes(): LiveData<List<Type>>
+
+    @Query("SELECT * FROM question_types WHERE questionId =:questionId")
+    fun getTypeForQuestion(questionId: Int): Type
 }

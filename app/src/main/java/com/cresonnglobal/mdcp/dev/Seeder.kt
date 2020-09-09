@@ -156,5 +156,20 @@ class Seeder(private val repository: Repository) {
         )
 
         question1.media = repository.insertMedia(media)
+
+        var type = Type(
+            questionId = question1.id,
+            type = "Boolean",
+            from = ""
+        )
+
+        type = repository.insertType(type)
+        var range = Range(
+            typeId = type.id,
+            max = 500,
+            min = 60
+        )
+
+        range = repository.insertRange(range)
     }
 }

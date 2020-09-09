@@ -45,10 +45,11 @@ class Repository private constructor(context: Context) {
         })
     }
 
-    fun insertType(type: Type) {
+    fun insertType(type: Type) : Type {
         val thread = Executors.newSingleThreadExecutor()
         thread.submit(Runnable {
             database.typeDao().insertType(type)
+            database.typeDao().getTypeForQuestion(type.questionId)
         })
     }
 
@@ -135,6 +136,14 @@ class Repository private constructor(context: Context) {
         return thread.submit(Callable {
             database.mediaDao().insertMedia(media)
             database.mediaDao().getMediaForQuestion(media.questionId)
+        }).get()
+    }
+
+    fun insertRange(range: Range): Range {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.rangeDao().insertRange(range)
+            database.rangeDao().getRangeForType(range.typeId)
         }).get()
     }
 

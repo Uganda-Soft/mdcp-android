@@ -5,8 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "range")
 data class Range(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    var typeId: Int,
     var max: Int,
     var min: Int
-)
+) {
+    @PrimaryKey(autoGenerate = true)  var id: Int = 0
+}

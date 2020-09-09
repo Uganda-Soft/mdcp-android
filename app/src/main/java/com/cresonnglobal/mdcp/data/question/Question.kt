@@ -36,7 +36,7 @@ data class Question(
     @Ignore
     lateinit var answers: List<Answer>
     @Ignore
-    lateinit var type_name: List<Type>
+    lateinit var type: Type
 //    @Ignore
 //    constructor(
 //        name: String,
