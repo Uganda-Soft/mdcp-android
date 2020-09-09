@@ -80,7 +80,7 @@ class Repository private constructor(context: Context) {
         val thread = Executors.newSingleThreadExecutor()
         return thread.submit(Callable {
             database.interviewDao().insertInterview(interview)
-            interview
+            database.interviewDao().getLatestInterview()
         }).get()
     }
 
