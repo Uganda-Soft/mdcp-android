@@ -24,7 +24,7 @@ abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun constraintDao(): ConstraintDao
     abstract fun mediaDao(): MediaDao
     abstract fun constraintMessageDao(): ConstraintMessageDao
-    abstract fun selectionDao(): SelectionDao
+    abstract fun selectionDao(): OptionDao
     abstract fun typeDao(): TypeDao
     abstract fun requiredMessageDao(): RequiredMessageDao
     abstract fun rangeDao(): RangeDao
