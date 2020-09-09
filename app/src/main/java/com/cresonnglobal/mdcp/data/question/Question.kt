@@ -22,6 +22,18 @@ data class Question(
     var minimum_seconds: Long
 ) {
     @PrimaryKey(autoGenerate = true) var id: Int = 0
+    @Ignore
+    lateinit var constraint_messages: List<ConstraintMessage>
+    @Ignore
+    lateinit var constraints: List<Constraint>
+    @Ignore
+    lateinit var required_message: List<RequiredMessage>
+    @Ignore
+    lateinit var media: Media
+    @Ignore
+    lateinit var answers: List<Answer>
+    @Ignore
+    lateinit var type_name: List<Type>
 //    @Ignore
 //    constructor(
 //        name: String,
