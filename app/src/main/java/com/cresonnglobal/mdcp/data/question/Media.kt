@@ -8,9 +8,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "media")
 data class Media (
-    @PrimaryKey(autoGenerate = true) val id: Int,
     @NonNull
     var questionId: Int,
-    val video: String,
-    val audio: String
-)
+    val videoURL: String,
+    val audioURL: String
+) {
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+}
