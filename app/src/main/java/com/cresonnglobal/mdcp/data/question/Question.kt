@@ -5,6 +5,7 @@ import android.os.Parcelable
 import androidx.annotation.NonNull
 import androidx.room.*
 import java.util.*
+import kotlin.math.min
 
 @Entity(tableName = "question")
 data class Question(
@@ -50,5 +51,23 @@ data class Question(
         media: Media,
         answers: List<Answer>,
         type_name: List<Type>
-    ) : this()
+    ) : this(
+        id,
+        name,
+        label,
+        hint,
+        default,
+        appearance,
+        relevance,
+        disabled,
+        required,
+        read_only,
+        calculation,
+        repeat_count,
+        choice_filter,
+        note,
+        response_note,
+        publishable,
+        minimum_seconds
+    )
 }
