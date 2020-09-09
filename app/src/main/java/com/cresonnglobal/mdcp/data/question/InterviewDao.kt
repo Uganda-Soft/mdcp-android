@@ -6,4 +6,6 @@ import androidx.room.Insert
 interface InterviewDao {
     @Insert
     fun insertInterview(interview: Interview)
+
+    fun getLatestInterview(): Interview
 }
