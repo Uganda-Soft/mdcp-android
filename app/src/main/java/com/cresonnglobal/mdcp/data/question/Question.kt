@@ -9,7 +9,6 @@ import kotlin.math.min
 
 @Entity(tableName = "question")
 data class Question(
-    @PrimaryKey(autoGenerate = true) var id: Int,
     var name: String,
     var label: String,
     var hint: String,
@@ -27,6 +26,7 @@ data class Question(
     var publishable: String,
     var minimum_seconds: String
 ) {
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
     @Ignore
     constructor(
         id: Int,

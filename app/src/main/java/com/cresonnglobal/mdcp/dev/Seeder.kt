@@ -36,5 +36,9 @@ class Seeder(private val repository: Repository) {
         meta.basic_info = repository.insertBasicInfo(basic_info)
         meta.basic_info = repository.insertBasicInfo(basic_info)
 
+        interview.meta = meta
+
+
+
     }
 }
