@@ -10,6 +10,7 @@ data class Type(
     var from: String,
     var rangeId: Int
 ) {
+    @Ignore
     constructor(
         id: Int,
         options: List<Option>?,
