@@ -47,10 +47,10 @@ class Repository private constructor(context: Context) {
 
     fun insertType(type: Type) : Type {
         val thread = Executors.newSingleThreadExecutor()
-        thread.submit(Runnable {
+        return thread.submit(Callable {
             database.typeDao().insertType(type)
             database.typeDao().getTypeForQuestion(type.questionId)
-        })
+        }).get()
     }
 
 //    fun insertQuestion(question: Question) {
