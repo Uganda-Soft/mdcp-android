@@ -1,11 +1,6 @@
 package com.cresonnglobal.mdcp.data.question
 
-import android.os.Parcel
-import android.os.Parcelable
-import androidx.annotation.NonNull
 import androidx.room.*
-import java.util.*
-import kotlin.math.min
 
 @Entity(tableName = "question")
 data class Question(
@@ -16,20 +11,19 @@ data class Question(
     var appearance: String,
     var relevance: String,
     var disabled: Boolean,
-    var required: String,
-    var read_only: String,
+    var required: Boolean,
+    var read_only: Boolean,
     var calculation: String,
     var repeat_count: Int,
     var choice_filter: String,
     var note: String,
     var response_note: String,
     var publishable: String,
-    var minimum_seconds: String
+    var minimum_seconds: Int
 ) {
     @PrimaryKey(autoGenerate = true) var id: Int = 0
     @Ignore
     constructor(
-        id: Int,
         name: String,
         label: String,
         hint: String,
@@ -53,7 +47,6 @@ data class Question(
         answers: List<Answer>,
         type_name: List<Type>
     ) : this(
-        id,
         name,
         label,
         hint,
