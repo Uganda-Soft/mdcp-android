@@ -5,14 +5,13 @@ import androidx.room.*
 
 @Entity(tableName = "question_types")
 data class Type(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int,
     @NonNull
     var questionId: Int,
     var type: String,
     var from: String,
-    var rangeId: Int
 ) {
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+    @Ignore lateinit var range: Range
 //    @Ignore
 //    constructor(
 //        id: Int,
