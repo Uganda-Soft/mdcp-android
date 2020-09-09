@@ -12,5 +12,5 @@ data class BasicInfo(
     var name: String,
     var value: String
 ) {
-    @PrimaryKey(autoGenerate = true) val id: Int = 0
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
 }

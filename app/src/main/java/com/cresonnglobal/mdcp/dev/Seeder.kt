@@ -23,7 +23,7 @@ class Seeder(private val repository: Repository) {
         )
 
         meta = repository.insertMeta(meta)
-        var basic_info = BasicInfo(
+        val basic_info = BasicInfo(
             metaId = meta.id,
             type = "Time",
             name = "Duration",
