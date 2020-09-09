@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "selection")
-data class Selection(
+data class Option(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @NonNull
     var typeId: Int,

@@ -8,8 +8,8 @@ import androidx.room.Query
 @Dao
 interface SelectionDao {
     @Insert
-    fun insertSelection(selection: Selection)
+    fun insertSelection(selection: Option)
 
     @Query("SELECT * FROM selection")
-    fun querySelections(): LiveData<List<Selection>>
+    fun querySelections(): LiveData<List<Option>>
 }

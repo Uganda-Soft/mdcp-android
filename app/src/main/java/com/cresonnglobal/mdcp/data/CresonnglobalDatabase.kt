@@ -12,7 +12,7 @@ import com.cresonnglobal.mdcp.data.question.*
     Constraint::class,
     Media::class,
     ConstraintMessage::class,
-    Selection::class,
+    Option::class,
     Type::class,
     RequiredMessage::class,
     Range::class
