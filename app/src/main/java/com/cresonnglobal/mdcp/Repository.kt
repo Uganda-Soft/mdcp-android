@@ -3,10 +3,7 @@ package com.cresonnglobal.mdcp
 import android.content.Context
 import androidx.lifecycle.LiveData
 import com.cresonnglobal.mdcp.data.CresonnglobalDatabase
-import com.cresonnglobal.mdcp.data.question.Answer
-import com.cresonnglobal.mdcp.data.question.Interview
-import com.cresonnglobal.mdcp.data.question.Meta
-import com.cresonnglobal.mdcp.data.question.Type
+import com.cresonnglobal.mdcp.data.question.*
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors
 
@@ -91,6 +88,14 @@ class Repository private constructor(context: Context) {
             database.metaDao().insertMeta(meta)
             database.metaDao().getLatestMeta()
         }).get()
+    }
+
+    fun insertBasicInfo(basicInfo: BasicInfo): List<BasicInfo> {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.basicInfoDao().insertBasicInfo(basicInfo)
+            database.basicInfoDao().getBasicInfoForMeta(basicInfo.metaId)
+        })
     }
 
 //    fun queryQuestions(): List<Question> {

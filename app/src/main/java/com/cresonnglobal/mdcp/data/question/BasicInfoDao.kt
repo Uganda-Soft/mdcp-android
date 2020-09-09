@@ -12,4 +12,7 @@ interface BasicInfoDao {
 
     @Query("SELECT * FROM basic_info")
     fun queryBasicInfo(): LiveData<List<BasicInfo>>
+
+    @Query("SELECT * FROM basic_info WHERE metaId =:metaId")
+    fun getBasicInfoForMeta(metaId: Int): List<BasicInfo>
 }

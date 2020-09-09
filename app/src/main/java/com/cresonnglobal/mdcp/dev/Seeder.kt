@@ -29,5 +29,8 @@ class Seeder(private val repository: Repository) {
             name = "Duration",
             value = "8Hours"
         )
+
+        meta.basic_info = repository.insertBasicInfoFor(basic_info)
+
     }
 }
