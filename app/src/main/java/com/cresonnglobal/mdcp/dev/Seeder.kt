@@ -88,5 +88,7 @@ class Seeder(private val repository: Repository) {
             value = 89,
             operator = "<="
         )
+
+        question1.constraints = repository.insertConstraint(constraint)
     }
 }

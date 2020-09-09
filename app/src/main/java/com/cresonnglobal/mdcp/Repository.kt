@@ -114,6 +114,14 @@ class Repository private constructor(context: Context) {
         }).get()
     }
 
+    fun insertConstraint(constraint: Constraint): List<Constraint> {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.constraintDao().insertConstraint(constraint)
+            database.constraintDao().getConstraintsForQuestion(constraint.questionId)
+        }).get()
+    }
+
 //    fun queryQuestions(): List<Question> {
 //        val thread = Executors.newSingleThreadExecutor()
 //        return thread.submit(Callable {

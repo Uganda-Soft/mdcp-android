@@ -13,4 +13,6 @@ interface ConstraintDao {
 
     @Query("SELECT * FROM constraints")
     fun queryConstraints(): LiveData<List<Constraint>>
+    @Query("SELECT * FROM constraints WHERE questionId =:questionId")
+    fun getConstraintsForQuestion(questionId: Int): List<Constraint>
 }
