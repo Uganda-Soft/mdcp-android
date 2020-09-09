@@ -13,14 +13,14 @@ data class Type(
     var from: String,
     var rangeId: Int
 ) {
-    @Ignore
-    constructor(
-        id: Int,
-        questionId: Int,
-        options: List<Option>?,
-        range: Range?,
-        type: String,
-        from: String,
-        rangeId: Int
-    ) : this(id, questionId, type, from, rangeId)
+//    @Ignore
+//    constructor(
+//        id: Int,
+//        questionId: Int,
+//        options: List<Option>?,
+//        range: Range?,
+//        type: String,
+//        from: String,
+//        rangeId: Int
+//    ) : this(id, questionId, type, from, rangeId)
 }
