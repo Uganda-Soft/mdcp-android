@@ -6,7 +6,7 @@ import com.cresonnglobal.mdcp.data.question.Interview
 
 class Seeder(private val repository: Repository) {
     fun seedInterview() {
-        val interview = Interview(
+        var interview = Interview(
             id = null,
             created = "12-09-2020",
             author = "Simon Peter Ojok",
@@ -15,7 +15,6 @@ class Seeder(private val repository: Repository) {
             dateline = "30-12-2020"
         )
 
-        val savedInterview = repository.insertInterview(interview)
-        Log.d("Seeder", savedInterview.toString())
+        interview = repository.insertInterview(interview)
     }
 }

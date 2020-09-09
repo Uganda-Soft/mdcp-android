@@ -8,6 +8,7 @@ data class Meta(
     @PrimaryKey(autoGenerate = true) var id: Int,
     var note: String
 ) {
+    @Ignore
     lateinit var basic_info: List<BasicInfo>
     constructor(
         id: Int,

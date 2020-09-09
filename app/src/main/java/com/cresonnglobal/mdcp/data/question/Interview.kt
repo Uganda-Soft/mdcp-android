@@ -11,7 +11,9 @@ data class Interview(
     var title: String,
     var dateline: String
 ) {
+    @Ignore
     lateinit var meta: Meta
+    @Ignore
     lateinit var questions: List<Question>
     @Ignore
     constructor(
