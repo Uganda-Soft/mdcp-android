@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.dev.Seeder
 import com.cresonnglobal.mdcp.settings.SettingsActivity
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        Seeder(viewModel.getRepository()).seedInterview()
 //        viewModel.getRepository().insertQuestion(
 //            Question(
 //            78,
