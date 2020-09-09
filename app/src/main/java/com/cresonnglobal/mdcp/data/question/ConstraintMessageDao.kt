@@ -12,4 +12,7 @@ interface ConstraintMessageDao {
 
     @Query("SELECT * FROM constraint_message")
     fun queryConstraintsMessage(): LiveData<List<ConstraintMessage>>
+
+    @Query("SELECT * FROM constraint_message WHERE questionId =:questionId")
+    fun getConstraintMessageForQuestion(questionId: Int): List<ConstraintMessage>
 }

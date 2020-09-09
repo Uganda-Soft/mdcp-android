@@ -106,6 +106,14 @@ class Repository private constructor(context: Context) {
         }).get()
     }
 
+    fun insertConstraintMessage(constraintMessage: ConstraintMessage): List<ConstraintMessage> {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.constraintMessageDao().insertConstraintMessage(constraintMessage)
+            database.constraintMessageDao().getConstraintMessageForQuestion(constraintMessage.questionId)
+        }).get()
+    }
+
 //    fun queryQuestions(): List<Question> {
 //        val thread = Executors.newSingleThreadExecutor()
 //        return thread.submit(Callable {

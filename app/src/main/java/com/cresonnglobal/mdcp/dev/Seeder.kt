@@ -1,10 +1,7 @@
 package com.cresonnglobal.mdcp.dev
 
 import com.cresonnglobal.mdcp.Repository
-import com.cresonnglobal.mdcp.data.question.BasicInfo
-import com.cresonnglobal.mdcp.data.question.Interview
-import com.cresonnglobal.mdcp.data.question.Meta
-import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.data.question.*
 
 class Seeder(private val repository: Repository) {
     fun seedInterview() {
@@ -62,6 +59,28 @@ class Seeder(private val repository: Repository) {
         question1 = repository.insertQuestion(question1)
 
         // question 1, constraint_messages
+        var constraintMessage = ConstraintMessage(
+            questionId = question1.id,
+            message = "This Question Is required for you to answer the second question"
+        )
+        question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
+        // question 1, constraint_messages
+        constraintMessage = ConstraintMessage(
+            questionId = question1.id,
+            message = "This Question Is required for you to answer the second question"
+        )
+        question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
+        // question 1, constraint_messages
+        constraintMessage = ConstraintMessage(
+            questionId = question1.id,
+            message = "This Question Is required for you to answer the second question"
+        )
+        question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
+        constraintMessage = ConstraintMessage(
+            questionId = question1.id,
+            message = "This Question Is required for you to answer the second question"
+        )
+        question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
 
     }
 }
