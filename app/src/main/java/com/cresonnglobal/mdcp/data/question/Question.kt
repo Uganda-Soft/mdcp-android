@@ -11,9 +11,9 @@ import kotlin.math.min
 data class Question(
     @PrimaryKey(autoGenerate = true) var id: Int,
     var name: String,
-//    var label: String,
-//    var hint: String,
-//    var default: String,
+    var label: String,
+    var hint: String,
+    var default: String
 //    var appearance: String,
 //    var relevance: String,
 //    var disabled: Boolean,
