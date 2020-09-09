@@ -122,6 +122,14 @@ class Repository private constructor(context: Context) {
         }).get()
     }
 
+    fun insertRequiredMessage(requiredMessage: RequiredMessage): List<RequiredMessage> {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.requiredMessageDao().insertRequiredMessage(requiredMessage)
+            database.requiredMessageDao().getRequiredMessageForQuestion(requiredMessage.questionId)
+        }).get()
+    }
+
 //    fun queryQuestions(): List<Question> {
 //        val thread = Executors.newSingleThreadExecutor()
 //        return thread.submit(Callable {

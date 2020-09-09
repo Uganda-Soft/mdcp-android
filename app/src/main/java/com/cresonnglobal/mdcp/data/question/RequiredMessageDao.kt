@@ -12,4 +12,5 @@ interface RequiredMessageDao {
 
     @Query("SELECT * FROM require_message")
     fun queryRequiredMessage(): LiveData<List<RequiredMessage>>
+    fun getRequiredMessageForQuestion(questionId: Int): List<RequiredMessage>
 }

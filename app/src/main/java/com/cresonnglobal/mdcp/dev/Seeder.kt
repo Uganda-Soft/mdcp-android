@@ -108,5 +108,45 @@ class Seeder(private val repository: Repository) {
             operator = "<="
         )
         question1.constraints = repository.insertConstraint(constraint)
+
+        // required message
+        var requiredMessage = RequiredMessage(
+            questionId = question1.id,
+            message = "Please on provide approved figures"
+        )
+
+        question1.required_message = repository.insertRequiredMessage(requiredMessage)
+
+        requiredMessage = RequiredMessage(
+            questionId = question1.id,
+            message = "Please on provide approved figures"
+        )
+
+        question1.required_message = repository.insertRequiredMessage(requiredMessage)
+
+        requiredMessage = RequiredMessage(
+            questionId = question1.id,
+            message = "Please on provide approved figures"
+        )
+
+        question1.required_message = repository.insertRequiredMessage(requiredMessage)
+        requiredMessage = RequiredMessage(
+            questionId = question1.id,
+            message = "Please on provide approved figures"
+        )
+
+        question1.required_message = repository.insertRequiredMessage(requiredMessage)
+        requiredMessage = RequiredMessage(
+            questionId = question1.id,
+            message = "Please on provide approved figures"
+        )
+
+        question1.required_message = repository.insertRequiredMessage(requiredMessage)
+        requiredMessage = RequiredMessage(
+            questionId = question1.id,
+            message = "Please on provide approved figures"
+        )
+
+        question1.required_message = repository.insertRequiredMessage(requiredMessage)
     }
 }
