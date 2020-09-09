@@ -10,7 +10,5 @@ data class Constraint(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @NonNull
     var questionId: Int,
-    @Ignore
-    var constraints: List<Constraint>?,
     val expression: String
 )

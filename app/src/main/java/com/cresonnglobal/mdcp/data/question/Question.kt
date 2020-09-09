@@ -30,5 +30,7 @@ data class Question(
     var publishable: String,
     var minimum_seconds: String,
     @Ignore
-    var constraint_messages: List<ConstraintMessage>?
+    var constraint_messages: List<ConstraintMessage>?,
+    @Ignore
+    var constraints: List<Constraint>?,
 )
