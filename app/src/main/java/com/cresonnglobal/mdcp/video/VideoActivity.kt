@@ -68,9 +68,9 @@ class VideoActivity : AppCompatActivity() {
 //        question = intent.getParcelableExtra<Question>(QUESTION)
 
 // There is some name mismatch here this is not mistake
-        name.text = Question?.name
-        label.text = Question?.label
-        hint.text = Question?.hint
+//        name.text = Question?.name
+//        label.text = Question?.label
+//        hint.text = Question?.hint
 
         startNoteActivity(this, Question)
     }

@@ -7,7 +7,7 @@ import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
 
 fun startNoteActivity(context: Context, Question: Question?) {
-    startNoteActivity(context, Question?.note)
+//    startNoteActivity(context, Question?.note)
 }
 
 fun startNoteActivity(context: Context, note: String?) {

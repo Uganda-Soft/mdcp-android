@@ -27,7 +27,7 @@ class QuestionAdapter(var Questions: List<Question>, val context: Context):
         public fun bind(number: Int, Question: Question) {
             val displayNumber: String = if (number < 9) { "0${number + 1}" } else { (number + 1).toString() }
             numberTextView.text = displayNumber
-            labelTextView.text = Question.name
+//            labelTextView.text = Question.name
 //            statusTextView.text = "something"
             itemView.setOnClickListener {
                 onQuestionClickListener.onQuestionClick(Question, number)
