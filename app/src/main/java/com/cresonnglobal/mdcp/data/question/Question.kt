@@ -33,5 +33,5 @@ data class Question(
     var constraint_messages: List<ConstraintMessage>?,
     @Ignore
     var constraints: List<Constraint>?,
-    var required_message: List<RequiredMessage>?,
+    var required_message: List<RequiredMessage>?
 )
