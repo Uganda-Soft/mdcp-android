@@ -8,7 +8,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "basic_info")
 data class BasicInfo(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    val type: String,
-    val name: String,
-    val value: String
+    var metaId: Int,
+    var type: String,
+    var name: String,
+    var value: String
 )
