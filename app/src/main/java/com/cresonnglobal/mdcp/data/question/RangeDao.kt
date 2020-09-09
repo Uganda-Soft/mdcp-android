@@ -6,5 +6,5 @@ import androidx.room.Insert
 @Dao
 interface RangeDao {
     @Insert
-    fun insertRange(rangeDao: RangeDao)
+    fun insertRange(rangeDao: Range)
 }
