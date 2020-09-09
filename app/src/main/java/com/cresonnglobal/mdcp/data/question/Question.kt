@@ -27,6 +27,7 @@ data class Question(
     var publishable: String,
     var minimum_seconds: String
 ) {
+    @Ignore
     constructor(
         id: Int,
         name: String,
