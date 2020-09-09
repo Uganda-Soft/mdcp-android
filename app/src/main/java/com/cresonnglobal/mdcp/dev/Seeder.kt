@@ -82,5 +82,9 @@ class Seeder(private val repository: Repository) {
         )
         question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
 
+//        question contraint
+        var constraint = Constraint(
+
+        )
     }
 }

@@ -7,8 +7,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "constraints")
 data class Constraint(
-    @PrimaryKey(autoGenerate = true) val id: Int,
     @NonNull
     var questionId: Int,
     val expression: String
-)
+) {
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+}
