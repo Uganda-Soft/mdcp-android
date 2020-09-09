@@ -8,16 +8,8 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.cresonnglobal.mdcp.common.startActivityForType
-import com.cresonnglobal.mdcp.data.question.Answer
-import com.cresonnglobal.mdcp.data.question.Meta
-import com.cresonnglobal.mdcp.data.question.Question
-import com.cresonnglobal.mdcp.helpers.startConstraintActivity
-import com.cresonnglobal.mdcp.helpers.startNoteActivity
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 import com.cresonnglobal.mdcp.settings.SettingsActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
     private var totalQuestion: Int = 0
@@ -58,7 +50,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
 
     }
 
-    override fun onQuestionClick(question: Question, number: Int) {
+    override fun onQuestionClick(MDCPQuestion: MDCPQuestion, number: Int) {
 //        startActivityForType(question, this, viewModel.getInterview(), number)
     }
 

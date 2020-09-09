@@ -2,13 +2,12 @@ package com.cresonnglobal.mdcp.helpers
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
-import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
 
-fun startNoteActivity(context: Context, question: Question?) {
-    startNoteActivity(context, question?.note)
+fun startNoteActivity(context: Context, MDCPQuestion: MDCPQuestion?) {
+    startNoteActivity(context, MDCPQuestion?.note)
 }
 
 fun startNoteActivity(context: Context, note: String?) {

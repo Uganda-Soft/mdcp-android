@@ -1,6 +1,5 @@
 package com.cresonnglobal.mdcp.booleans
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -9,11 +8,7 @@ import android.view.View
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.common.startActivityForType
-import com.cresonnglobal.mdcp.data.question.Question
-import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
-import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
-import com.cresonnglobal.mdcp.helpers.startConstraintActivity
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import kotlinx.android.synthetic.main.activity_boolean.*
 
@@ -26,7 +21,7 @@ class BooleanActivity : AppCompatActivity() {
         public final const val NEXT_QUESTION: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.NEXT_QUESTION"
         public final const val PREVIOUS_QUESTION: String = "com.cresonnglobal.mdcp.audio.BooleanActivity.PREVIOUS_QUESTION"
     }
-    private var question: Question? = null
+    private var MDCPQuestion: MDCPQuestion? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +45,7 @@ class BooleanActivity : AppCompatActivity() {
 //        }
 
 
-        startNoteActivity(this, question)
+        startNoteActivity(this, MDCPQuestion)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -69,7 +64,7 @@ class BooleanActivity : AppCompatActivity() {
                 // show help
             }
 
-            R.id.action_view_note -> startNoteActivity(this, question)
+            R.id.action_view_note -> startNoteActivity(this, MDCPQuestion)
         }
         return super.onOptionsItemSelected(item)
     }

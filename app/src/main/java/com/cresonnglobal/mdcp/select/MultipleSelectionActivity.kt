@@ -1,30 +1,19 @@
 package com.cresonnglobal.mdcp.select
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.Question
-import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
-import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
-import com.cresonnglobal.mdcp.helpers.startConstraintActivity
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
-import kotlinx.android.synthetic.main.activity_multiple_selection.*
 
 class MultipleSelectionActivity : AppCompatActivity() {
     companion object {
         public final const val QUESTION = "com.cresonnglobal.mdcp.photo.MultipleSelectionActivity.QUESTION"
     }
     val selectedItems: MutableSet<String> = mutableSetOf()
-    private var question: Question? = null
+    private var MDCPQuestion: MDCPQuestion? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +65,7 @@ class MultipleSelectionActivity : AppCompatActivity() {
                 // show help
             }
 
-            R.id.action_view_note -> startNoteActivity(this, question)
+            R.id.action_view_note -> startNoteActivity(this, MDCPQuestion)
         }
         return super.onOptionsItemSelected(item)
     }

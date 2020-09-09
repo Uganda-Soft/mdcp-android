@@ -3,15 +3,14 @@ package com.cresonnglobal.mdcp.data.question
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Transaction
 
 @Dao
 interface QuestionDao {
     @Insert
-    fun insertQuestion(question: Question)
+    fun insertQuestion(MDCPQuestion: MDCPQuestion)
 
     @Query("SELECT * FROM question")
-    fun queryQuestion(): List<Question>
+    fun queryQuestion(): List<MDCPQuestion>
 
 //    @Transaction
 //    @Query("SELECT * FROM question")

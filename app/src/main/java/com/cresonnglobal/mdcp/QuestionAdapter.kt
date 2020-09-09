@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 
-class QuestionAdapter(var questions: List<Question>, val context: Context):
+class QuestionAdapter(var MDCPQuestions: List<MDCPQuestion>, val context: Context):
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>() {
     private var onQuestionClickListener: OnQuestionClickListener;
 
@@ -24,13 +24,13 @@ class QuestionAdapter(var questions: List<Question>, val context: Context):
         private val labelTextView: TextView = itemView.findViewById(R.id.question_label)
         private val statusTextView: View = itemView.findViewById(R.id.question_status)
 
-        public fun bind(number: Int, question: Question) {
+        public fun bind(number: Int, MDCPQuestion: MDCPQuestion) {
             val displayNumber: String = if (number < 9) { "0${number + 1}" } else { (number + 1).toString() }
             numberTextView.text = displayNumber
-            labelTextView.text = question.name
+            labelTextView.text = MDCPQuestion.name
 //            statusTextView.text = "something"
             itemView.setOnClickListener {
-                onQuestionClickListener.onQuestionClick(question, number)
+                onQuestionClickListener.onQuestionClick(MDCPQuestion, number)
             }
         }
     }
@@ -41,15 +41,15 @@ class QuestionAdapter(var questions: List<Question>, val context: Context):
     }
 
     override fun getItemCount(): Int {
-        return questions.size
+        return MDCPQuestions.size
     }
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
-        val question: Question = questions[position]
-        holder.bind(position, question)
+        val MDCPQuestion: MDCPQuestion = MDCPQuestions[position]
+        holder.bind(position, MDCPQuestion)
     }
 
     public interface OnQuestionClickListener {
-        public fun onQuestionClick(question: Question, number: Int)
+        public fun onQuestionClick(MDCPQuestion: MDCPQuestion, number: Int)
     }
 }

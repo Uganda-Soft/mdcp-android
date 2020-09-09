@@ -16,7 +16,7 @@ import com.cresonnglobal.mdcp.data.question.*
     Type::class,
     RequiredMessage::class,
     Range::class,
-    Question::class
+    MDCPQuestion::class
 ], version = 1, exportSchema = false)
 abstract class CresonnglobalDatabase: RoomDatabase() {
     abstract fun answerDao(): AnswerDao

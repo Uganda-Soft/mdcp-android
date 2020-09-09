@@ -12,12 +12,10 @@ import android.view.TextureView
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.camera.core.*
-import androidx.camera.core.impl.VideoCaptureConfig
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.Question
-import com.cresonnglobal.mdcp.helpers.startConstraintActivity
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import kotlinx.android.synthetic.main.activity_video.*
 import java.io.File
@@ -39,7 +37,7 @@ class VideoActivity : AppCompatActivity() {
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera_capture_button: ImageButton
-    private var question: Question? = null
+    private var MDCPQuestion: MDCPQuestion? = null
 
 
     private lateinit var viewFinder: TextureView
@@ -70,11 +68,11 @@ class VideoActivity : AppCompatActivity() {
 //        question = intent.getParcelableExtra<Question>(QUESTION)
 
 // There is some name mismatch here this is not mistake
-        name.text = question?.name
-        label.text = question?.label
-        hint.text = question?.hint
+        name.text = MDCPQuestion?.name
+        label.text = MDCPQuestion?.label
+        hint.text = MDCPQuestion?.hint
 
-        startNoteActivity(this, question)
+        startNoteActivity(this, MDCPQuestion)
     }
 
     private fun  takePhoto() {
@@ -156,7 +154,7 @@ class VideoActivity : AppCompatActivity() {
                 // show help
             }
 
-            R.id.action_view_note -> startNoteActivity(this, question)
+            R.id.action_view_note -> startNoteActivity(this, MDCPQuestion)
         }
         return super.onOptionsItemSelected(item)
     }

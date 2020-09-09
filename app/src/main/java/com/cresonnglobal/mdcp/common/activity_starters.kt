@@ -1,23 +1,11 @@
 package com.cresonnglobal.mdcp.common
 
 import android.content.Context
-import android.content.Intent
-import com.cresonnglobal.mdcp.audio.AudioActivity
-import com.cresonnglobal.mdcp.booleans.BooleanActivity
 import com.cresonnglobal.mdcp.data.question.Interview
-import com.cresonnglobal.mdcp.data.question.Question
-import com.cresonnglobal.mdcp.date.DateActivity
-import com.cresonnglobal.mdcp.decimal.DecimalActivity
-import com.cresonnglobal.mdcp.number.NumberActivity
-import com.cresonnglobal.mdcp.photo.PhotoActivity
-import com.cresonnglobal.mdcp.select.MultipleSelectionActivity
-import com.cresonnglobal.mdcp.text.TextActivity
-import com.cresonnglobal.mdcp.textarea.TextAreaActivity
-import com.cresonnglobal.mdcp.time.TimeActivity
-import com.cresonnglobal.mdcp.video.VideoActivity
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 
 fun startActivityForType(
-    question: Question,
+    MDCPQuestion: MDCPQuestion,
     context: Context,
     interview: Interview,
     number: Int
@@ -95,22 +83,22 @@ fun startActivityForType(
 //    }
 }
 
-fun getPreviousQuestion(number: Int, questions: List<Question>?): Question? {
+fun getPreviousQuestion(number: Int, MDCPQuestions: List<MDCPQuestion>?): MDCPQuestion? {
     if (number <= 0) {
-        return questions?.get(0)
+        return MDCPQuestions?.get(0)
     }
-    return questions?.get(number)
+    return MDCPQuestions?.get(number)
 }
 
-fun getNextQuestion(currentQuestion: Int, questions: List<Question>?): Question? {
+fun getNextQuestion(currentQuestion: Int, MDCPQuestions: List<MDCPQuestion>?): MDCPQuestion? {
     if (currentQuestion <= 0) {
-        return questions?.get(0)
+        return MDCPQuestions?.get(0)
     }
 
-    if (questions != null) {
-        if (currentQuestion >= questions.size) {
-            return questions?.get(currentQuestion + 1)
+    if (MDCPQuestions != null) {
+        if (currentQuestion >= MDCPQuestions.size) {
+            return MDCPQuestions?.get(currentQuestion + 1)
         }
     }
-    return questions?.get(currentQuestion)
+    return MDCPQuestions?.get(currentQuestion)
 }

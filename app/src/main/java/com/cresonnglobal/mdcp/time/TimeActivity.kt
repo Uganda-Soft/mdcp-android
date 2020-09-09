@@ -1,23 +1,18 @@
 package com.cresonnglobal.mdcp.time
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.Question
-import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
-import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
-import com.cresonnglobal.mdcp.helpers.startConstraintActivity
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
-import kotlinx.android.synthetic.main.activity_time.*
 
 class TimeActivity : AppCompatActivity() {
     companion object {
         public final val QUESTION = "com.cresonnglobal.mdcp.time.TimeActivity.QUESTION"
     }
-    private var question: Question? = null
+    private var MDCPQuestion: MDCPQuestion? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time)
@@ -48,7 +43,7 @@ class TimeActivity : AppCompatActivity() {
             }
 
             R.id.action_view_note -> {
-                startNoteActivity(this, question)
+                startNoteActivity(this, MDCPQuestion)
             }
         }
         return super.onOptionsItemSelected(item)

@@ -1,7 +1,6 @@
 package com.cresonnglobal.mdcp.photo
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -20,12 +19,8 @@ import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.Question
-import com.cresonnglobal.mdcp.helpers.NoteViewerActivity
-import com.cresonnglobal.mdcp.helpers.contraints.ConstraintViewActivityActivity
-import com.cresonnglobal.mdcp.helpers.startConstraintActivity
+import com.cresonnglobal.mdcp.data.question.MDCPQuestion
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
-import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
 import java.lang.Exception
 import java.text.SimpleDateFormat
@@ -46,7 +41,7 @@ class PhotoActivity : AppCompatActivity() {
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera_capture_button: ImageButton
-    private var question: Question? = null
+    private var MDCPQuestion: MDCPQuestion? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -182,7 +177,7 @@ class PhotoActivity : AppCompatActivity() {
             }
 
             R.id.action_view_note -> {
-                startNoteActivity(this, question)
+                startNoteActivity(this, MDCPQuestion)
             }
         }
         return super.onOptionsItemSelected(item)
