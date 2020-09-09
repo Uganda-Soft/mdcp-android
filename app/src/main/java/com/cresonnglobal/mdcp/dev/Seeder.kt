@@ -1,9 +1,10 @@
 package com.cresonnglobal.mdcp.dev
 
+import android.util.Log
 import com.cresonnglobal.mdcp.Repository
 import com.cresonnglobal.mdcp.data.question.Interview
 
-class Seeder(val repository: Repository) {
+class Seeder(private val repository: Repository) {
     fun seedInterview() {
         val interview = Interview(
             id = null,
@@ -14,6 +15,7 @@ class Seeder(val repository: Repository) {
             dateline = "30-12-2020"
         )
 
-        repository.insertInterview(interview)
+        val savedInterview = repository.insertInterview(interview)
+        Log.d("Seeder", savedInterview.toString())
     }
 }
