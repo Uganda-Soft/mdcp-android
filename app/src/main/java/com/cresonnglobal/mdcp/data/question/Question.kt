@@ -11,21 +11,21 @@ import kotlin.math.min
 data class Question(
     @PrimaryKey(autoGenerate = true) var id: Int,
     var name: String,
-    var label: String
-//    var hint: String,
-//    var default: String
-//    var appearance: String,
-//    var relevance: String,
-//    var disabled: Boolean,
-//    var required: String,
-//    var read_only: String,
-//    var calculation: String,
-//    var repeat_count: Int,
-//    var choice_filter: String,
-//    var note: String,
-//    var response_note: String,
-//    var publishable: String,
-//    var minimum_seconds: String
+    var label: String,
+    var hint: String,
+    var default_value: String,
+    var appearance: String,
+    var relevance: String,
+    var disabled: Boolean,
+    var required: String,
+    var read_only: String,
+    var calculation: String,
+    var repeat_count: Int,
+    var choice_filter: String,
+    var note: String,
+    var response_note: String,
+    var publishable: String,
+    var minimum_seconds: String
 ) {
 //    @Ignore
 //    constructor(
