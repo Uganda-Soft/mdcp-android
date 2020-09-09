@@ -4,7 +4,7 @@ import androidx.room.*
 
 @Entity(tableName = "interview")
 data class Interview(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int?,
     var created: String,
     var author: String,
     var company: String,
