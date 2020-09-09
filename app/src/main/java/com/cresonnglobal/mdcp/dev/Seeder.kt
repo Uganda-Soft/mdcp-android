@@ -88,7 +88,25 @@ class Seeder(private val repository: Repository) {
             value = 89,
             operator = "<="
         )
+        question1.constraints = repository.insertConstraint(constraint)
 
+        constraint = Constraint(
+            questionId = question1.id,
+            value = 89,
+            operator = "<="
+        )
+        question1.constraints = repository.insertConstraint(constraint)
+        constraint = Constraint(
+            questionId = question1.id,
+            value = 89,
+            operator = "<="
+        )
+        question1.constraints = repository.insertConstraint(constraint)
+        constraint = Constraint(
+            questionId = question1.id,
+            value = 89,
+            operator = "<="
+        )
         question1.constraints = repository.insertConstraint(constraint)
     }
 }
