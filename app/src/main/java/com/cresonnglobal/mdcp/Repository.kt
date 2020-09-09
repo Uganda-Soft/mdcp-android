@@ -95,7 +95,7 @@ class Repository private constructor(context: Context) {
         return thread.submit(Callable {
             database.basicInfoDao().insertBasicInfo(basicInfo)
             database.basicInfoDao().getBasicInfoForMeta(basicInfo.metaId)
-        })
+        }).get()
     }
 
 //    fun queryQuestions(): List<Question> {

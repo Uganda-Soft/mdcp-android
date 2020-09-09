@@ -30,7 +30,7 @@ class Seeder(private val repository: Repository) {
             value = "8Hours"
         )
 
-        meta.basic_info = repository.insertBasicInfoFor(basic_info)
+        meta.basic_info = repository.insertBasicInfo(basic_info)
 
     }
 }
