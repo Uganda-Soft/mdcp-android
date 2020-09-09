@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.MDCPQuestion
+import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 
 class TextAreaActivity : AppCompatActivity() {
     companion object {
         public final const val QUESTION = "com.cresonnglobal.mdcp.textarea.TextAreaActivity.QUESTION"
     }
-    private var MDCPQuestion: MDCPQuestion? = null
+    private var Question: Question? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,7 @@ class TextAreaActivity : AppCompatActivity() {
                 // show help
             }
 
-            R.id.action_view_note -> startNoteActivity(this, MDCPQuestion)
+            R.id.action_view_note -> startNoteActivity(this, Question)
         }
         return super.onOptionsItemSelected(item)
     }

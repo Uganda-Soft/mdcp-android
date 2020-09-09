@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.MDCPQuestion
+import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 
 class TimeActivity : AppCompatActivity() {
     companion object {
         public final val QUESTION = "com.cresonnglobal.mdcp.time.TimeActivity.QUESTION"
     }
-    private var MDCPQuestion: MDCPQuestion? = null
+    private var Question: Question? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time)
@@ -43,7 +43,7 @@ class TimeActivity : AppCompatActivity() {
             }
 
             R.id.action_view_note -> {
-                startNoteActivity(this, MDCPQuestion)
+                startNoteActivity(this, Question)
             }
         }
         return super.onOptionsItemSelected(item)

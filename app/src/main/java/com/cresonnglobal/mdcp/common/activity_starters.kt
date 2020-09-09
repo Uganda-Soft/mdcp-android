@@ -2,10 +2,10 @@ package com.cresonnglobal.mdcp.common
 
 import android.content.Context
 import com.cresonnglobal.mdcp.data.question.Interview
-import com.cresonnglobal.mdcp.data.question.MDCPQuestion
+import com.cresonnglobal.mdcp.data.question.Question
 
 fun startActivityForType(
-    MDCPQuestion: MDCPQuestion,
+    Question: Question,
     context: Context,
     interview: Interview,
     number: Int
@@ -83,22 +83,22 @@ fun startActivityForType(
 //    }
 }
 
-fun getPreviousQuestion(number: Int, MDCPQuestions: List<MDCPQuestion>?): MDCPQuestion? {
+fun getPreviousQuestion(number: Int, Questions: List<Question>?): Question? {
     if (number <= 0) {
-        return MDCPQuestions?.get(0)
+        return Questions?.get(0)
     }
-    return MDCPQuestions?.get(number)
+    return Questions?.get(number)
 }
 
-fun getNextQuestion(currentQuestion: Int, MDCPQuestions: List<MDCPQuestion>?): MDCPQuestion? {
+fun getNextQuestion(currentQuestion: Int, Questions: List<Question>?): Question? {
     if (currentQuestion <= 0) {
-        return MDCPQuestions?.get(0)
+        return Questions?.get(0)
     }
 
-    if (MDCPQuestions != null) {
-        if (currentQuestion >= MDCPQuestions.size) {
-            return MDCPQuestions?.get(currentQuestion + 1)
+    if (Questions != null) {
+        if (currentQuestion >= Questions.size) {
+            return Questions?.get(currentQuestion + 1)
         }
     }
-    return MDCPQuestions?.get(currentQuestion)
+    return Questions?.get(currentQuestion)
 }

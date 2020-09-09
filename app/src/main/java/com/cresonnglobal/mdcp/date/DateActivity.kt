@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.MDCPQuestion
+import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 
 class DateActivity : AppCompatActivity() {
     companion object {
         public final const val QUESTION = "com.cresonnglobal.mdcp.date.DateActivity.QUESTION"
     }
-    private var MDCPQuestion: MDCPQuestion? = null
+    private var Question: Question? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class DateActivity : AppCompatActivity() {
 //        label.text = question?.label
 //        hint.text = question?.hint
 
-        startNoteActivity(this, MDCPQuestion)
+        startNoteActivity(this, Question)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,7 +44,7 @@ class DateActivity : AppCompatActivity() {
             }
 
             R.id.action_view_note -> {
-                startNoteActivity(this, MDCPQuestion)
+                startNoteActivity(this, Question)
             }
         }
         return super.onOptionsItemSelected(item)

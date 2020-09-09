@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.cresonnglobal.mdcp.data.question.MDCPQuestion
+import com.cresonnglobal.mdcp.data.question.Question
 
-class QuestionAdapter(var MDCPQuestions: List<MDCPQuestion>, val context: Context):
+class QuestionAdapter(var Questions: List<Question>, val context: Context):
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>() {
     private var onQuestionClickListener: OnQuestionClickListener;
 
@@ -24,13 +24,13 @@ class QuestionAdapter(var MDCPQuestions: List<MDCPQuestion>, val context: Contex
         private val labelTextView: TextView = itemView.findViewById(R.id.question_label)
         private val statusTextView: View = itemView.findViewById(R.id.question_status)
 
-        public fun bind(number: Int, MDCPQuestion: MDCPQuestion) {
+        public fun bind(number: Int, Question: Question) {
             val displayNumber: String = if (number < 9) { "0${number + 1}" } else { (number + 1).toString() }
             numberTextView.text = displayNumber
-            labelTextView.text = MDCPQuestion.name
+            labelTextView.text = Question.name
 //            statusTextView.text = "something"
             itemView.setOnClickListener {
-                onQuestionClickListener.onQuestionClick(MDCPQuestion, number)
+                onQuestionClickListener.onQuestionClick(Question, number)
             }
         }
     }
@@ -41,15 +41,15 @@ class QuestionAdapter(var MDCPQuestions: List<MDCPQuestion>, val context: Contex
     }
 
     override fun getItemCount(): Int {
-        return MDCPQuestions.size
+        return Questions.size
     }
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
-        val MDCPQuestion: MDCPQuestion = MDCPQuestions[position]
-        holder.bind(position, MDCPQuestion)
+        val Question: Question = Questions[position]
+        holder.bind(position, Question)
     }
 
     public interface OnQuestionClickListener {
-        public fun onQuestionClick(MDCPQuestion: MDCPQuestion, number: Int)
+        public fun onQuestionClick(Question: Question, number: Int)
     }
 }

@@ -7,10 +7,10 @@ import androidx.room.Query
 @Dao
 interface QuestionDao {
     @Insert
-    fun insertQuestion(MDCPQuestion: MDCPQuestion)
+    fun insertQuestion(Question: Question)
 
     @Query("SELECT * FROM question")
-    fun queryQuestion(): List<MDCPQuestion>
+    fun queryQuestion(): List<Question>
 
 //    @Transaction
 //    @Query("SELECT * FROM question")

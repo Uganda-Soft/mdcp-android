@@ -19,7 +19,7 @@ import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.MDCPQuestion
+import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import java.io.File
 import java.lang.Exception
@@ -41,7 +41,7 @@ class PhotoActivity : AppCompatActivity() {
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera_capture_button: ImageButton
-    private var MDCPQuestion: MDCPQuestion? = null
+    private var Question: Question? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -177,7 +177,7 @@ class PhotoActivity : AppCompatActivity() {
             }
 
             R.id.action_view_note -> {
-                startNoteActivity(this, MDCPQuestion)
+                startNoteActivity(this, Question)
             }
         }
         return super.onOptionsItemSelected(item)

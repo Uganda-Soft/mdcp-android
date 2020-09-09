@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.cresonnglobal.mdcp.R
-import com.cresonnglobal.mdcp.data.question.MDCPQuestion
+import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 
 class MultipleSelectionActivity : AppCompatActivity() {
@@ -13,7 +13,7 @@ class MultipleSelectionActivity : AppCompatActivity() {
         public final const val QUESTION = "com.cresonnglobal.mdcp.photo.MultipleSelectionActivity.QUESTION"
     }
     val selectedItems: MutableSet<String> = mutableSetOf()
-    private var MDCPQuestion: MDCPQuestion? = null
+    private var Question: Question? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +65,7 @@ class MultipleSelectionActivity : AppCompatActivity() {
                 // show help
             }
 
-            R.id.action_view_note -> startNoteActivity(this, MDCPQuestion)
+            R.id.action_view_note -> startNoteActivity(this, Question)
         }
         return super.onOptionsItemSelected(item)
     }

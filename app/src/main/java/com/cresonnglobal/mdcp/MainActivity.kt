@@ -8,7 +8,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.cresonnglobal.mdcp.data.question.MDCPQuestion
+import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.settings.SettingsActivity
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
 
     }
 
-    override fun onQuestionClick(MDCPQuestion: MDCPQuestion, number: Int) {
+    override fun onQuestionClick(Question: Question, number: Int) {
 //        startActivityForType(question, this, viewModel.getInterview(), number)
     }
 

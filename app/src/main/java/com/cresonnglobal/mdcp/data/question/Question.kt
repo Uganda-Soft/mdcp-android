@@ -8,7 +8,7 @@ import java.util.*
 import kotlin.math.min
 
 @Entity(tableName = "question")
-data class MDCPQuestion(
+data class Question(
     @PrimaryKey(autoGenerate = true) var id: Int,
     var name: String,
     var label: String,

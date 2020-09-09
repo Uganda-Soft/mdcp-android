@@ -21,5 +21,5 @@ data class InterviewQuestion(
     @Relation(
         parentColumn = "id",
         entityColumn = "id"
-    ) val MDCPQuestions: List<MDCPQuestion>
+    ) val Questions: List<Question>
 )
