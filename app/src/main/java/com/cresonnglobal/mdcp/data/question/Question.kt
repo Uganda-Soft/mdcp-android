@@ -14,7 +14,7 @@ data class Question(
     var name: String,
     var label: String,
     var hint: String,
-    var default: String,
+    var default_value: String,
     var appearance: String,
     var relevance: String,
     var disabled: String,
