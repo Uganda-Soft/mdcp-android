@@ -40,6 +40,7 @@ class Seeder(private val repository: Repository) {
 
         // question
         var question1 = Question(
+            interviewId = interview.id,
             name = "Which Technology was used to Build This Mobile Application?",
             label = "Q1A",
             hint = "Ask Developers who made this mobile application",

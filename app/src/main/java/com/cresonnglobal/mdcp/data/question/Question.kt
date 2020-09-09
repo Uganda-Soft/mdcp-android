@@ -1,9 +1,12 @@
 package com.cresonnglobal.mdcp.data.question
 
+import androidx.annotation.NonNull
 import androidx.room.*
 
 @Entity(tableName = "question")
 data class Question(
+    @NonNull
+    var interviewId: Int,
     var name: String,
     var label: String,
     var hint: String,
