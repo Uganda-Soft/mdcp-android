@@ -13,6 +13,7 @@ data class Interview(
 ) {
     lateinit var meta: Meta
     lateinit var questions: List<Question>
+    @Ignore
     constructor(
         id: Int,
         created: String,
