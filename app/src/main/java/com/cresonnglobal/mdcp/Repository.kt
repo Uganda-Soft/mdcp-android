@@ -76,8 +76,12 @@ class Repository private constructor(context: Context) {
         }).get()
     }
 
-    fun insertInterview(interview: Interview) {
-
+    fun insertInterview(interview: Interview): Interview {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.interviewDao().insertInterview(interview)
+            interview
+        }).get()
     }
 
 //    fun queryQuestions(): List<Question> {
