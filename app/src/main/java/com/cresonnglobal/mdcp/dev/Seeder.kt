@@ -1,5 +1,6 @@
 package com.cresonnglobal.mdcp.dev
 
+import android.util.Log
 import com.cresonnglobal.mdcp.Repository
 import com.cresonnglobal.mdcp.data.question.*
 
@@ -186,5 +187,11 @@ class Seeder(private val repository: Repository) {
         )
 
         question1.answers = repository.insertAnswer(answer)
+        question1.answers = repository.insertAnswer(answer)
+        question1.answers = repository.insertAnswer(answer)
+        question1.answers = repository.insertAnswer(answer)
+        question1.answers = repository.insertAnswer(answer)
+
+        Log.d("SEEDER", question1.toString())
     }
 }
