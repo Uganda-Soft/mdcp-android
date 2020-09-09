@@ -9,7 +9,8 @@ import androidx.room.PrimaryKey
 data class Constraint(
     @NonNull
     var questionId: Int,
-    val expression: String
+    var value: Int,
+    var operator: String
 ) {
     @PrimaryKey(autoGenerate = true) var id: Int = 0
 }

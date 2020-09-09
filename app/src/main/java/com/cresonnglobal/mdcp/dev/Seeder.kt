@@ -84,7 +84,9 @@ class Seeder(private val repository: Repository) {
 
 //        question contraint
         var constraint = Constraint(
-
+            questionId = question1.id,
+            value = 89,
+            operator = "<="
         )
     }
 }
