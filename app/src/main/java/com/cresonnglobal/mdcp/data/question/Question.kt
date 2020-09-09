@@ -28,5 +28,7 @@ data class Question(
     var note: String,
     var response_note: String,
     var publishable: String,
-    var minimum_seconds: String
+    var minimum_seconds: String,
+    @Ignore
+    var constraint_messages: List<ConstraintMessage>?
 )
