@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.dev.Seeder
+import com.cresonnglobal.mdcp.interview.InterviewListActivity
 import com.cresonnglobal.mdcp.settings.SettingsActivity
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
@@ -71,8 +72,8 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
 
 //            R.id.action_view_note -> startNoteActivity(this, viewModel.getInterview()?.meta?.note)
             R.id.action_select_interview -> {
-//                val intent = Intent(this, InterviewListActivityViewModel::class.java)
-//                startActivityForResult(intent, SELECT_INTERVIEW_REQUEST_CODE)
+                val intent = Intent(this, InterviewListActivity::class.java)
+                startActivityForResult(intent, SELECT_INTERVIEW_REQUEST_CODE)
             }
         }
         return super.onOptionsItemSelected(item)
