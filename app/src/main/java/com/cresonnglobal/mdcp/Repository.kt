@@ -163,6 +163,7 @@ class Repository private constructor(context: Context) {
                     question.constraint_messages = database.constraintMessageDao().getConstraintMessageForQuestion(question.id)
                     question.constraints = database.constraintDao().getConstraintsForQuestion(question.id)
                     question.required_message = database.requiredMessageDao().getRequiredMessageForQuestion(question.id)
+                    question.media = database.mediaDao().getMediaForQuestion(question.id)
                 }
             }
             interviews
