@@ -162,7 +162,7 @@ class Seeder(private val repository: Repository) {
             if (i == 1) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Audio",
+                    type = "audio",
                     from = ""
                 )
 
@@ -179,7 +179,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 2 ) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Boolean",
+                    type = "boolean",
                     from = ""
                 )
 
@@ -196,7 +196,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 3) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Decimal",
+                    type = "decimal",
                     from = ""
                 )
 
@@ -213,7 +213,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 4) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Date",
+                    type = "date",
                     from = ""
                 )
 
@@ -230,7 +230,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 5) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Number",
+                    type = "number",
                     from = ""
                 )
 
@@ -247,7 +247,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 6) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Photo",
+                    type = "photo",
                     from = ""
                 )
 
@@ -264,7 +264,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 7) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Select",
+                    type = "select",
                     from = ""
                 )
 
@@ -281,7 +281,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 8) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Text",
+                    type = "text",
                     from = ""
                 )
 
@@ -298,7 +298,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 9) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Textarea",
+                    type = "textarea",
                     from = ""
                 )
 
@@ -315,7 +315,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 10) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Time",
+                    type = "time",
                     from = ""
                 )
 
@@ -332,7 +332,7 @@ class Seeder(private val repository: Repository) {
             } else if (i == 11) {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Video",
+                    type = "video",
                     from = ""
                 )
 
@@ -349,7 +349,7 @@ class Seeder(private val repository: Repository) {
             } else {
                 var type = Type(
                     questionId = question1.id,
-                    type = "Video",
+                    type = "video",
                     from = ""
                 )
 

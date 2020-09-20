@@ -45,8 +45,8 @@ class QuestionAdapter(var Questions: List<Question>, val context: Context):
     }
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
-        val Question: Question = Questions[position]
-        holder.bind(position, Question)
+        val question: Question = Questions[position]
+        holder.bind(position, question)
     }
 
     public interface OnQuestionClickListener {
