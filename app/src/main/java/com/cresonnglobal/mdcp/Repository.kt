@@ -164,6 +164,11 @@ class Repository private constructor(context: Context) {
                     question.constraints = database.constraintDao().getConstraintsForQuestion(question.id)
                     question.required_message = database.requiredMessageDao().getRequiredMessageForQuestion(question.id)
                     question.media = database.mediaDao().getMediaForQuestion(question.id)
+                    val type = database.typeDao().getTypeForQuestion(question.id)
+                    type.range = database.rangeDao().getRangeForType(type.id)
+                    question.type = type
+                    val answers = database.answerDao().getAnswersForQuestion(question.id)
+                    question.answers = answers
                 }
             }
             interviews
