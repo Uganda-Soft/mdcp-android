@@ -36,162 +36,164 @@ class Seeder(private val repository: Repository) {
 
         interview.meta = meta
 
-        // question
-        var question1 = Question(
-            interviewId = interview.id,
-            name = "Which Technology was used to Build This Mobile Application?",
-            label = "Q1A",
-            hint = "Ask Developers who made this mobile application",
-            default_value = "",
-            appearance = "TEXT",
-            relevance = "NONE",
-            disabled = false,
-            required = true,
-            read_only = false,
-            calculation = "",
-            repeat_count = 4,
-            choice_filter = "None",
-            note = "Please request this information from the developers and ask them",
-            response_note = "List the answers in the box below",
-            publishable = "False",
-            minimum_seconds = 787
-        )
+        for ( i in 1..50) {
+            // question
+            var question1 = Question(
+                interviewId = interview.id,
+                name = "Which Technology was used to Build This Mobile Application?",
+                label = "Q1A",
+                hint = "Ask Developers who made this mobile application",
+                default_value = "",
+                appearance = "TEXT",
+                relevance = "NONE",
+                disabled = false,
+                required = true,
+                read_only = false,
+                calculation = "",
+                repeat_count = 4,
+                choice_filter = "None",
+                note = "Please request this information from the developers and ask them",
+                response_note = "List the answers in the box below",
+                publishable = "False",
+                minimum_seconds = 787
+            )
 
-        question1 = repository.insertQuestion(question1)
+            question1 = repository.insertQuestion(question1)
 
-        // question 1, constraint_messages
-        var constraintMessage = ConstraintMessage(
-            questionId = question1.id,
-            message = "This Question Is required for you to answer the second question"
-        )
-        question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
-        // question 1, constraint_messages
-        constraintMessage = ConstraintMessage(
-            questionId = question1.id,
-            message = "This Question Is required for you to answer the second question"
-        )
-        question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
-        // question 1, constraint_messages
-        constraintMessage = ConstraintMessage(
-            questionId = question1.id,
-            message = "This Question Is required for you to answer the second question"
-        )
-        question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
-        constraintMessage = ConstraintMessage(
-            questionId = question1.id,
-            message = "This Question Is required for you to answer the second question"
-        )
-        question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
+            // question 1, constraint_messages
+            var constraintMessage = ConstraintMessage(
+                questionId = question1.id,
+                message = "This Question Is required for you to answer the second question"
+            )
+            question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
+            // question 1, constraint_messages
+            constraintMessage = ConstraintMessage(
+                questionId = question1.id,
+                message = "This Question Is required for you to answer the second question"
+            )
+            question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
+            // question 1, constraint_messages
+            constraintMessage = ConstraintMessage(
+                questionId = question1.id,
+                message = "This Question Is required for you to answer the second question"
+            )
+            question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
+            constraintMessage = ConstraintMessage(
+                questionId = question1.id,
+                message = "This Question Is required for you to answer the second question"
+            )
+            question1.constraint_messages = repository.insertConstraintMessage(constraintMessage)
 
 //        question contraint
-        var constraint = Constraint(
-            questionId = question1.id,
-            value = 89,
-            operator = "<="
-        )
-        question1.constraints = repository.insertConstraint(constraint)
+            var constraint = Constraint(
+                questionId = question1.id,
+                value = 89,
+                operator = "<="
+            )
+            question1.constraints = repository.insertConstraint(constraint)
 
-        constraint = Constraint(
-            questionId = question1.id,
-            value = 89,
-            operator = "<="
-        )
-        question1.constraints = repository.insertConstraint(constraint)
-        constraint = Constraint(
-            questionId = question1.id,
-            value = 89,
-            operator = "<="
-        )
-        question1.constraints = repository.insertConstraint(constraint)
-        constraint = Constraint(
-            questionId = question1.id,
-            value = 89,
-            operator = "<="
-        )
-        question1.constraints = repository.insertConstraint(constraint)
+            constraint = Constraint(
+                questionId = question1.id,
+                value = 89,
+                operator = "<="
+            )
+            question1.constraints = repository.insertConstraint(constraint)
+            constraint = Constraint(
+                questionId = question1.id,
+                value = 89,
+                operator = "<="
+            )
+            question1.constraints = repository.insertConstraint(constraint)
+            constraint = Constraint(
+                questionId = question1.id,
+                value = 89,
+                operator = "<="
+            )
+            question1.constraints = repository.insertConstraint(constraint)
 
-        // required message
-        var requiredMessage = RequiredMessage(
-            questionId = question1.id,
-            message = "Please on provide approved figures"
-        )
+            // required message
+            var requiredMessage = RequiredMessage(
+                questionId = question1.id,
+                message = "Please on provide approved figures"
+            )
 
-        question1.required_message = repository.insertRequiredMessage(requiredMessage)
+            question1.required_message = repository.insertRequiredMessage(requiredMessage)
 
-        requiredMessage = RequiredMessage(
-            questionId = question1.id,
-            message = "Please on provide approved figures"
-        )
+            requiredMessage = RequiredMessage(
+                questionId = question1.id,
+                message = "Please on provide approved figures"
+            )
 
-        question1.required_message = repository.insertRequiredMessage(requiredMessage)
+            question1.required_message = repository.insertRequiredMessage(requiredMessage)
 
-        requiredMessage = RequiredMessage(
-            questionId = question1.id,
-            message = "Please on provide approved figures"
-        )
+            requiredMessage = RequiredMessage(
+                questionId = question1.id,
+                message = "Please on provide approved figures"
+            )
 
-        question1.required_message = repository.insertRequiredMessage(requiredMessage)
-        requiredMessage = RequiredMessage(
-            questionId = question1.id,
-            message = "Please on provide approved figures"
-        )
+            question1.required_message = repository.insertRequiredMessage(requiredMessage)
+            requiredMessage = RequiredMessage(
+                questionId = question1.id,
+                message = "Please on provide approved figures"
+            )
 
-        question1.required_message = repository.insertRequiredMessage(requiredMessage)
-        requiredMessage = RequiredMessage(
-            questionId = question1.id,
-            message = "Please on provide approved figures"
-        )
+            question1.required_message = repository.insertRequiredMessage(requiredMessage)
+            requiredMessage = RequiredMessage(
+                questionId = question1.id,
+                message = "Please on provide approved figures"
+            )
 
-        question1.required_message = repository.insertRequiredMessage(requiredMessage)
-        requiredMessage = RequiredMessage(
-            questionId = question1.id,
-            message = "Please on provide approved figures"
-        )
+            question1.required_message = repository.insertRequiredMessage(requiredMessage)
+            requiredMessage = RequiredMessage(
+                questionId = question1.id,
+                message = "Please on provide approved figures"
+            )
 
-        question1.required_message = repository.insertRequiredMessage(requiredMessage)
+            question1.required_message = repository.insertRequiredMessage(requiredMessage)
 
-        var media = Media(
-            questionId = question1.id,
-            videoURL = "tyyryyryryryyryr",
-            audioURL = "ttrtrtryyryryryryyr"
-        )
+            var media = Media(
+                questionId = question1.id,
+                videoURL = "tyyryyryryryyryr",
+                audioURL = "ttrtrtryyryryryryyr"
+            )
 
-        question1.media = repository.insertMedia(media)
+            question1.media = repository.insertMedia(media)
 
-        var type = Type(
-            questionId = question1.id,
-            type = "Boolean",
-            from = ""
-        )
+            var type = Type(
+                questionId = question1.id,
+                type = "Boolean",
+                from = ""
+            )
 
-        type = repository.insertType(type)
-        var range = Range(
-            typeId = type.id,
-            max = 500,
-            min = 60
-        )
+            type = repository.insertType(type)
+            var range = Range(
+                typeId = type.id,
+                max = 500,
+                min = 60
+            )
 
-        range = repository.insertRange(range)
-        type.range = range
-        question1.type = type
+            range = repository.insertRange(range)
+            type.range = range
+            question1.type = type
 
-        var answer = Answer(
-            questionId = question1.id,
-            time = "09:40am",
-            body = "The List",
-            duration = "67min",
-            latitude = "89746663645535546",
-            logitude = "8988477474",
-            date = "07-08-2020"
+            var answer = Answer(
+                questionId = question1.id,
+                time = "09:40am",
+                body = "The List",
+                duration = "67min",
+                latitude = "89746663645535546",
+                logitude = "8988477474",
+                date = "07-08-2020"
 
-        )
+            )
 
-        question1.answers = repository.insertAnswer(answer)
-        question1.answers = repository.insertAnswer(answer)
-        question1.answers = repository.insertAnswer(answer)
-        question1.answers = repository.insertAnswer(answer)
-        question1.answers = repository.insertAnswer(answer)
+            question1.answers = repository.insertAnswer(answer)
+            question1.answers = repository.insertAnswer(answer)
+            question1.answers = repository.insertAnswer(answer)
+            question1.answers = repository.insertAnswer(answer)
+            question1.answers = repository.insertAnswer(answer)
 
-        Log.d("SEEDER", question1.toString())
+            Log.d("SEEDER", question1.toString())
+        }
     }
 }

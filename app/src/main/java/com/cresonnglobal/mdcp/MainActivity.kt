@@ -9,10 +9,14 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.dev.Seeder
 import com.cresonnglobal.mdcp.interview.InterviewListActivity
 import com.cresonnglobal.mdcp.settings.SettingsActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListener{
     private var totalQuestion: Int = 0
@@ -30,6 +34,9 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         Log.d("MainActivity", interview.toString())
 
         val questionAdapter = QuestionAdapter(interview[0].questions, this);
+        val recyclerView: RecyclerView = questions_list_recyclerview
+        recyclerView.adapter = questionAdapter
+        recyclerView.layoutManager = GridLayoutManager(this, 3)
 
     }
 

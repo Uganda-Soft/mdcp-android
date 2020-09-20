@@ -158,6 +158,7 @@ class Repository private constructor(context: Context) {
                 Log.d("Interview", interview.toString())
                 meta.basic_info = database.basicInfoDao().getBasicInfoForMeta(meta.id)
                 interview.meta = meta
+                val questions = mutableListOf<Question>()
 
                 for (question in database.questionDao().getQuestionForInterview(interview.id)) {
                     question.constraint_messages = database.constraintMessageDao().getConstraintMessageForQuestion(question.id)
@@ -169,7 +170,9 @@ class Repository private constructor(context: Context) {
                     question.type = type
                     val answers = database.answerDao().getAnswersForQuestion(question.id)
                     question.answers = answers
+                    questions.add(question)
                 }
+                interview.questions = questions.toList()
             }
             interviews
         }).get();
