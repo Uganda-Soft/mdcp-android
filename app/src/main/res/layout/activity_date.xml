@@ -8,7 +8,7 @@
     tools:context=".date.DateActivity">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/question_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Q45b"
@@ -21,18 +21,18 @@
 
 
     <TextView
-        android:id="@+id/label"
+        android:id="@+id/question_name"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:textSize="14sp"
         android:text="@string/example_question"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintEnd_toEndOf="@+id/question_label"
+        app:layout_constraintStart_toStartOf="@+id/question_label"
+        app:layout_constraintTop_toBottomOf="@+id/question_label" />
 
     <TextView
-        android:id="@+id/hint"
+        android:id="@+id/question_hint"
         style="@style/Widget.MaterialComponents.TextView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -40,10 +40,10 @@
         android:text="@string/example_hint"
         android:textSize="12sp"
         android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/label"
+        app:layout_constraintEnd_toEndOf="@+id/question_name"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/label"
-        app:layout_constraintTop_toBottomOf="@+id/label" />
+        app:layout_constraintStart_toStartOf="@+id/question_name"
+        app:layout_constraintTop_toBottomOf="@+id/question_name" />
 
     <DatePicker
         android:id="@+id/answer"
@@ -54,9 +54,9 @@
         android:datePickerMode="spinner"
         android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@+id/next"
-        app:layout_constraintEnd_toEndOf="@+id/hint"
-        app:layout_constraintStart_toStartOf="@+id/hint"
-        app:layout_constraintTop_toBottomOf="@+id/hint"
+        app:layout_constraintEnd_toEndOf="@+id/question_hint"
+        app:layout_constraintStart_toStartOf="@+id/question_hint"
+        app:layout_constraintTop_toBottomOf="@+id/question_hint"
         app:layout_constraintVertical_bias="0.01999998" />
 
     <Button

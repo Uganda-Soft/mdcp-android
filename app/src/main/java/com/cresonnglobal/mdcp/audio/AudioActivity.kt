@@ -25,9 +25,9 @@ class AudioActivity : AppCompatActivity() {
         question = audioActivityViewModel.getQuestion(intent.getIntExtra(QUESTION_ID, 0))
 
 
-        name.text = question.name
-        label.text = question.label
-        hint.text = question.hint
+        question_label.text = question.label
+        question_name.text = question.name
+        question_hint.text = question.hint
         startNoteActivity(this, question)
     }
 
