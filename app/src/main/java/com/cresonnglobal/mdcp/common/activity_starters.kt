@@ -99,19 +99,18 @@ fun startActivityForType(
 }
 
 fun getPreviousQuestion(number: Int, questions: List<Question>): Question {
-    if (number <= 0) {
-        return questions[0]
+    val nextID = number + 1;
+    if (nextID >= 0 && nextID < questions.size) {
+        return questions[nextID]
     }
-    return questions[number + 1]
+    return questions[number]
+
 }
 
 fun getNextQuestion(currentQuestion: Int, questions: List<Question>): Question {
-    if (currentQuestion <= 0) {
-        return questions[0]
-    }
-
-    if (currentQuestion >= questions.size) {
-        return questions[currentQuestion + 1]
+    val nextID = currentQuestion - 1;
+    if (nextID >= 0 && nextID < questions.size) {
+        return questions[nextID]
     }
     return questions[currentQuestion]
 }
