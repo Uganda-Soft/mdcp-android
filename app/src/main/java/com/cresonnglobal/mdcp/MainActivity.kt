@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         Seeder(viewModel.getRepository()).seedInterview()
         // get all interview and pick the first one
         val interviews = viewModel.getInterviews()
-        interview = interviews[0]
+        interview = interviews
         Log.d("MainActivity", interview.toString())
 
         val questionAdapter = QuestionAdapter(interview.questions, this);
