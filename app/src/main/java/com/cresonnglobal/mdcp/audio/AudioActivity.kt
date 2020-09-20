@@ -4,25 +4,31 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
+import kotlinx.android.synthetic.main.activity_audio.*
 
 class AudioActivity : AppCompatActivity() {
     companion object {
-        public final const val QUESTION: String = "com.cresonnglobal.mdcp.audio.AudioActivity.QUESTION"
+        public final const val QUESTION_ID: String = "com.cresonnglobal.mdcp.audio.AudioActivity.QUESTION_ID"
     }
-    private var Question: Question? = null
+    private lateinit var question: Question
+    private lateinit var audioActivityViewModel: AudioActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_audio)
 
-//        question = intent.getParcelableExtra<Question>(QUESTION)
-//        name.text = question?.name
-//        label.text = question?.label
-//        hint.text = question?.hint
-//        startNoteActivity(this, question)
+        audioActivityViewModel = ViewModelProvider(this).get(AudioActivityViewModel::class.java)
+        question = audioActivityViewModel.getQuestion(intent.getIntExtra(QUESTION_ID, 0))
+
+
+        name.text = question.name
+        label.text = question.label
+        hint.text = question.hint
+        startNoteActivity(this, question)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -41,7 +47,7 @@ class AudioActivity : AppCompatActivity() {
                 // show help
             }
 
-            R.id.action_view_note -> startNoteActivity(this, Question)
+            R.id.action_view_note -> startNoteActivity(this, question)
         }
         return super.onOptionsItemSelected(item)
     }

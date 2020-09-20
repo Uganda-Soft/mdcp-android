@@ -25,7 +25,7 @@ fun startActivityForType(
     when (question.type.type) {
         "audio" -> {
             val intent = Intent(context, AudioActivity::class.java)
-            intent.putExtra(AudioActivity.QUESTION, question.id)
+            intent.putExtra(AudioActivity.QUESTION_ID, question.id)
             context.startActivity(intent)
             return
         }
