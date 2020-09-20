@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
+import com.cresonnglobal.mdcp.data.question.Answer
 import com.cresonnglobal.mdcp.helpers.startNoteActivity
 import kotlinx.android.synthetic.main.activity_audio.*
 
@@ -28,6 +29,7 @@ class AudioActivity : AppCompatActivity() {
         question_label.text = question.label
         question_name.text = question.name
         question_hint.text = question.hint
+        question_answer.setText(question.answers[0].body)
         startNoteActivity(this, question)
     }
 
@@ -50,5 +52,11 @@ class AudioActivity : AppCompatActivity() {
             R.id.action_view_note -> startNoteActivity(this, question)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onPause() {
+        super.onPause()
+       val answer: Answer = question.answers[0]
+        audioActivityViewModel.updateAnswer(answer)
     }
 }
