@@ -28,33 +28,8 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         // get all interview and pick the first one
         val interview = viewModel.getInterviews()
         Log.d("MainActivity", interview.toString())
-//        viewModel.getRepository().insertQuestion(
-//            Question(
-//            78,
-//            "Sq23",
-//            "Label",
-//            "This was the hint",
-//            "None",
-//            "Text box",
-//            "This required",
-//            "True",
-//            "NO",
-//            "Yes",
-//            "This ",
-//            "Better",
-//            "No Choice",
-//            "The Man",
-//            "The Writer",
-//            "Thre",
-//            "Not"
-//        )
-//        )
 
-
-        viewModel.getRepository().queryAnswers().observe(this, Observer {
-            Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
-        })
-//        val data = viewModel.getRepository().queryQuestions()
+        val questionAdapter = QuestionAdapter(interview[0].questions, this);
 
     }
 

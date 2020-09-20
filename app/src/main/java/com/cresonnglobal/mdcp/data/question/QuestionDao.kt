@@ -14,6 +14,8 @@ interface QuestionDao {
 
     @Query("SELECT * FROM question ORDER BY id DESC LIMIT 1")
     fun getLatestQuestion(): Question
+
+    @Query("SELECT * FROM question WHERE interviewId =:id")
     fun getQuestionForInterview(id: Int): List<Question>
 
 //    @Transaction
