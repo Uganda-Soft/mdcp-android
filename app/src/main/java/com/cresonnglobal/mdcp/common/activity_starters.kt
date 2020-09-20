@@ -28,6 +28,8 @@ fun startActivityForType(
         "audio" -> {
             val intent = Intent(context, AudioActivity::class.java)
             intent.putExtra(AudioActivity.QUESTION_ID, question.id)
+            intent.putExtra(AudioActivity.NEXT_QUESTION, getNextQuestion(number, interview.questions).id)
+            intent.putExtra(AudioActivity.PREVIOUS_QUESTION, getPreviousQuestion(number, interview.questions).id)
             context.startActivity(intent)
             return
         }
@@ -100,12 +102,12 @@ fun getPreviousQuestion(number: Int, questions: List<Question>): Question {
     if (number <= 0) {
         return questions[0]
     }
-    return questions[number]
+    return questions[number + 1]
 }
 
 fun getNextQuestion(currentQuestion: Int, questions: List<Question>): Question {
     if (currentQuestion <= 0) {
-        return questions.get(0)
+        return questions[0]
     }
 
     if (currentQuestion >= questions.size) {

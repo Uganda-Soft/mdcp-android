@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.cresonnglobal.mdcp.R
 import com.cresonnglobal.mdcp.data.question.Question
@@ -14,10 +15,14 @@ import kotlinx.android.synthetic.main.activity_audio.*
 
 class AudioActivity : AppCompatActivity() {
     companion object {
+        const val PREVIOUS_QUESTION: String = "com.cresonnglobal.mdcp.audio.AudioActivity.PREVIOUS_QUESTION_ID"
+        const val NEXT_QUESTION: String = "com.cresonnglobal.mdcp.audio.AudioActivity.NEXT_QUESTION_ID"
         public final const val QUESTION_ID: String = "com.cresonnglobal.mdcp.audio.AudioActivity.QUESTION_ID"
     }
     private lateinit var question: Question
     private lateinit var audioActivityViewModel: AudioActivityViewModel
+    private lateinit var nextButton: Button
+    private lateinit var previousButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
