@@ -28,14 +28,15 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        Seeder(viewModel.getRepository()).seedInterview()
+//        Seeder(viewModel.getRepository()).seedInterview()
         // get all interview and pick the first one
         val interviews = viewModel.getInterviews()
         interview = interviews
         Log.d("MainActivity", interview.toString())
 
-        val questionAdapter = QuestionAdapter(interview.questions, this);
         val recyclerView: RecyclerView = questions_list_recyclerview
+
+        val questionAdapter = QuestionAdapter(interview.questions, this);
         recyclerView.adapter = questionAdapter
         recyclerView.layoutManager = GridLayoutManager(this, 3)
 

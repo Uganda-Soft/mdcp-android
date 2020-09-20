@@ -2,6 +2,7 @@ package com.cresonnglobal.mdcp.common
 
 import android.content.Context
 import android.content.Intent
+import com.cresonnglobal.mdcp.Repository
 import com.cresonnglobal.mdcp.audio.AudioActivity
 import com.cresonnglobal.mdcp.booleans.BooleanActivity
 import com.cresonnglobal.mdcp.data.question.Interview
@@ -22,7 +23,8 @@ fun startActivityForType(
     interview: Interview,
     number: Int
 ) {
-    when (question.type.type) {
+    val q = Repository.getRepository(context).getQuestion(question.id)
+    when (q.type.type) {
         "audio" -> {
             val intent = Intent(context, AudioActivity::class.java)
             intent.putExtra(AudioActivity.QUESTION_ID, question.id)
