@@ -148,6 +148,13 @@ class Repository private constructor(context: Context) {
         }).get()
     }
 
+    fun getInterviews(): List<Interview> {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+
+        }).get();
+    }
+
 //    fun queryQuestions(): List<Question> {
 //        val thread = Executors.newSingleThreadExecutor()
 //        return thread.submit(Callable {

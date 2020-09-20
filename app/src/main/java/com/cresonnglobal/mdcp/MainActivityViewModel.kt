@@ -14,4 +14,8 @@ class MainActivityViewModel(application: Application): AndroidViewModel(applicat
     fun getRepository(): Repository {
         return repository
     }
+
+    fun getInterviews(): List<Interview> {
+        return  repository.getInterviews()
+    }
 }

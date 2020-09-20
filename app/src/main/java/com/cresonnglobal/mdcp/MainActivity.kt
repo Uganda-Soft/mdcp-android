@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         Seeder(viewModel.getRepository()).seedInterview()
+        // get all interview and pick the first one
+        val interview = viewModel.getInterviews()
 //        viewModel.getRepository().insertQuestion(
 //            Question(
 //            78,
