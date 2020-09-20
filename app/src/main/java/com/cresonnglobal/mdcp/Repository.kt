@@ -161,6 +161,8 @@ class Repository private constructor(context: Context) {
 
                 for (question in database.questionDao().getQuestionForInterview(interview.id)) {
                     question.constraint_messages = database.constraintMessageDao().getConstraintMessageForQuestion(question.id)
+                    question.constraints = database.constraintDao().getConstraintsForQuestion(question.id)
+                    question.required_message = database.requiredMessageDao().getRequiredMessageForQuestion(question.id)
                 }
             }
             interviews
