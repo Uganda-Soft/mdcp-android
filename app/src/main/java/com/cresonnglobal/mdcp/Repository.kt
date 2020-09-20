@@ -149,32 +149,31 @@ class Repository private constructor(context: Context) {
         }).get()
     }
 
-    fun getInterviews(): List<Interview> {
+    fun getInterviews(): Interview {
         val thread = Executors.newSingleThreadExecutor()
         return thread.submit(Callable {
-            val interviews = database.interviewDao().getInterviewList()
-            for (interview in interviews) {
-                val meta = database.metaDao().getMetaForInterview(interview.id)
-                Log.d("Interview", interview.toString())
-                meta.basic_info = database.basicInfoDao().getBasicInfoForMeta(meta.id)
-                interview.meta = meta
-                val questions = mutableListOf<Question>()
+            val interviewId = 0
+            val interview = database.interviewDao().getInterviewWithID(interviewId)
+            val meta = database.metaDao().getMetaForInterview(interview.id)
+            Log.d("Interview", interview.toString())
+            meta.basic_info = database.basicInfoDao().getBasicInfoForMeta(meta.id)
+            interview.meta = meta
+            val questions = mutableListOf<Question>()
 
-                for (question in database.questionDao().getQuestionForInterview(interview.id)) {
-                    question.constraint_messages = database.constraintMessageDao().getConstraintMessageForQuestion(question.id)
-                    question.constraints = database.constraintDao().getConstraintsForQuestion(question.id)
-                    question.required_message = database.requiredMessageDao().getRequiredMessageForQuestion(question.id)
-                    question.media = database.mediaDao().getMediaForQuestion(question.id)
-                    val type = database.typeDao().getTypeForQuestion(question.id)
-                    type.range = database.rangeDao().getRangeForType(type.id)
-                    question.type = type
-                    val answers = database.answerDao().getAnswersForQuestion(question.id)
-                    question.answers = answers
-                    questions.add(question)
-                }
-                interview.questions = questions.toList()
+            for (question in database.questionDao().getQuestionForInterview(interview.id)) {
+//                question.constraint_messages = database.constraintMessageDao().getConstraintMessageForQuestion(question.id)
+//                question.constraints = database.constraintDao().getConstraintsForQuestion(question.id)
+//                question.required_message = database.requiredMessageDao().getRequiredMessageForQuestion(question.id)
+//                question.media = database.mediaDao().getMediaForQuestion(question.id)
+//                val type = database.typeDao().getTypeForQuestion(question.id)
+//                type.range = database.rangeDao().getRangeForType(type.id)
+//                question.type = type
+//                val answers = database.answerDao().getAnswersForQuestion(question.id)
+//                question.answers = answers
+                questions.add(question)
             }
-            interviews
+            interview.questions = questions.toList()
+            interview
         }).get();
     }
 
