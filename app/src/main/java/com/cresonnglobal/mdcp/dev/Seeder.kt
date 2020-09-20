@@ -159,22 +159,211 @@ class Seeder(private val repository: Repository) {
 
             question1.media = repository.insertMedia(media)
 
-            var type = Type(
-                questionId = question1.id,
-                type = "Boolean",
-                from = ""
-            )
+            if (i == 1) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Audio",
+                    from = ""
+                )
 
-            type = repository.insertType(type)
-            var range = Range(
-                typeId = type.id,
-                max = 500,
-                min = 60
-            )
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
 
-            range = repository.insertRange(range)
-            type.range = range
-            question1.type = type
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 2 ) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Boolean",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 3) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Decimal",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 4) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Date",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 5) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Number",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 6) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Photo",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 7) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Select",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 8) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Text",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 9) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Textarea",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 10) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Time",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else if (i == 11) {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Video",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            } else {
+                var type = Type(
+                    questionId = question1.id,
+                    type = "Video",
+                    from = ""
+                )
+
+                type = repository.insertType(type)
+                var range = Range(
+                    typeId = type.id,
+                    max = 500,
+                    min = 60
+                )
+
+                range = repository.insertRange(range)
+                type.range = range
+                question1.type = type
+            }
 
             var answer = Answer(
                 questionId = question1.id,
