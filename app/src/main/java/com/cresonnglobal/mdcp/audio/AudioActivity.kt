@@ -2,6 +2,7 @@ package com.cresonnglobal.mdcp.audio
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
@@ -57,11 +58,13 @@ class AudioActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
        val answer: Answer = question.answers[0]
+        answer.body = question_answer.text.toString()
         audioActivityViewModel.updateAnswer(answer)
     }
 
     override fun onDestroy() {
         val answer: Answer = question.answers[0]
+        answer.body = question_answer.text.toString()
         audioActivityViewModel.updateAnswer(answer)
         super.onDestroy()
     }
