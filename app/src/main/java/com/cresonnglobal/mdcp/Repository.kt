@@ -154,8 +154,14 @@ class Repository private constructor(context: Context) {
         return thread.submit(Callable {
             val interviews = database.interviewDao().getInterviewList()
             for (interview in interviews) {
-                interview.meta = database.metaDao().getMetaForInterview(interview.id)
+                val meta = database.metaDao().getMetaForInterview(interview.id)
                 Log.d("Interview", interview.toString())
+                meta.basic_info = database.basicInfoDao().getBasicInfoForMeta(meta.id)
+                interview.meta = meta
+
+                for (question in database.questionDao().getQuestionForInterview(interview.id)) {
+                    question.constraint_messages = database.constraintMessageDao().getConstraintMessageForQuestion(question.id)
+                }
             }
             interviews
         }).get();
