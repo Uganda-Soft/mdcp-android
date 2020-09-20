@@ -181,7 +181,17 @@ class Repository private constructor(context: Context) {
     fun getQuestion(questionId: Int): Question {
         val thread = Executors.newSingleThreadExecutor()
         return thread.submit(Callable {
-            database.questionDao().getQuestion(questionId)
+            val question = database.questionDao().getQuestion(questionId)
+            question.constraint_messages = database.constraintMessageDao().getConstraintMessageForQuestion(question.id)
+            question.constraints = database.constraintDao().getConstraintsForQuestion(question.id)
+            question.required_message = database.requiredMessageDao().getRequiredMessageForQuestion(question.id)
+            question.media = database.mediaDao().getMediaForQuestion(question.id)
+            val type = database.typeDao().getTypeForQuestion(question.id)
+            type.range = database.rangeDao().getRangeForType(type.id)
+            question.type = type
+            val answers = database.answerDao().getAnswersForQuestion(question.id)
+            question.answers = answers
+            question
         }).get()
     }
 
