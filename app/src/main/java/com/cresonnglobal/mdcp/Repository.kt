@@ -1,6 +1,7 @@
 package com.cresonnglobal.mdcp
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.cresonnglobal.mdcp.data.CresonnglobalDatabase
 import com.cresonnglobal.mdcp.data.question.*
@@ -151,7 +152,12 @@ class Repository private constructor(context: Context) {
     fun getInterviews(): List<Interview> {
         val thread = Executors.newSingleThreadExecutor()
         return thread.submit(Callable {
-
+            val interviews = database.interviewDao().getInterviewList()
+            for (interview in interviews) {
+                interview.meta = database.metaDao().getMetaForInterview(interview.id)
+                Log.d("Interview", interview.toString())
+            }
+            interviews
         }).get();
     }
 

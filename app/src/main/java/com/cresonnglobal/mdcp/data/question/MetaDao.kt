@@ -11,4 +11,6 @@ interface MetaDao {
 
     @Query("SELECT * FROM meta ORDER BY id DESC LIMIT 1")
     fun getLatestMeta(): Meta
+    @Query("SELECT * FROM meta WHERE interviewId =:id")
+    fun getMetaForInterview(id: Int): Meta
 }

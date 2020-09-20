@@ -11,4 +11,6 @@ interface InterviewDao {
 
     @Query("SELECT * FROM interview ORDER BY id DESC LIMIT 1")
     fun getLatestInterview(): Interview
+    @Query("SELECT * FROM interview ORDER BY id DESC")
+    fun getInterviewList(): List<Interview>
 }
