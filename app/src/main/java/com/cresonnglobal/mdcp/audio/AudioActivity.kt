@@ -59,4 +59,10 @@ class AudioActivity : AppCompatActivity() {
        val answer: Answer = question.answers[0]
         audioActivityViewModel.updateAnswer(answer)
     }
+
+    override fun onDestroy() {
+        val answer: Answer = question.answers[0]
+        audioActivityViewModel.updateAnswer(answer)
+        super.onDestroy()
+    }
 }
