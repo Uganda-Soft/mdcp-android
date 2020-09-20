@@ -178,6 +178,13 @@ class Repository private constructor(context: Context) {
         }).get();
     }
 
+    fun getQuestion(questionId: Int): Question {
+        val thread = Executors.newSingleThreadExecutor()
+        return thread.submit(Callable {
+            database.questionDao().getQuestion(questionId)
+        }).get()
+    }
+
 //    fun queryQuestions(): List<Question> {
 //        val thread = Executors.newSingleThreadExecutor()
 //        return thread.submit(Callable {
