@@ -3,6 +3,7 @@ package com.cresonnglobal.mdcp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         Seeder(viewModel.getRepository()).seedInterview()
         // get all interview and pick the first one
         val interview = viewModel.getInterviews()
+        Log.d("MainActivity", interview.toString())
 //        viewModel.getRepository().insertQuestion(
 //            Question(
 //            78,
