@@ -6,12 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.cresonnglobal.mdcp.common.startActivityForType
+import com.cresonnglobal.mdcp.data.question.Interview
 import com.cresonnglobal.mdcp.data.question.Question
 import com.cresonnglobal.mdcp.dev.Seeder
 import com.cresonnglobal.mdcp.interview.InterviewListActivity
@@ -22,6 +21,7 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
     private var totalQuestion: Int = 0
     private lateinit var viewModel: MainActivityViewModel
     private final val SELECT_INTERVIEW_REQUEST_CODE = 89
+    private lateinit var interview: Interview
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,18 +30,19 @@ class MainActivity : AppCompatActivity(), QuestionAdapter.OnQuestionClickListene
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         Seeder(viewModel.getRepository()).seedInterview()
         // get all interview and pick the first one
-        val interview = viewModel.getInterviews()
+        val interviews = viewModel.getInterviews()
+        interview = interviews[0]
         Log.d("MainActivity", interview.toString())
 
-        val questionAdapter = QuestionAdapter(interview[0].questions, this);
+        val questionAdapter = QuestionAdapter(interview.questions, this);
         val recyclerView: RecyclerView = questions_list_recyclerview
         recyclerView.adapter = questionAdapter
         recyclerView.layoutManager = GridLayoutManager(this, 3)
 
     }
 
-    override fun onQuestionClick(Question: Question, number: Int) {
-//        startActivityForType(question, this, viewModel.getInterview(), number)
+    override fun onQuestionClick(question: Question, number: Int) {
+        startActivityForType(question, this, interview, number)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

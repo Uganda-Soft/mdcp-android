@@ -50,6 +50,6 @@ class QuestionAdapter(var Questions: List<Question>, val context: Context):
     }
 
     public interface OnQuestionClickListener {
-        public fun onQuestionClick(Question: Question, number: Int)
+        public fun onQuestionClick(question: Question, number: Int)
     }
 }
