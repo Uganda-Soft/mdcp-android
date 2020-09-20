@@ -32,8 +32,8 @@ fun startActivityForType(
         "boolean" -> {
             val intent = Intent(context, BooleanActivity::class.java)
             intent.putExtra(BooleanActivity.QUESTION, question.id)
-            intent.putExtra(BooleanActivity.NEXT_QUESTION, getNextQuestion(number, interview.questions))
-            intent.putExtra(BooleanActivity.PREVIOUS_QUESTION, getPreviousQuestion(number, interview.questions))
+            intent.putExtra(BooleanActivity.NEXT_QUESTION, getNextQuestion(number, interview.questions).id)
+            intent.putExtra(BooleanActivity.PREVIOUS_QUESTION, getPreviousQuestion(number, interview.questions).id)
             context.startActivity(intent)
             return
         }
